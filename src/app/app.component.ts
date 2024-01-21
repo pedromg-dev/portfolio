@@ -9,10 +9,11 @@ import {TranslateService} from "@ngx-translate/core";
 export class AppComponent {
   title = 'portfolio';
 
-  constructor(private translate: TranslateService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
-  }
+  constructor(public translate: TranslateService) {
+    translate.addLangs(['en', 'es']);
+    translate.setDefaultLang('es');
+    translate.use('es');
+}
 
   changeLanguage(language: string): void {
     this.translate.use(language);

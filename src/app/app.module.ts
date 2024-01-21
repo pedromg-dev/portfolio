@@ -8,6 +8,18 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 
+
+//Use this route in hosting (Production)
+// export function HttpLoaderFactory(http: HttpClient) {
+//   console.log("translate loader running..");
+//   return new TranslateHttpLoader(http, "/portfolio/assets/i18n/", ".json");
+// }
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,7 +31,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
+          useFactory: (HttpLoaderFactory),
           deps: [HttpClient]
       }
   })
@@ -29,6 +41,3 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 })
 export class AppModule { }
 
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
-}
