@@ -1,13 +1,17 @@
 
 <main class="main">
+  <button class="btn btn-blue" (click)="changeLanguage('es')">Cambiar idioma a español</button>
+  <button class="btn btn-blue" (click)="changeLanguage('en')">Change language english</button>
+
   <div style="margin: 20%" class="content">
     <div class="text-slate-300 text-3xl font-extralight">
-      Hello Everyone!
+      {{'' | translate}}
     </div>
     <div class="text-slate-400 text-2xl font-extralight">
       Pedro's portfolio
     </div>
+    <div class="text-slate-400 text-2xl font-extralight">
+      {{'GreetingsName' | translate: {'name': 'Pedro'} }}
+    </div>
   </div>
 </main>
-
-<router-outlet />
