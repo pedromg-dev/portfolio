@@ -9,6 +9,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
+import { SocialMediaComponent } from './social-media/social-media.component';
 
 
 //Use this route in hosting (Production)
@@ -26,7 +27,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   declarations: [
     AppComponent,
     SidebarComponent,
-    WorkExperienceComponent
+    WorkExperienceComponent,
+    SocialMediaComponent
   ],
   imports: [
     BrowserModule,
