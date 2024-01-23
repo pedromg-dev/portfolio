@@ -14,3 +14,22 @@
 .btn-blue:hover {
   @apply bg-blue-700;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+   @apply bg-slate-100 dark:bg-slate-300;
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 dark:bg-slate-500;
+  border-radius: 100px;
+}

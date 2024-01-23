@@ -1,13 +1,23 @@
-
-<main class="main bg-slate-100 dark:bg-slate-800">
+<main class="main bg-slate-100 dark:bg-slate-800 " >
   <app-sidebar />
 
-  <div style="margin: 20%" class="content">
-    <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight">
-      Pedro's portfolio
-    </div>
-    <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight">
-      {{'GreetingsName' | translate: {'name': 'Pedro'} }}
+  <div class="container mx-auto">
+    <div class="lg:flex lg:justify-between lg:gap-4" style="padding-top: 100px;">
+      <div style="width: 50%;">
+        <div class="portfolio-description fixed flex items-baseline">
+          <div class="">
+            <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight">
+              Pedro's portfolio
+            </div>
+            <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight">
+              {{'GreetingsName' | translate: {'name': 'Pedro'} }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight" style="width: 50%;">
+        <app-work-experience />
+      </div>
     </div>
   </div>
 </main>
