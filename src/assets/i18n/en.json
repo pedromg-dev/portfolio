@@ -1,5 +1,6 @@
 {
 	"GreetingsName": "Greetings {{name}}!",
-	"portfolio.heading": "Welcome everybody",
-	"portfolio.subheader": "Pedro's Portfolio"
+	"FullStackDeveloper": "Full-Stack Developer",
+	"heading": "Welcome everybody",
+	"subheader": "Pedro's Portfolio"
 }
