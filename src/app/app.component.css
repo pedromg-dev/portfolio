@@ -8,3 +8,7 @@
   .btn-blue:hover {
     @apply bg-blue-700;
   }
+
+  .main {
+    height: 100vh;
+  }

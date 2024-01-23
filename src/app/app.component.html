@@ -1,16 +1,14 @@
 
-<main class="main">
+<main class="main bg-slate-100 dark:bg-slate-800">
   <button class="btn btn-blue" (click)="changeLanguage('es')">Cambiar idioma a español</button>
   <button class="btn btn-blue" (click)="changeLanguage('en')">Change language english</button>
+  <button class="btn btn-blue" (click)="switchTheme()">Cambiar tema</button>
 
   <div style="margin: 20%" class="content">
-    <div class="text-slate-300 text-3xl font-extralight">
-      {{'' | translate}}
-    </div>
-    <div class="text-slate-400 text-2xl font-extralight">
+    <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight">
       Pedro's portfolio
     </div>
-    <div class="text-slate-400 text-2xl font-extralight">
+    <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight">
       {{'GreetingsName' | translate: {'name': 'Pedro'} }}
     </div>
   </div>
