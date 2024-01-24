@@ -1,5 +1,8 @@
 {
+	"FullStackDeveloper": "Desarrollador Full-Stack",
 	"GreetingsName": "¡Saludos {{name}}!",
-	"portfolio.heading": "Bienvenidos a todos",
-	"portfolio.subheader": "Portafolio de Pedro"
+	"heading": "Bienvenidos a todos",
+	"Petrofac.Dates": "Octubre 2022 - Actualidad",
+	"Petrofac.Description": "Desarrollo de una aplicación web internacional en .NET dedicada al control de usuarios, en la que realizo tareas tanto de Front (HTML, JS, css/sass) como de la parte de Back (C#, CosmoDB)",
+	"subheader": "Portafolio de Pedro"
 }

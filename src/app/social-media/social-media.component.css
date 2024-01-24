@@ -1,0 +1,7 @@
+.pt-social-media-link {
+    @apply text-slate-700 dark:text-slate-300;
+}
+
+.pt-social-media-link:hover {
+    transform: scale(1.2);
+}
