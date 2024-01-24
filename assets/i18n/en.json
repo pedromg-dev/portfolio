@@ -1,5 +1,8 @@
 {
+	"FullStackDeveloper": "Full-Stack Developer",
 	"GreetingsName": "Greetings {{name}}!",
-	"portfolio.heading": "Welcome everybody",
-	"portfolio.subheader": "Pedro's Portfolio"
+	"heading": "Welcome everybody",
+	"Petrofac.Dates": "october 2022 - to present",
+	"Petrofac.Description": "Development of an international web application in .NET dedicated to user control, in which I perform both Front (HTML, JS, css/sass) and Back (C#, CosmoDB) tasks.",
+	"subheader": "Pedro's Portfolio"
 }
