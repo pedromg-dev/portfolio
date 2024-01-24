@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html * {
+* {
   @apply transition-colors duration-300 ;
 }
 
@@ -28,11 +28,11 @@ html * {
 }
 
 ::-webkit-scrollbar-track {
-   @apply bg-slate-100 dark:bg-slate-300;
-  border-radius: 100px;
+   @apply bg-slate-100 dark:bg-slate-800;
+  /* border-radius: 5px; */
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-slate-700 dark:bg-slate-500;
-  border-radius: 100px;
+  @apply bg-slate-700 dark:bg-slate-300;
+  border-radius: 20px;
 }

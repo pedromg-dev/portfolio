@@ -10,6 +10,9 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
+import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
+import { TimelineItemComponent } from './components/timeline-item/timeline-item.component';
 
 
 //Use this route in hosting (Production)
@@ -28,7 +31,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AppComponent,
     SidebarComponent,
     WorkExperienceComponent,
-    SocialMediaComponent
+    SocialMediaComponent,
+    ThemeSwitchComponent,
+    TimelineComponent,
+    TimelineItemComponent
   ],
   imports: [
     BrowserModule,
