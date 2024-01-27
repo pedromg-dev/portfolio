@@ -13,6 +13,7 @@ import { SocialMediaComponent } from './social-media/social-media.component';
 import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineItemComponent } from './components/timeline-item/timeline-item.component';
+import { ButtonComponent } from './components/button/button.component';
 
 
 //Use this route in hosting (Production)
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SocialMediaComponent,
     ThemeSwitchComponent,
     TimelineComponent,
-    TimelineItemComponent
+    TimelineItemComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,

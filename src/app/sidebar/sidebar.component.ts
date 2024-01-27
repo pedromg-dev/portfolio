@@ -10,7 +10,7 @@ import { TranslateService } from "@ngx-translate/core";
 })
 
 export class SidebarComponent {
-  isEnglish: boolean = true;
+  isEnglish: boolean = false;
 
   constructor(public translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
 

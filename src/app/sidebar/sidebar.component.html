@@ -1,19 +1,13 @@
-<!-- <div class="portfolio-sidebar lg:invisible">
-    
-</div> -->
-
 <nav class="pt-sidebar">
-    <div>
-        @if(this.isEnglish) {
-            <button class="btn btn-blue" (click)="changeLanguage('es')">Español</button>
-        }
-        @else {
-            <button class="btn btn-blue" (click)="changeLanguage('en')">English</button>
-        }
-        
-    </div>
-
     <div id="pt-sidebar-configuration" class="flex justify-end mr-10">
+        <div class="mr-10">
+            @if(this.isEnglish) {
+                <app-button (click)="changeLanguage('es')" text="Español" />
+            }
+            @else {
+                <app-button (click)="changeLanguage('en')" text="English" />
+            }  
+        </div>
         <app-theme-switch />
     </div>
 </nav>

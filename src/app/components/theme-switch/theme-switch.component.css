@@ -53,7 +53,7 @@
     height: 5px;
 }
 input:checked + .toggle {
-    @apply bg-slate-100 dark:bg-slate-800;
+    @apply bg-slate-100 dark:bg-slate-600;
 }
 input:checked + .toggle:before {
     color: #749ed7;
@@ -97,6 +97,5 @@ input:checked + .toggle .star--6 {
 }
 
 .pt-icon-theme {
-    @apply text-slate-700 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400;
-    @apply transition-colors duration-500;
+    @apply text-slate-700 dark:text-slate-300 ;
 }
