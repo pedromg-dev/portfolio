@@ -16,8 +16,8 @@ import { TimelineItemComponent } from './components/timeline-item/timeline-item.
 
 
 //Use this route in hosting (Production)
+
 // export function HttpLoaderFactory(http: HttpClient) {
-//   console.log("translate loader running..");
 //   return new TranslateHttpLoader(http, "/portfolio/assets/i18n/", ".json");
 // }
 
