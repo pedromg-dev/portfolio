@@ -16,6 +16,8 @@ import { TimelineItemComponent } from './components/timeline-item/timeline-item.
 import { ButtonComponent } from './components/button/button.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { SectionWithHeaderComponent } from './components/section-with-header/section-with-header.component';
+import { IndexSidebarComponent } from './index-sidebar/index-sidebar.component';
+import { IndexSidebarItemComponent } from './index-sidebar/index-sidebar-item/index-sidebar-item.component';
 
 
 //Use this route in hosting (Production)
@@ -40,7 +42,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     TimelineItemComponent,
     ButtonComponent,
     AboutMeComponent,
-    SectionWithHeaderComponent
+    SectionWithHeaderComponent,
+    IndexSidebarComponent,
+    IndexSidebarItemComponent
   ],
   imports: [
     BrowserModule,
