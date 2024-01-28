@@ -14,6 +14,8 @@ import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.com
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineItemComponent } from './components/timeline-item/timeline-item.component';
 import { ButtonComponent } from './components/button/button.component';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { SectionWithHeaderComponent } from './components/section-with-header/section-with-header.component';
 
 
 //Use this route in hosting (Production)
@@ -36,7 +38,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ThemeSwitchComponent,
     TimelineComponent,
     TimelineItemComponent,
-    ButtonComponent
+    ButtonComponent,
+    AboutMeComponent,
+    SectionWithHeaderComponent
   ],
   imports: [
     BrowserModule,

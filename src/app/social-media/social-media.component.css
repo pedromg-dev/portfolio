@@ -3,5 +3,5 @@
 }
 
 .pt-social-media-link:hover {
-    transform: scale(1.2);
+    @apply text-blue-600 dark:text-blue-400;
 }
