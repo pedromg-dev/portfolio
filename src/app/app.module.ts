@@ -8,7 +8,6 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
@@ -32,7 +31,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   declarations: [
     AppComponent,
     SidebarComponent,
-    WorkExperienceComponent,
     SocialMediaComponent,
     ThemeSwitchComponent,
     TimelineComponent,
