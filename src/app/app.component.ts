@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +14,10 @@ export class AppComponent {
     translate.addLangs(['en', 'es']);
     translate.setDefaultLang('es');
     translate.use('es');
+  }
+
+  ngOnInit() {
+    AOS.init();
+    window.addEventListener('load', AOS.refresh)
   }
 }
