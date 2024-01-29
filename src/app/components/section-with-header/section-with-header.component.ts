@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './section-with-header.component.css'
 })
 export class SectionWithHeaderComponent {
-  // @Input() headerSection: string | undefined;
+   @Input() id: string | undefined;
   // @Input() bodySection: string | undefined;
 }
