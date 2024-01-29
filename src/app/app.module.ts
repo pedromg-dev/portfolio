@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
@@ -18,8 +18,6 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { SectionWithHeaderComponent } from './components/section-with-header/section-with-header.component';
 import { IndexSidebarComponent } from './index-sidebar/index-sidebar.component';
 import { IndexSidebarItemComponent } from './index-sidebar/index-sidebar-item/index-sidebar-item.component';
-
-
 //Use this route in hosting (Production)
 
 // export function HttpLoaderFactory(http: HttpClient) {
@@ -29,7 +27,6 @@ import { IndexSidebarItemComponent } from './index-sidebar/index-sidebar-item/in
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
-
 
 @NgModule({
   declarations: [
@@ -52,11 +49,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: (HttpLoaderFactory),
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
       }
-  })
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

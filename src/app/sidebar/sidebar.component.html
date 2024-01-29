@@ -1,10 +1,7 @@
-<nav class="pt-sidebar flex justify-between">
-    <div id="pt-sidebar-index" class="flex justify-start ml-56">
-        <app-index-sidebar />
-    </div>
+<nav class="pt-sidebar flex justify-end">
     <div id="pt-sidebar-configuration" class="flex justify-end mr-10">        
+        <app-index-sidebar class="invisible lg:visible lg:mr-32" />
         <div class="mr-10">
-            
                 @if(this.isEnglish) {
                     <div class="flex gap-2 cursor-pointer" (click)="changeLanguage('es')">
                         <img src="../../assets/images/united-kingdom-flag-icon.png" class="w-5 mt-1" />
@@ -19,7 +16,6 @@
                 </div>
                 }
             </div>
-        
         <app-theme-switch />
     </div>
 </nav>
