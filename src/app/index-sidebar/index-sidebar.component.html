@@ -1,4 +1,4 @@
 <nav class="flex gap-10 ">
-    <a href="#about-me" class="cursor-pointer"> <app-index-sidebar-item text="{{'AboutMe' | translate }}"/></a>
-    <a href="#work-experience" class="cursor-pointer"><app-index-sidebar-item text="{{'WorkExperience' | translate }}"/></a>
+    <a (click)="navigateTo('about-me')" class="cursor-pointer pt-index-sidebar-item"> <app-index-sidebar-item text="{{'AboutMe' | translate }}"/></a>
+    <a (click)="navigateTo('work-experience')" class="cursor-pointer pt-index-sidebar-item"><app-index-sidebar-item text="{{'WorkExperience' | translate }}"/></a>
 </nav>
