@@ -6,6 +6,7 @@
   @apply bg-gradient-to-b from-blue-50 to-blue-300 dark:from-blue-800 dark:to-blue-700 text-blue-800 dark:text-blue-200;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 
 .portfolio-description  {
