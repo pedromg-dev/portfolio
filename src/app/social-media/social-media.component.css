@@ -1,7 +1,67 @@
-.pt-social-media-link {
-    @apply text-slate-700 dark:text-slate-300;
+ul {
+    display: flex;
 }
 
-.pt-social-media-link:hover {
-    @apply text-blue-600 dark:text-blue-400;
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 25px;
+    margin-right: 20px;
+    display: block;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+
+    @apply bg-blue-100;
+    @apply border-2 border-blue-300
+}
+
+ul li a .icon {
+    position: relative;
+    color: #262626;
+    transition: .5s;
+    z-index: 3;
+}
+
+ul li:not(.pt-github-link) a:hover .icon {
+    color: #fff;
+}
+
+ul li a:hover .icon {
+    transform: rotateY(360deg);
+}
+
+
+ul .pt-github-link a:hover .icon {
+    color: #333;
+}
+
+ul li a:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f00;
+    transition: .5s;
+    z-index: 2;
+}
+
+ul li a:hover:before {
+    top: 0;
+}
+
+ul .pt-linkedin-link a:before {
+    background: #0077b5;
+}
+
+ul .pt-github-link a:before {
+    background: white;
 }

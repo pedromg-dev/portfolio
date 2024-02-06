@@ -1,6 +1,9 @@
 .pt-sidebar {
-    @apply z-20 mb-4 shadow-lg dark:shadow-slate-900/50
-    bg-blue-100/10 dark:bg-slate-800/75 py-5 backdrop-blur
-     fixed
+    @apply z-20 mb-4 shadow-lg dark:shadow-blue-900/50
+    bg-blue-100/10 dark:bg-blue-800/75 py-5 backdrop-blur
+     fixed text-blue-800 dark:text-blue-200
     top-auto mx-auto w-full px-0;
+
+    /* @apply bg-blue-300 dark:bg-blue-800  */
+
 }

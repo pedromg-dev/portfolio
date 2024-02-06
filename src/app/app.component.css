@@ -1,9 +1,12 @@
 .main {
-  height: 100%; 
-  min-height: 100vh;
-  @apply bg-gradient-to-b from-sky-50 to-stone-200 dark:from-slate-800 dark:to-sky-800  text-slate-800 dark:text-slate-300;
+  height: 100vh;
 }
-  
+
+.body {
+  @apply bg-gradient-to-b from-blue-50 to-blue-300 dark:from-blue-800 dark:to-blue-700 text-blue-800 dark:text-blue-200;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 .portfolio-description  {
   height: 100vh;
