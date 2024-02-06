@@ -17,6 +17,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { SectionWithHeaderComponent } from './components/section-with-header/section-with-header.component';
 import { IndexSidebarComponent } from './index-sidebar/index-sidebar.component';
 import { IndexSidebarItemComponent } from './index-sidebar/index-sidebar-item/index-sidebar-item.component';
+import { MainInformationComponent } from './main-information/main-information.component';
 //Use this route in hosting (Production)
 
 // export function HttpLoaderFactory(http: HttpClient) {
@@ -39,7 +40,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     AboutMeComponent,
     SectionWithHeaderComponent,
     IndexSidebarComponent,
-    IndexSidebarItemComponent
+    IndexSidebarItemComponent,
+    MainInformationComponent
   ],
   imports: [
     BrowserModule,
