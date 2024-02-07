@@ -3,10 +3,11 @@
 }
 
 .body {
-  @apply bg-gradient-to-b from-blue-50 to-blue-300 dark:from-blue-800 dark:to-blue-700 text-blue-800 dark:text-blue-200;
+  @apply bg-gradient-to-tl from-blue-50 to-blue-300 dark:from-blue-900 dark:to-blue-600 text-blue-800 dark:text-blue-200;
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
+  /* height: 100%; */
 }
 
 .portfolio-description  {

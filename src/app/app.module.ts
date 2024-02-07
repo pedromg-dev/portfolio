@@ -18,15 +18,16 @@ import { SectionWithHeaderComponent } from './components/section-with-header/sec
 import { IndexSidebarComponent } from './index-sidebar/index-sidebar.component';
 import { IndexSidebarItemComponent } from './index-sidebar/index-sidebar-item/index-sidebar-item.component';
 import { MainInformationComponent } from './main-information/main-information.component';
+
+
 //Use this route in hosting (Production)
-
-// export function HttpLoaderFactory(http: HttpClient) {
-//   return new TranslateHttpLoader(http, "/portfolio/assets/i18n/", ".json");
-// }
-
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "/portfolio/assets/i18n/", ".json");
 }
+
+// export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+//   return new TranslateHttpLoader(http);
+// }
 
 @NgModule({
   declarations: [
