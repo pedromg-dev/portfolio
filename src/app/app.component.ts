@@ -14,10 +14,21 @@ export class AppComponent {
     translate.addLangs(['en', 'es']);
     translate.setDefaultLang('es');
     translate.use('es');
+
+    if (localStorage['theme'] === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.remove('light')
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.add('light')
+    }
+    
   }
 
   ngOnInit() {
     AOS.init();
-    window.addEventListener('load', AOS.refresh)
+    window.addEventListener('load', AOS.refresh);
   }
+
+
 }

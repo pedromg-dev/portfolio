@@ -1,0 +1,8 @@
+.pt-item-timeline {
+    padding: 0px 10px;
+}
+
+.pt-item-timeline:hover {
+    @apply bg-blue-300 rounded-md;
+    transition: background-color 2s ease-out 100ms;
+}
