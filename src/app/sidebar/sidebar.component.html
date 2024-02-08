@@ -1,16 +1,16 @@
 <nav class="pt-sidebar flex justify-end">
     <div id="pt-sidebar-configuration" class="flex justify-end mr-10">        
-        <app-index-sidebar class="invisible lg:visible lg:mr-32" />
+        <app-index-sidebar class="invisible lg:visible lg:mr-32 flex items-center" />
         <div class="mr-10">
                 @if(this.isEnglish) {
-                    <div class="flex gap-2 cursor-pointer" (click)="changeLanguage('es')">
+                    <div class="flex items-center gap-2 cursor-pointer" (click)="changeLanguage('es')">
                         <img src="/assets/images/united-kingdom-flag-icon.png" class="w-5 mt-1" />
                     <app-button  text="English" />
                 </div>
 
                 }
                 @else {
-                    <div class="flex gap-2 cursor-pointer" (click)="changeLanguage('en')">
+                    <div class="flex items-center gap-2 cursor-pointer" (click)="changeLanguage('en')">
                         <img src="/assets/images/spanish-flag-icon.png" class="w-5 mt-1" />
                     <app-button  text="Español" />
                 </div>
