@@ -16,19 +16,15 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-   @apply bg-blue-100 dark:bg-blue-700;
-
+   @apply bg-blue-100 dark:bg-blue-600;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-blue-700 dark:bg-blue-200;
-  
+  @apply bg-blue-600 dark:bg-blue-100;
   border-radius: 10px;
 }
-
