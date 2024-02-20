@@ -1,8 +1,9 @@
 .pt-item-timeline {
-    padding: 0px 10px;
+    @apply rounded-md bg-blue-200 dark:bg-blue-700 bg-blend-luminosity shadow-md shadow-blue-600 dark:shadow-blue-400;
+    padding: 20px;
 }
 
-.pt-item-timeline:hover {
+/* .pt-item-timeline:hover {
     @apply bg-blue-300 rounded-md;
     transition: background-color 2s ease-out 100ms;
-}
+} */
