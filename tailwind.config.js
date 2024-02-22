@@ -5,7 +5,13 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'pedro-logo': "url(assets/images/pedromg-dev-logo.svg)",
+        'example': "url(assets/images/example-1.svg)",
+        'example-black': "url(assets/images/example-black.svg)",
+      }
+    },
     "colors": {
       "blue": {
         50: "#E6EDF9",
