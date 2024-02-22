@@ -7,5 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class SectionWithHeaderComponent {
    @Input() id: string | undefined;
-  // @Input() bodySection: string | undefined;
 }

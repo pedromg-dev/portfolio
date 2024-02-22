@@ -18,6 +18,7 @@ import { SectionWithHeaderComponent } from './components/section-with-header/sec
 import { IndexSidebarComponent } from './index-sidebar/index-sidebar.component';
 import { IndexSidebarItemComponent } from './index-sidebar/index-sidebar-item/index-sidebar-item.component';
 import { MainInformationComponent } from './main-information/main-information.component';
+import { TechLogoComponent } from './components/tech-logo/tech-logo.component';
 
 
 //Use this route in hosting (Production)
@@ -42,7 +43,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SectionWithHeaderComponent,
     IndexSidebarComponent,
     IndexSidebarItemComponent,
-    MainInformationComponent
+    MainInformationComponent,
+    TechLogoComponent
   ],
   imports: [
     BrowserModule,

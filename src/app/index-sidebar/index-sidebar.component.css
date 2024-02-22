@@ -1,0 +1,3 @@
+.pt-index-sidebar-item:hover {
+    @apply text-blue-400 dark:text-blue-100;
+}

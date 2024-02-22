@@ -1,19 +1,26 @@
 <app-section-with-header id="work-experience" >
     <div headerSection>
-        {{ 'WorkExperience' | translate }}
+        <label>{{ 'WorkExperience' | translate }}</label>
     </div>
     <div bodySection class="ml-4">
         <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-blue-700 dark:before:bg-blue-500">
 			<app-timeline-item 
 			title="{{ 'FullStackDeveloper' | translate }}" 
 			dates="{{ 'Petrofac.Dates' | translate }}" 
-			description="{{ 'Petrofac.Description' | translate }}" 
-			/>
+			description="{{ 'Petrofac.Description' | translate }}" >
+
+			<div class="flex gap-10" logosSection>
+				<app-tech-logo url="assets/images/Blazor.png" name="Blazor" />
+				<app-tech-logo url="assets/images/Blazor.png" name="Blazor"/>
+			</div>
+			</app-timeline-item>
+
 			<div class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-blue-400">
 				<h3 class="text-xl font-semibold tracki">Aliquam sit amet nunc ut</h3>
 				<time class="text-xs tracki uppercase text-gray-400">Jul 2019</time>
 				<p class="mt-3">Morbi vulputate aliquam libero non dictum. Aliquam sit amet nunc ut diam aliquet tincidunt nec nec dui. Donec mollis turpis eget egestas sodales.</p>
 			</div>
+
 			<div class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-blue-400">
 				<h3 class="text-xl font-semibold tracki">Pellentesque habitant morbi</h3>
 				<time class="text-xs tracki uppercase text-gray-400">Jan 2016</time>

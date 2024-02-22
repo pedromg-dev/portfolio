@@ -10,7 +10,7 @@ ul li a {
     width: 50px;
     height: 50px;
     text-align: center;
-    line-height: 55px;
+    line-height: 50px;
     font-size: 30px;
     margin-right: 20px;
     display: block;
@@ -42,7 +42,8 @@ ul .pt-github-link a:hover .icon {
 }
 
 .pt-github-link a {
-    font-size: 32px !important;
+    font-size: 34px !important;
+    margin-bottom: 4px;
 }
 
 ul li a:before {
