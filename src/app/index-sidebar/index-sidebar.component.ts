@@ -14,7 +14,7 @@ export class IndexSidebarComponent {
     }
 
   navigateTo(index: string) {
-    const documento = window.document.getElementById(index)!.scrollIntoView({
+    window.document.getElementById(index)!.scrollIntoView({
       behavior: "smooth",
       block: "start",
       inline: "nearest"
@@ -23,9 +23,5 @@ export class IndexSidebarComponent {
 
   scrollToIndex(index: string) {
     this.scroller.scrollToAnchor(index);
-  }
-
-  goDown(index: string) {
-    this.router.navigate([], { fragment: index });
   }
 }
