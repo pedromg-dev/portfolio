@@ -7,7 +7,6 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'pedro-logo': "url(assets/images/pedromg-dev-logo.svg)",
         'white-mode': "url(assets/images/background-white-mode.svg)",
         'dark-mode': "url(assets/images/background-dark-mode.svg)",
         'mobile-white-mode': "url(assets/images/background-white-mode-mobile.svg)",
@@ -17,6 +16,7 @@ module.exports = {
     "colors": {
       "blue": {
         50: "#E6EDF9",
+        75: "#ace1ec",
         100: "#CDDCF4",
         200: "#9BB9E8",
         300: "#6593DC",

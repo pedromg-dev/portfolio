@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from "@ngx-translate/core";
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
 import * as AOS from 'aos';
 
 @Component({
@@ -10,7 +12,9 @@ import * as AOS from 'aos';
 export class AppComponent {
   title = 'portfolio';
 
-  constructor(public translate: TranslateService) {
+  constructor(public translate: TranslateService,
+    @Inject(DOCUMENT) private document: Document
+    ) {
     translate.addLangs(['en', 'es']);
     translate.setDefaultLang('es');
     translate.use('es');
@@ -32,5 +36,13 @@ export class AppComponent {
   ngOnInit() {
     AOS.init();
     window.addEventListener('load', AOS.refresh);
+  }
+
+  darkModeEnabled(): boolean {
+    if (this.document.documentElement.classList.contains('dark')) {
+      return true;
+    }
+    
+    return false;
   }
 }

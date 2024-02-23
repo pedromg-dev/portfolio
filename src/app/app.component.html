@@ -3,7 +3,12 @@
   <div class="fixed bottom-2 right-2 flex justify-center overflow-hidden pointer-events-none">
     <div class="flex-none flex justify-end">
       <picture>
-        <img src="assets/images/pedromg-dev-logo.svg" alt class="w-[20rem] lg:w-[40rem] xl:w-[50rem] flex-none max-w-none" decoding="async">
+        @if(!darkModeEnabled()) {
+          <img src="assets/images/pedromg-dev-logo-1.svg" alt class="w-[20rem] lg:w-[40rem] xl:w-[50rem] flex-none max-w-none" decoding="async">
+        }
+        @else {
+          <img src="assets/images/pedromg-dev-logo-dark.svg" alt class="w-[20rem] lg:w-[40rem] xl:w-[50rem] flex-none max-w-none" decoding="async">
+        }
       </picture>
     </div>
   </div>
