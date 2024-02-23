@@ -3,6 +3,10 @@ module.exports = {
   darkMode: 'class',
   content: [
     "./src/**/*.{html,ts}",
+    "./node_modules/flowbite/**/*.js"
+  ],
+  plugins: [
+    require('flowbite/plugin')
   ],
   theme: {
     extend: {
@@ -17,6 +21,7 @@ module.exports = {
       "blue": {
         50: "#E6EDF9",
         75: "#ace1ec",
+        85: "#9fc6e5",
         100: "#CDDCF4",
         200: "#9BB9E8",
         300: "#6593DC",
