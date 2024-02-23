@@ -8,8 +8,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         'pedro-logo': "url(assets/images/pedromg-dev-logo.svg)",
-        'example': "url(assets/images/example-1.svg)",
-        'example-black': "url(assets/images/example-black.svg)",
+        'white-mode': "url(assets/images/background-white-mode.svg)",
+        'dark-mode': "url(assets/images/background-dark-mode.svg)",
+        'mobile-white-mode': "url(assets/images/background-white-mode-mobile.svg)",
+        'mobile-dark-mode': "url(assets/images/background-dark-mode-mobile.svg)",
       }
     },
     "colors": {
