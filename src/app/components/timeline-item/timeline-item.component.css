@@ -1,0 +1,8 @@
+.pt-item-timeline {
+    @apply rounded-md bg-blue-75 dark:bg-blue-700 shadow-sm shadow-blue-600 dark:shadow-blue-900;
+    padding: 20px;
+}
+
+/* .pt-item-timeline:hover {
+    @apply bg-blend-darken;
+} */

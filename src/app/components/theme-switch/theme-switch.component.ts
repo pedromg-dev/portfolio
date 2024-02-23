@@ -8,19 +8,30 @@ import { Inject } from '@angular/core';
   styleUrl: './theme-switch.component.css'
 })
 export class ThemeSwitchComponent {
+  inputChecked : boolean = false;
 
   constructor(@Inject(DOCUMENT) private document: Document) {
-
+    if (this.document.documentElement.classList.contains('dark')) {
+      this.inputChecked = true;
+    }
   }
 
 
   switchTheme() {
-    if (this.document.body.classList.contains('dark')) {
-      this.document.body.classList.remove('dark');
-      this.document.body.classList.add('light');
+    localStorage.removeItem('theme');
+
+    if (this.document.documentElement.classList.contains('dark')) {
+      this.document.documentElement.classList.remove('dark');
+      this.document.documentElement.classList.add('light');
+      document.body.classList.remove('dark')
+      document.body.classList.add('light')
+      localStorage['theme'] = 'light';
     } else {
-      this.document.body.classList.remove('light');
-      this.document.body.classList.add('dark');
+      this.document.documentElement.classList.remove('light');
+      this.document.documentElement.classList.add('dark');
+      document.body.classList.remove('light')
+      document.body.classList.add('dark')
+      localStorage['theme'] = 'dark';
     }
   }
 }

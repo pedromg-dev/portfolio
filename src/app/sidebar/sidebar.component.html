@@ -1,13 +1,21 @@
-<!-- <div class="portfolio-sidebar lg:invisible">
-    <button class="btn btn-blue" (click)="changeLanguage('es')">Cambiar idioma a español</button>
-    <button class="btn btn-blue" (click)="changeLanguage('en')">Change language english</button>
-    <button class="btn btn-blue" (click)="switchTheme()">Cambiar tema</button>
-</div> -->
+<nav class="pt-sidebar flex justify-end">
+    <div id="pt-sidebar-configuration" class="flex justify-end mr-10">        
+        <app-index-sidebar class="invisible lg:visible lg:mr-32 flex items-center" />
+        <div class="mr-10 flex">
+                @if(this.isEnglish) {
+                    <div class="flex items-center gap-2 cursor-pointer" (click)="changeLanguage('es')">
+                        <img src="assets/images/united-kingdom-flag-icon.png" class="w-5 mt-1" />
+                    <app-button  text="English" />
+                </div>
 
-<nav class="pt-sidebar">
-    <div >
-        <div id="pt-sidebar-configuration" class="flex justify-end mr-10">
-            <app-theme-switch />
-        </div>
+                }
+                @else {
+                    <div class="flex items-center gap-2 cursor-pointer" (click)="changeLanguage('en')">
+                        <img src="assets/images/spanish-flag-icon.png" class="w-5 mt-1" />
+                    <app-button  text="Español" />
+                </div>
+                }
+            </div>
+        <app-theme-switch class="flex"/>
     </div>
 </nav>

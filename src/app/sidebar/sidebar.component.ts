@@ -8,14 +8,17 @@ import { TranslateService } from "@ngx-translate/core";
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })
+
 export class SidebarComponent {
+  isEnglish: boolean = false;
+
   constructor(public translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
 
   }
 
-
   changeLanguage(language: string): void {
     this.translate.use(language);
+    this.isEnglish = !this.isEnglish;
   }
-
 }
+

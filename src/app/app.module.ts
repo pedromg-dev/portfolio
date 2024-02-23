@@ -4,20 +4,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { TimelineItemComponent } from './components/timeline-item/timeline-item.component';
+import { ButtonComponent } from './components/button/button.component';
+import { AboutMeComponent } from './about-me/about-me.component';
+import { SectionWithHeaderComponent } from './components/section-with-header/section-with-header.component';
+import { IndexSidebarComponent } from './index-sidebar/index-sidebar.component';
+import { IndexSidebarItemComponent } from './index-sidebar/index-sidebar-item/index-sidebar-item.component';
+import { MainInformationComponent } from './main-information/main-information.component';
+import { TechLogoComponent } from './components/tech-logo/tech-logo.component';
 
 
 //Use this route in hosting (Production)
 // export function HttpLoaderFactory(http: HttpClient) {
-//   console.log("translate loader running..");
 //   return new TranslateHttpLoader(http, "/portfolio/assets/i18n/", ".json");
 // }
 
@@ -25,16 +30,21 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
 
-
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    WorkExperienceComponent,
     SocialMediaComponent,
     ThemeSwitchComponent,
     TimelineComponent,
-    TimelineItemComponent
+    TimelineItemComponent,
+    ButtonComponent,
+    AboutMeComponent,
+    SectionWithHeaderComponent,
+    IndexSidebarComponent,
+    IndexSidebarItemComponent,
+    MainInformationComponent,
+    TechLogoComponent
   ],
   imports: [
     BrowserModule,
@@ -42,11 +52,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: (HttpLoaderFactory),
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
       }
-  })
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

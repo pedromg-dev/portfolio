@@ -3,6 +3,11 @@
 	"GreetingsName": "¡Saludos {{name}}!",
 	"heading": "Bienvenidos a todos",
 	"Petrofac.Dates": "Octubre 2022 - Actualidad",
-	"Petrofac.Description": "Desarrollo de una aplicación web internacional en .NET dedicada al control de usuarios, en la que realizo tareas tanto de Front (HTML, JS, css/sass) como de la parte de Back (C#, CosmoDB)",
-	"subheader": "Portafolio de Pedro"
+	"Petrofac.Description": "Desarrollo de una aplicación web internacional en .NET Blazor dedicada a la gestión de usuarios, en la que realizo tareas tanto de Front-End (HTML, JS, css/sass) como de la parte de Back-End (C#, CosmoDB)",
+	"subheader": "Portafolio de Pedro",
+	"Timeline": "Línea temporal",
+	"AboutMe": "Acerca de mí",
+	"WorkExperience": "Experiencia laboral",
+	"AboutMeContentLine1": "Licenciado en Ingeniería Informática con más de tres años de experiencia laboral, siempre buscando superar nuevos desafíos y adquirir nuevos conocimientos.",
+	"AboutMeContentLine2": "Alicantino apasionado de los viajes y de difrutar de la naturaleza en compañía de amigos, descubriendo nuevas rutas y destinos por donde perderse en los ratos libres."
 }

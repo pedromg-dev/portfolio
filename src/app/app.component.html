@@ -1,28 +1,27 @@
-<main class="main bg-slate-100 dark:bg-slate-800 " >
-  <app-sidebar />
-
-  <div class="container mx-auto">
-    <div class="lg:flex lg:justify-between lg:gap-4 mx-10 lg:mx-10 py-10 lg:py-28">
-      <div class="lg:w-1/2 md:w-full">
-        <div class="portfolio-description lg:fixed lg:flex items-baseline ">
-          <div class="">
-            <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight">
-              <label>Pedro Antonio Moya García</label>
-            </div>
-            <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight">
-              <!-- {{'GreetingsName' | translate: {'name': 'Pedro'} }} -->
-              {{'FullStackDeveloper' | translate}}
-            </div>
-
-            <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight">
-              <app-social-media />
-            </div>
-          </div>
-        </div>
+<app-sidebar />
+<main class="bg-mobile-white-mode dark:bg-mobile-dark-mode lg:bg-white-mode lg:dark:bg-dark-mode">
+  <div class="fixed bottom-2 right-2 flex justify-center overflow-hidden pointer-events-none">
+    <div class="flex-none flex justify-end">
+      <picture>
+        @if(!darkModeEnabled()) {
+          <img src="assets/images/pedromg-dev-logo-1.svg" alt class="w-[20rem] lg:w-[40rem] xl:w-[50rem] flex-none max-w-none" decoding="async">
+        }
+        @else {
+          <img src="assets/images/pedromg-dev-logo-dark.svg" alt class="w-[20rem] lg:w-[40rem] xl:w-[50rem] flex-none max-w-none" decoding="async">
+        }
+      </picture>
+    </div>
+  </div>
+  <div class="mx-1 md:mx-1 lg:mx-1 2xl:mx-44">
+    <div class="mx-2 mt-20 py-20 lg:flex lg:justify-between lg:gap-60 lg:mt-0 lg:mx-10 ">
+      <div class="lg:w-1/3 md:w-full lg:py-32">
+        <app-main-information />
       </div>
-      <div class="text-slate-700 dark:text-slate-300 text-2xl font-extralight lg:w-1/2 md:w-full sd:mx-2.5">
-        <app-work-experience />
+      <div class="lg:w-2/3 md:w-full lg:py-24">
+        <app-about-me />
+        <app-timeline />
       </div>
     </div>
   </div>
 </main>
+
