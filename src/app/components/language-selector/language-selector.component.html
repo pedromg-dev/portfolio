@@ -1,0 +1,41 @@
+<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+    class="hover:text-blue-400  focus:ring-blue-300 font-semibold text-center items-center inline-flex w-28 dark:hover:text-blue-300 dark:focus:ring-blue-800"
+    type="button">
+
+    @if(this.isEnglish) {
+    <div class="flex items-center gap-2">
+        <img src="assets/images/united-kingdom-flag-icon.png" class="w-5 mt-1" />
+        English
+    </div>
+    }
+    @else {
+    <div class="flex items-center gap-2">
+        <img src="assets/images/spanish-flag-icon.png" class="w-5 mt-1" />
+        Español
+    </div>
+    }
+    <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+    </svg>
+</button>
+
+<div id="dropdown"
+    class="z-10 hidden bg-blue-85 p-2 divide-y divide-gray-100 rounded-lg shadow-xl w-36 dark:bg-blue-700">
+    <ul class="py-2 text-gray-700 dark:text-gray-200 flex flex-col gap-3 items-center font-semibold"
+        aria-labelledby="dropdownDefaultButton">
+        <li>
+            <a>
+                <div class="flex items-center gap-2 cursor-pointer  hover:text-blue-400" (click)="changeLanguage('es')">
+                    <img src="assets/images/spanish-flag-icon.png" class="w-5 mt-1" />
+                    <label class="cursor-pointer">Español</label>
+                </div>
+            </a>
+        </li>
+        <li>
+            <div class="flex items-center gap-2 cursor-pointer  hover:text-blue-400" (click)="changeLanguage('en')">
+                <img src="assets/images/united-kingdom-flag-icon.png" class="w-5 mt-1" />
+                <label class="cursor-pointer">English</label>
+            </div>
+        </li>
+    </ul>
+</div>

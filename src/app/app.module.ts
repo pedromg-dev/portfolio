@@ -20,6 +20,7 @@ import { IndexSidebarItemComponent } from './index-sidebar/index-sidebar-item/in
 import { MainInformationComponent } from './main-information/main-information.component';
 import { TechLogoComponent } from './components/tech-logo/tech-logo.component';
 import { DrawerMenuComponent } from './drawer-menu/drawer-menu.component';
+import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
 
 
 //Use this route in hosting (Production)
@@ -46,7 +47,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     IndexSidebarItemComponent,
     MainInformationComponent,
     TechLogoComponent,
-    DrawerMenuComponent
+    DrawerMenuComponent,
+    LanguageSelectorComponent
   ],
   imports: [
     BrowserModule,

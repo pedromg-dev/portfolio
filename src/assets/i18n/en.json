@@ -1,5 +1,5 @@
 {
-	"FullStackDeveloper": "Full-Stack Developer",
+	"FullStackDeveloper": "Full-Stack .NET Developer",
 	"GreetingsName": "Greetings {{name}}!",
 	"heading": "Welcome everybody",
 	"Petrofac.Dates": "october 2022 - to present",
@@ -9,5 +9,6 @@
 	"AboutMe": "About me",
 	"WorkExperience": "Work experience",
 	"AboutMeContentLine1": "A graduate in Computer Engineering, always looking to overcome new challenges and acquire new knowledge.",
-	"AboutMeContentLine2": "Alicantino passionate about travelling and enjoying nature in the company of friends, discovering new routes and destinations where I can get lost when I can."
+	"AboutMeContentLine2": "Alicantino passionate about travelling and enjoying nature in the company of friends, discovering new routes and destinations where I can get lost when I can.",
+	"FullStackDeveloperInPetrofac": "Full-Stack Developer in Petrofac"
 }

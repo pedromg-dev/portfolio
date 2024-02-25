@@ -1,0 +1,23 @@
+import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
+import { TranslateService } from "@ngx-translate/core";
+
+@Component({
+  selector: 'app-language-selector',
+  templateUrl: './language-selector.component.html',
+  styleUrl: './language-selector.component.css'
+})
+export class LanguageSelectorComponent {
+
+    isEnglish: boolean = false;
+  
+    constructor(public translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
+  
+    }
+  
+    changeLanguage(language: string): void {
+      this.translate.use(language);
+      this.isEnglish = language == "es" ? false : true;
+    }
+  }
