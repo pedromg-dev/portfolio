@@ -16,6 +16,8 @@ module.exports = {
       'display': ['Oswald'],
       'body': ['"Open Sans"'],
       'body2': ['"Open Sans"'],
+      'poppins': ["Poppins", "sans-serif"],
+      'kode-mono': ["Kode Mono", "monospace"],
     },
     extend: {
       backgroundImage: {
