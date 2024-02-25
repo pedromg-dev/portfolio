@@ -9,6 +9,14 @@ module.exports = {
     require('flowbite/plugin')
   ],
   theme: {
+    fontFamily: {
+      'sans': ['ui-sans-serif', 'system-ui'],
+      'serif': ['ui-serif', 'Georgia'],
+      'mono': ['ui-monospace', 'SFMono-Regular'],
+      'display': ['Oswald'],
+      'body': ['"Open Sans"'],
+      'body2': ['"Open Sans"'],
+    },
     extend: {
       backgroundImage: {
         'white-mode': "url(assets/images/background-white-mode.svg)",
@@ -22,7 +30,7 @@ module.exports = {
         50: "#E6EDF9",
         75: "#ace1ec",
         85: "#9fc6e5",
-        95: "#D1EAEB",
+        95: "#c5e9ef",
         100: "#CDDCF4",
         200: "#9BB9E8",
         300: "#6593DC",
