@@ -5,7 +5,7 @@ import { SidebarComponent } from './sidebar.component';
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
-
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SidebarComponent]
