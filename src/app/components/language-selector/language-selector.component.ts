@@ -13,7 +13,7 @@ export class LanguageSelectorComponent {
     isEnglish: boolean = false;
   
     constructor(public translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
-  
+      this.isEnglish = this.translate.currentLang == "es" ? false : true;
     }
   
     changeLanguage(language: string): void {
