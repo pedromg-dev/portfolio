@@ -17,15 +17,14 @@ ul li a {
     border-radius: 50%;
     position: relative;
     overflow: hidden;
-
-    @apply bg-blue-85 dark:bg-blue-600;
+    @apply bg-blue-500 dark:bg-blue-600;
 }
 
 ul li a .icon {
     position: relative;
     transition: .5s;
     z-index: 3;
-    @apply text-blue-800 dark:text-blue-200;
+    @apply text-blue-50 dark:text-blue-50;
 }
 
 ul li:not(.pt-github-link) a:hover .icon {

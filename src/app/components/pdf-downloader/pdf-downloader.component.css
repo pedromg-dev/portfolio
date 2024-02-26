@@ -1,4 +1,4 @@
 .pt-cv-button {
     /* @apply bg-blue-85 hover:bg-blue-400; */
-    @apply bg-blue-700 hover:bg-blue-800 dark:bg-blue-700 dark:hover:bg-blue-600;
+    @apply text-blue-50 dark:text-blue-50 bg-blue-500 hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-600;
 }
