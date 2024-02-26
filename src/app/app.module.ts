@@ -21,6 +21,7 @@ import { MainInformationComponent } from './main-information/main-information.co
 import { TechLogoComponent } from './components/tech-logo/tech-logo.component';
 import { DrawerMenuComponent } from './drawer-menu/drawer-menu.component';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
+import { PdfDownloaderComponent } from './components/pdf-downloader/pdf-downloader.component';
 
 
 //Use this route in hosting (Production)
@@ -48,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     MainInformationComponent,
     TechLogoComponent,
     DrawerMenuComponent,
-    LanguageSelectorComponent
+    LanguageSelectorComponent,
+    PdfDownloaderComponent
   ],
   imports: [
     BrowserModule,
