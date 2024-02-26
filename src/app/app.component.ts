@@ -18,6 +18,7 @@ export class AppComponent {
     translate.addLangs(['en', 'es']);
     translate.setDefaultLang('es');
     translate.use('es');
+    localStorage['lang'] = 'es';
 
     if (localStorage['theme'] === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.remove('light')
