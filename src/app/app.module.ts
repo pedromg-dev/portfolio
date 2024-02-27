@@ -22,7 +22,8 @@ import { TechLogoComponent } from './components/tech-logo/tech-logo.component';
 import { DrawerMenuComponent } from './drawer-menu/drawer-menu.component';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
 import { PdfDownloaderComponent } from './components/pdf-downloader/pdf-downloader.component';
-
+import { ContactComponent } from './contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //Use this route in hosting (Production)
 // export function HttpLoaderFactory(http: HttpClient) {
@@ -50,12 +51,14 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     TechLogoComponent,
     DrawerMenuComponent,
     LanguageSelectorComponent,
-    PdfDownloaderComponent
+    PdfDownloaderComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
