@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { GlobalService } from '../global.service';
 
@@ -17,7 +16,6 @@ export class ContactComponent implements OnInit {
   });
 
   constructor(private formBuilder: FormBuilder, 
-    private http: HttpClient,
     private globalService: GlobalService) { }
 
   ngOnInit() {
