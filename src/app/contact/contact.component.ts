@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,24 +10,42 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent implements OnInit {
-  contactForm: FormGroup = new FormGroup({});
+  contactForm: FormGroup = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email, Validators.maxLength(150)]],
+    subject: ['', Validators.required],
+    message: ['', Validators.required]
+  });
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(private formBuilder: FormBuilder, 
+    private http: HttpClient,
+    private globalService: GlobalService) { }
 
   ngOnInit() {
-    this.contactForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email, Validators.maxLength(150)]],
-      subject: ['', Validators.required],
-      message: ['', Validators.required]
-    });
+
   }
 
-  onSubmit() {
+  onSubmit(e: Event) {
     if (this.contactForm.valid) {
-      const formData = this.contactForm.value;
-      this.http.post('http://your-backend-url/mail', formData).subscribe((response) => {
-        console.log(response);
-      });
+      this.sendEmail(e);
     }
+  }
+
+  public sendEmail(e: Event) {
+    e.preventDefault();
+    emailjs.init(this.globalService.EMAIL_PUBLIC_ID);
+    emailjs
+      .send(this.globalService.EMAIL_SERVICE_ID, this.globalService.EMAIL_TEMPLATE_ID, {
+        subject: this.contactForm.value.subject,
+        message: this.contactForm.value.message,
+        email: this.contactForm.value.email,
+      })
+      .then(
+        () => {
+          this.contactForm.reset();  
+        },
+        (error) => {
+          console.log('Error', (error as EmailJSResponseStatus).text);
+        },
+      );
   }
 }

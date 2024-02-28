@@ -3,6 +3,7 @@ import { TranslateService } from "@ngx-translate/core";
 import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
 import * as AOS from 'aos';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -42,6 +43,7 @@ export class AppComponent {
   ngOnInit() {
     AOS.init();
     window.addEventListener('load', AOS.refresh);
+    initFlowbite();
   }
 
   darkModeEnabled(): boolean {

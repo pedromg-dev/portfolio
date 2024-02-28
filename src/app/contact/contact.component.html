@@ -3,7 +3,7 @@
         <label>{{'Contact' | translate }}</label>
     </div>
     <div bodySection class="lg:ml-4 lg:px-4 pt-information-block ">
-          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-8">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit($event)" class="space-y-8">
             <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
                 <input type="email" formControlName="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required>
