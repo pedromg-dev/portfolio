@@ -14,6 +14,7 @@ export class ContactComponent implements OnInit {
     subject: ['', Validators.required],
     message: ['', Validators.required]
   });
+  showNotificationEmailSent: boolean = true;
 
   constructor(private formBuilder: FormBuilder, 
     private globalService: GlobalService) { }
@@ -39,11 +40,16 @@ export class ContactComponent implements OnInit {
       })
       .then(
         () => {
+          this.showNotificationEmailSent = true;
           this.contactForm.reset();  
         },
         (error) => {
           console.log('Error', (error as EmailJSResponseStatus).text);
         },
       );
+  }
+
+  closeNotificationEmailSent() {
+    this.showNotificationEmailSent = false;
   }
 }
