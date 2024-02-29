@@ -24,6 +24,7 @@ import { LanguageSelectorComponent } from './components/language-selector/langua
 import { PdfDownloaderComponent } from './components/pdf-downloader/pdf-downloader.component';
 import { ContactComponent } from './contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Use this route in hosting (Production)
 // export function HttpLoaderFactory(http: HttpClient) {
@@ -53,12 +54,14 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     LanguageSelectorComponent,
     PdfDownloaderComponent,
     ContactComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

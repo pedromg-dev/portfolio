@@ -2,11 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { GlobalService } from '../global.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
+
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+  styleUrl: './contact.component.css',
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(1000)),
+    ]),
+  ]
 })
 export class ContactComponent implements OnInit {
   contactForm: FormGroup = this.formBuilder.group({
@@ -14,9 +25,9 @@ export class ContactComponent implements OnInit {
     subject: ['', Validators.required],
     message: ['', Validators.required]
   });
-  showNotificationEmailSent: boolean = true;
+  showNotificationEmailSent: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, 
+  constructor(private formBuilder: FormBuilder,
     private globalService: GlobalService) { }
 
   ngOnInit() {
@@ -41,7 +52,7 @@ export class ContactComponent implements OnInit {
       .then(
         () => {
           this.showNotificationEmailSent = true;
-          this.contactForm.reset();  
+          this.contactForm.reset();
         },
         (error) => {
           console.log('Error', (error as EmailJSResponseStatus).text);
