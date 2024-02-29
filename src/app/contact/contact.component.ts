@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
     subject: ['', Validators.required],
     message: ['', Validators.required]
   });
-  showNotificationEmailSent: boolean = true;
+  showNotificationEmailSent: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
     private globalService: GlobalService) { }
