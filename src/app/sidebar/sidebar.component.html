@@ -21,22 +21,22 @@
 </nav>
 
 <div id="dropdown-navigation"
-                class="z-20 hidden bg-blue-85 p-2 divide-y divide-gray-100 rounded-lg shadow-xl w-8/12 dark:bg-blue-700 lg:invisible">
-                <ul class="py-2 text-gray-700 dark:text-gray-200 flex flex-col gap-3 items-center"
+                class="z-20 hidden bg-blue-200 p-2 divide-y shadow-xl w-full dark:bg-blue-700 lg:invisible pt-menu-navigation mt-24" >
+                <ul class="py-2 text-gray-700 dark:text-gray-200 flex flex-col gap-3 items-center w-auto"
                     aria-labelledby="dropdownDefaultButton">
                     <li>
-                        <a (click)="navigateTo('about-me')" class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                           <span class="ms-3">{{'AboutMe' | translate }}</span>
+                        <a (click)="navigateTo('about-me')" class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:text-blue-400 dark:hover:text-blue-200 group">
+                           <span>{{'AboutMe' | translate }}</span>
                         </a>
                      </li>
                      <li>
-                        <a (click)="navigateTo('work-experience')" class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                           <span class="ms-3">{{'WorkExperience' | translate }}</span>
+                        <a (click)="navigateTo('work-experience')" class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:text-blue-400 dark:hover:text-blue-200 group">
+                           <span>{{'WorkExperience' | translate }}</span>
                         </a>
                      </li>
                      <li>
-                        <a (click)="navigateTo('contact')" class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                           <span class="ms-3">{{'Contact' | translate }}</span>
+                        <a (click)="navigateTo('contact')" class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:text-blue-400 dark:hover:text-blue-200 group">
+                           <span>{{'Contact' | translate }}</span>
                         </a>
                      </li>
                 </ul>
