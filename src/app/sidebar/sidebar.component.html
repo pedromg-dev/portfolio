@@ -2,13 +2,42 @@
     <app-index-sidebar class="invisible lg:visible lg:mr-32 flex items-center lg:ml-60 w-0 lg:w-auto" />
     <div id="pt-sidebar-configuration" class="flex justify-end mr-10">
         <div class="ml-5 mr-10 flex items-center">
-            <button class="items-center inline-flex mr-20 rounded-lg focus:outline-none lg:invisible"
-                type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
+            <!-- <button class="items-center inline-flex mr-20 rounded-lg focus:outline-none lg:invisible" type="button"
+                data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation"
                 aria-controls="drawer-navigation">
                 <i class="fa-solid fa-bars h-6"></i>
+            </button> -->
+            <button id="dropdownNvigationButton" data-dropdown-toggle="dropdown-navigation"
+                class="hover:text-blue-400  focus:ring-blue-300 font-semibold text-center items-center inline-flex w-28 dark:hover:text-blue-300 dark:focus:ring-blue-800 lg:invisible"
+                type="button">
+                <i class="fa-solid fa-bars h-6"></i>
             </button>
+            
+
             <app-language-selector />
         </div>
         <app-theme-switch class="flex" />
     </div>
 </nav>
+
+<div id="dropdown-navigation"
+                class="z-20 hidden bg-blue-85 p-2 divide-y divide-gray-100 rounded-lg shadow-xl w-8/12 dark:bg-blue-700 lg:invisible">
+                <ul class="py-2 text-gray-700 dark:text-gray-200 flex flex-col gap-3 items-center"
+                    aria-labelledby="dropdownDefaultButton">
+                    <li>
+                        <a (click)="navigateTo('about-me')" class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                           <span class="ms-3">{{'AboutMe' | translate }}</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a (click)="navigateTo('work-experience')" class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                           <span class="ms-3">{{'WorkExperience' | translate }}</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a (click)="navigateTo('contact')" class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                           <span class="ms-3">{{'Contact' | translate }}</span>
+                        </a>
+                     </li>
+                </ul>
+            </div>

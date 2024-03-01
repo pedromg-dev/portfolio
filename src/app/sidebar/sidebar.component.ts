@@ -20,5 +20,14 @@ export class SidebarComponent {
     this.translate.use(language);
     this.isEnglish = language == "es" ? false : true;
   }
+
+  navigateTo(index: string) {
+    window.document.getElementById(index)!.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest"
+    });
+  }
+
 }
 
