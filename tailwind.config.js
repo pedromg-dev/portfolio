@@ -30,6 +30,7 @@ module.exports = {
     "colors": {
       "blue": {
         50: "#E6EDF9",
+        65: "#cbe0fb",
         75: "#ace1ec",
         85: "#9fc6e5",
         95: "#c5e9ef",

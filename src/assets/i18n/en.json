@@ -34,6 +34,7 @@
 	"SendMessage": "Send message",
 	"EmailSentSuccessfully": "Email sent successfully",
 	"MyPortfolio": "My portfolio",
-	"MyPortfolioDescription": "Website designed to showcase my portfolio. Developed in Angular 17",
-	"Repository": "Repository"
+	"MyPortfolioDescription": "Web page designed to showcase my portfolio. Developed in Angular 17 and hosted on Github Pages.",
+	"Repository": "Repository",
+	"MyProjects": "My projects"
 }
