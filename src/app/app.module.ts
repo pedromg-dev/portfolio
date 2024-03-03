@@ -29,13 +29,13 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 //Use this route in hosting (Production)
-// export function HttpLoaderFactory(http: HttpClient) {
-//   return new TranslateHttpLoader(http, "/portfolio/assets/i18n/", ".json");
-// }
-
-export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "/portfolio/assets/i18n/", ".json");
 }
+
+// export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+//   return new TranslateHttpLoader(http);
+// }
 
 @NgModule({
   declarations: [
