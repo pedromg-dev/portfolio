@@ -32,5 +32,9 @@
 	"Message": "Message",
 	"LeaveAComment": "Leave a comment...",
 	"SendMessage": "Send message",
-	"EmailSentSuccessfully": "Email sent successfully"
+	"EmailSentSuccessfully": "Email sent successfully",
+	"MyPortfolio": "My portfolio",
+	"MyPortfolioDescription": "Web page designed to showcase my portfolio. Developed in Angular 17 and hosted on Github Pages.",
+	"Repository": "Repository",
+	"MyProjects": "My projects"
 }
