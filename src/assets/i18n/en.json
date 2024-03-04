@@ -8,7 +8,7 @@
 	"FullStackDeveloperInActio": "Full-Stack Developer at Actio",
 	"Petrofac.Dates": "October 2022 - Present",
 	"Petrofac.Description": "Creation of an ERP based on .NET Blazor dedicated to user management, in which I perform both Front-End and Back-End tasks.",
-	"Petrofac.AdditionalInfo.Line1": "Application developed from scratch based on the latest version of .NET Blazor and using a non-relational database in Azure CosmoDB",
+	"Petrofac.AdditionalInfo.Line1": "Application developed from scratch based on the latest version of .NET Blazor and using a non-relational database in Azure CosmoDB.",
 	"FormelD.Dates": "October 2021 - October 2022",
 	"FormelD.Description": "Development of an ERP based on Angular and .NET Core in which I performed both Front-End and Back-End tasks and various cross-platform mobile applications in Xamarin.",
 	"FormelD.AditionalInfo.Line1": "Web application developed in Angular 13 and .NetCore 6 and the database in SQL Server.",
@@ -34,7 +34,11 @@
 	"SendMessage": "Send message",
 	"EmailSentSuccessfully": "Email sent successfully",
 	"MyPortfolio": "My portfolio",
-	"MyPortfolioDescription": "Web page designed to showcase my portfolio. Developed in Angular 17 and hosted on Github Pages.",
+	"MyPortfolioDescription": "Web page designed to showcase my portfolio. Developed in Angular 17 and Tailwind.",
 	"Repository": "Repository",
-	"MyProjects": "My projects"
+	"MyProjects": "My projects",
+	"Petrofac.Localization": "Leiden (The Netherlands)",
+	"FormelD.Localization": "Colonia (Germany)",
+	"GTT.Localization": "Alicante (Spain)",
+	"Actio.Localization": "Alicante (Spain)"
 }

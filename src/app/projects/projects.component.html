@@ -5,7 +5,12 @@
     <div bodySection class="lg:ml-4 lg:px-4 pt-information-block">
         <div class="grid justify-center lg:justify-start">
             <app-project-card projectName="{{'MyPortfolio' | translate}}" projectDescription="{{'MyPortfolioDescription' | translate}}"
-                projectImageUrl="assets/images/portfolio-image-project.png" projectRepositoryUrl="https://github.com/pedromg-dev/portfolio" />
+                projectImageUrl="assets/images/portfolio-image-project.png" projectRepositoryUrl="https://github.com/pedromg-dev/portfolio">
+                <div class="flex gap-10 border-t mt-5 border-blue-200 items-end"  logosSection>
+					<app-tech-logo url="assets/images/Angular.png" name="Angular" />
+                    <app-tech-logo url="assets/images/Tailwind.png" name="Tailwind" />
+				</div>
+                </app-project-card>
         </div>
     </div>
     

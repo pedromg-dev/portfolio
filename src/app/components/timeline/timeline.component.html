@@ -6,26 +6,32 @@
 		<div
 			class="col-span-12 space-y-12 relative lg:px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-blue-700 dark:before:bg-blue-500">
 			<app-timeline-item title="{{ 'FullStackDeveloperInPetrofac' | translate }}"
-				dates="{{ 'Petrofac.Dates' | translate }}" description="{{ 'Petrofac.Description' | translate }}">
+				dates="{{ 'Petrofac.Dates' | translate }}" description="{{ 'Petrofac.Description' | translate }}"
+				localization="{{ 'Petrofac.Localization' | translate }}"
+				>
 
 				<div additionalInfo>
 					<ul class="space-y-1 list-disc list-inside mt-5 lg:ml-10">
 						<li class="mb-5">
-							{{ 'FormelD.AditionalInfo.Line1' | translate }}
-						</li>
-						<li>
-							{{ 'FormelD.AditionalInfo.Line2' | translate }}
+							{{ 'Petrofac.AdditionalInfo.Line1' | translate }}
 						</li>
 					</ul>
 				</div>
 
-				<div class="flex gap-10 border-t mt-5 border-blue-200"  logosSection>
+				<div class="flex flex-wrap gap-10 border-t mt-5 border-blue-200 items-end justify-center"  logosSection>
 					<app-tech-logo url="assets/images/Blazor.png" name="Blazor" />
+					<app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
+					<app-tech-logo url="assets/images/Cosmodb.png" name="CosmoDB" />
+					<app-tech-logo url="assets/images/Aspnetmvc.png" name=".NET" />
+					<app-tech-logo url="assets/images/HTML-icon.png" name="HTML" />
+					<app-tech-logo url="assets/images/CSS-icon.png" name="CSS" />
 				</div>
 			</app-timeline-item>
 
 			<app-timeline-item title="{{ 'FullStackDeveloperInFormelD' | translate }}"
-				dates="{{ 'FormelD.Dates' | translate }}" description="{{ 'FormelD.Description' | translate }}">
+				dates="{{ 'FormelD.Dates' | translate }}" description="{{ 'FormelD.Description' | translate }}"
+				localization="{{ 'FormelD.Localization' | translate }}"
+				>
 				<div additionalInfo>
 					<ul class="space-y-1 list-disc list-inside mt-5 lg:ml-10">
 						<li class="mb-5">
@@ -37,13 +43,21 @@
 					</ul>
 				</div>
 
-				<div class="flex gap-10 border-t mt-5 border-blue-200" logosSection>
+				<div class="flex flex-wrap gap-10 border-t mt-5 border-blue-200 items-end justify-center" logosSection>
 					<app-tech-logo url="assets/images/Angular.png" name="Angular" />
+					<app-tech-logo url="assets/images/Net-Core.png" name=".NET Core" customImageWidth="65" />
+					<app-tech-logo url="assets/images/Xamarin.png" name="Xamarin" />
+					<app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
+					<app-tech-logo url="assets/images/microsoft-sql-icon.png" name="SQL Server" />
+					<app-tech-logo url="assets/images/HTML-icon.png" name="HTML" />
+					<app-tech-logo url="assets/images/CSS-icon.png" name="CSS" />
 				</div>
 			</app-timeline-item>
 
 			<app-timeline-item title="{{ 'FullStackDeveloperInGTT' | translate }}"
-				dates="{{ 'GTT.Dates' | translate }}" description="{{ 'GTT.Description' | translate }}">
+				dates="{{ 'GTT.Dates' | translate }}" description="{{ 'GTT.Description' | translate }}"
+				localization="{{ 'GTT.Localization' | translate }}"
+				>
 				<div additionalInfo>
 					<ul class="space-y-1 list-disc list-inside mt-5 lg:ml-10">
 						<li>
@@ -52,13 +66,18 @@
 					</ul>
 				</div>
 
-				<div class="flex gap-10 border-t mt-5 border-blue-200" logosSection>
+				<div class="flex flex-wrap gap-10 border-t mt-5 border-blue-200 items-end justify-center" logosSection>
 					<app-tech-logo url="assets/images/Aspnetmvc.png" name=".NET MVC" />
+					<app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
+					<app-tech-logo url="assets/images/HTML-icon.png" name="HTML" />
+					<app-tech-logo url="assets/images/CSS-icon.png" name="CSS" />
 				</div>
 			</app-timeline-item>
 
 			<app-timeline-item title="{{ 'FullStackDeveloperInActio' | translate }}"
-				dates="{{ 'Actio.Dates' | translate }}" description="{{ 'Actio.Description' | translate }}">
+				dates="{{ 'Actio.Dates' | translate }}" description="{{ 'Actio.Description' | translate }}"
+				localization="{{ 'Actio.Localization' | translate }}"
+				>
 				<div additionalInfo>
 					<ul class="space-y-1 list-disc list-inside mt-5 lg:ml-10">
 						<li>
@@ -67,8 +86,11 @@
 					</ul>
 				</div>
 
-				<div class="flex gap-10 border-t mt-5 border-blue-200" logosSection>
+				<div class="flex flex-wrap gap-10 border-t mt-5 border-blue-200 items-end justify-center" logosSection>
 					<app-tech-logo url="assets/images/Angular.png" name="Angular" />
+					<app-tech-logo url="assets/images/microsoft-sql-icon.png" name="SQL Server" />
+					<app-tech-logo url="assets/images/HTML-icon.png" name="HTML" />
+					<app-tech-logo url="assets/images/CSS-icon.png" name="CSS" />
 				</div>
 			</app-timeline-item>
 		</div>

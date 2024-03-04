@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class TechLogoComponent {
   @Input() url: string | undefined;
   @Input() name: string | undefined;
+  @Input() customImageWidth: string = "40";
 }
