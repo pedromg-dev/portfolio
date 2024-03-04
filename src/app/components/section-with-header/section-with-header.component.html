@@ -1,17 +1,17 @@
 <section id="{{this.id}}" class="pt-section">
-	<div class="container max-w-5xl px-4 py-12 mx-auto" data-aos="fade-left"
+	<div class="container max-w-5xl px-2 md:px-4 py-12 mx-auto" data-aos="fade-left"
 	data-aos-offset="500"
 	data-aos-duration="500"
 	>
-		<div class="grid gap-4 mx-4 sm:grid-cols-12">
-			<div class="col-span-12 sm:col-span-3">
-				<div class="text-center sm:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-blue-600 dark:before:bg-blue-300">
-					<h3 class="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-br from-cyan-500 to-blue-900 dark:from-cyan-100 dark:to-blue-400">
+		<div class="grid gap-4 lg:grid-cols-12">
+			<div class="col-span-12 2xl:col-span-3">
+				<div class="text-center lg:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto lg:before:mx-0 before:bg-blue-600 dark:before:bg-blue-300">
+					<h3 class="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-blue-900 dark:from-blue-100 dark:to-blue-400">
                     <ng-content select="[headerSection]"></ng-content>
                     </h3>
 				</div>
 			</div>
-			<div class="relative col-span-12 pl-4 sm:col-span-9">
+			<div class="relative col-span-12 md:pl-4 sm:col-span-9">
 				<div class="pt-about-me-body">
                     <ng-content select="[bodySection]"></ng-content>
                 </div>

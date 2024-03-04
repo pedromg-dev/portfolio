@@ -18,7 +18,16 @@ export class SidebarComponent {
 
   changeLanguage(language: string): void {
     this.translate.use(language);
-    this.isEnglish = !this.isEnglish;
+    this.isEnglish = language == "es" ? false : true;
   }
+
+  navigateTo(index: string) {
+    window.document.getElementById(index)!.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest"
+    });
+  }
+
 }
 

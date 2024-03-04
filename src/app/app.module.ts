@@ -19,7 +19,14 @@ import { IndexSidebarComponent } from './index-sidebar/index-sidebar.component';
 import { IndexSidebarItemComponent } from './index-sidebar/index-sidebar-item/index-sidebar-item.component';
 import { MainInformationComponent } from './main-information/main-information.component';
 import { TechLogoComponent } from './components/tech-logo/tech-logo.component';
-
+import { DrawerMenuComponent } from './drawer-menu/drawer-menu.component';
+import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
+import { PdfDownloaderComponent } from './components/pdf-downloader/pdf-downloader.component';
+import { ContactComponent } from './contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectsComponent } from './projects/projects.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 //Use this route in hosting (Production)
 // export function HttpLoaderFactory(http: HttpClient) {
@@ -44,12 +51,20 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     IndexSidebarComponent,
     IndexSidebarItemComponent,
     MainInformationComponent,
-    TechLogoComponent
+    TechLogoComponent,
+    DrawerMenuComponent,
+    LanguageSelectorComponent,
+    PdfDownloaderComponent,
+    ContactComponent,
+    ProjectsComponent,
+    ProjectCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

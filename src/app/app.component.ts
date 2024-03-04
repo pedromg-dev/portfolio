@@ -3,6 +3,7 @@ import { TranslateService } from "@ngx-translate/core";
 import { DOCUMENT } from '@angular/common';
 import { Inject } from '@angular/core';
 import * as AOS from 'aos';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +18,14 @@ export class AppComponent {
     ) {
     translate.addLangs(['en', 'es']);
     translate.setDefaultLang('es');
-    translate.use('es');
 
+    if(translate.getBrowserLang() !== 'es') {
+      translate.use('en');
+    }
+    else {
+      translate.use('es');
+    }
+    
     if (localStorage['theme'] === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.remove('light')
       document.documentElement.classList.add('dark')
@@ -36,6 +43,7 @@ export class AppComponent {
   ngOnInit() {
     AOS.init();
     window.addEventListener('load', AOS.refresh);
+    initFlowbite();
   }
 
   darkModeEnabled(): boolean {

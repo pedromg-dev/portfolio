@@ -1,5 +1,6 @@
 .pt-item-timeline {
-    @apply rounded-md bg-blue-75 dark:bg-blue-700 shadow-sm shadow-blue-600 dark:shadow-blue-900;
+    @apply rounded-md bg-blue-65 dark:bg-blue-700 shadow-sm 
+    shadow-blue-600 dark:shadow-blue-900 ;
     padding: 20px;
 }
 

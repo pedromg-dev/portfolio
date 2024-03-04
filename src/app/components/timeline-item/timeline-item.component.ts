@@ -10,4 +10,5 @@ export class TimelineItemComponent {
   @Input() title: string | undefined;
   @Input() dates: string | undefined;
   @Input() description: string | undefined;
+  @Input() localization: string | undefined;
 }

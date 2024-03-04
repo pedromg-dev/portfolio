@@ -1,21 +1,52 @@
-<nav class="pt-sidebar flex justify-end">
-    <div id="pt-sidebar-configuration" class="flex justify-end mr-10">        
-        <app-index-sidebar class="invisible lg:visible lg:mr-32 flex items-center" />
-        <div class="mr-10 flex">
-                @if(this.isEnglish) {
-                    <div class="flex items-center gap-2 cursor-pointer" (click)="changeLanguage('es')">
-                        <img src="assets/images/united-kingdom-flag-icon.png" class="w-5 mt-1" />
-                    <app-button  text="English" />
-                </div>
-
-                }
-                @else {
-                    <div class="flex items-center gap-2 cursor-pointer" (click)="changeLanguage('en')">
-                        <img src="assets/images/spanish-flag-icon.png" class="w-5 mt-1" />
-                    <app-button  text="Español" />
-                </div>
-                }
-            </div>
-        <app-theme-switch class="flex"/>
+<nav class="pt-sidebar flex justify-between flex-col lg:flex-row">
+    <app-index-sidebar class="invisible lg:visible h-0 lg:h-auto lg:mr-32 flex items-center lg:ml-60 w-0 lg:w-auto" />
+    <div class="flex flex-spa justify-between lg:justify-end mr-10 w-full lg:w-auto">
+        <div class="ml-5 flex items-center">
+            <button class="menu" data-collapse-toggle="navbar-hamburger"
+                onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))"
+                aria-label="Menu" class="hover:text-blue-400  focus:ring-blue-300 font-semibold text-center items-center 
+                inline-flex w-auto dark:hover:text-blue-300 dark:focus:ring-blue-800 lg:invisible"
+                aria-controls="navbar-hamburger">
+                <svg class="w-8 h-8" viewBox="0 0 100 100">
+                    <path stroke="currentColor" class="line line1"
+                        d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path stroke="currentColor" class="line line2" d="M 20,50 H 80" />
+                    <path stroke="currentColor" class="line line3"
+                        d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
+        </div>
+        <div class="flex items-center gap-10">
+            <app-language-selector />
+            <app-theme-switch class="flex mr-4" />
+        </div>
+    </div>
+    <div class="hidden w-full lg:invisible lg:h-0 lg:w-0 lg:p-0 lg:m-0" id="navbar-hamburger">
+        <ul class="flex flex-col font-medium mt-4 rounded-lg">
+            <li>
+                <a (click)="navigateTo('about-me')"
+                    class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:text-blue-400 dark:hover:text-blue-200 group">
+                    <span>{{'AboutMe' | translate }}</span>
+                </a>
+            </li>
+            <li>
+                <a (click)="navigateTo('work-experience')"
+                    class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:text-blue-400 dark:hover:text-blue-200 group">
+                    <span>{{'WorkExperience' | translate }}</span>
+                </a>
+            </li>
+            <li>
+                <a (click)="navigateTo('projects')"
+                    class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:text-blue-400 dark:hover:text-blue-200 group">
+                    <span>{{'MyProjects' | translate }}</span>
+                </a>
+            </li>
+            <li>
+                <a (click)="navigateTo('contact')"
+                    class=" cursor-pointer flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:text-blue-400 dark:hover:text-blue-200 group">
+                    <span>{{'Contact' | translate }}</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>

@@ -1,13 +1,49 @@
 {
-	"FullStackDeveloper": "Desarrollador Full-Stack",
+	"FullStackDeveloper": "Desarrollador Full-Stack .NET",
 	"GreetingsName": "¡Saludos {{name}}!",
 	"heading": "Bienvenidos a todos",
+	"FullStackDeveloperInPetrofac": "Desarrollador Full-Stack en Petrofac",
+	"FullStackDeveloperInFormelD": "Desarrollador Full-Stack en FormelD",
+	"FullStackDeveloperInGTT": "Desarrollador Full-Stack en GTT",
+	"FullStackDeveloperInActio": "Desarrollador Full-Stack en Actio",
+	
 	"Petrofac.Dates": "Octubre 2022 - Actualidad",
-	"Petrofac.Description": "Desarrollo de una aplicación web internacional en .NET Blazor dedicada a la gestión de usuarios, en la que realizo tareas tanto de Front-End (HTML, JS, css/sass) como de la parte de Back-End (C#, CosmoDB)",
+	"Petrofac.Description": "Creación de un ERP basado en .NET Blazor dedicada a la gestión de usuarios, en la que realizo tareas tanto de Front-End como de la parte de Back-End.",
+	"Petrofac.AdditionalInfo.Line1": "Aplicación desarrollada desde 0 basada en la última versión de .NET Blazor y utilizando una base de datos no relacional en Azure CosmoDB.",
+	"Petrofac.Localization": "Leiden (Holanda)",
+
+	"FormelD.Dates": "Octubre 2021 - Octubre 2022",
+	"FormelD.Description": "Desarrollo de un ERP basado en Angular y .NET Core en el que realicé tanto tareas de Front-End como Back-End y diversas aplicaciones móviles multiplataforma en Xamarin.",
+	"FormelD.AditionalInfo.Line1": "Aplicación web desarrollada en Angular 13 y .NetCore 6 y la base de datos en SQL Server.",
+	"FormelD.AditionalInfo.Line2": "Realización de aplicaciones híbridas en Xamarin, tanto para IOS como para Android.",
+	"FormelD.Localization": "Colonia (Alemania)",
+
+	"GTT.Dates": "Septiembre 2020 - Octubre 2021",
+	"GTT.Description": "Desarrollo de un ERP para la administración pública basado en ASP.NET MVC en el que he desarollado tanto tareas de Front-End Como Back-End.",
+	"GTT.AditionalInfo.Line1": "Front-End basado en (xml, html) y Back-End basdo en (SQL, Oracle, C#, WCF, JavaScript).",
+	"GTT.Localization": "Alicante (España)",
+
+	"Actio.Dates": "Septiembre 2018 - Febrero 2019 (Prácticas de empresa)",
+	"Actio.Description": "Desarrollo de una aplicación basada en un comercio electrónico de recambios para vehículos en la que realicé tanto tareas de Front-End como Back-End.",
+	"Actio.AditionalInfo.Line1": "Front-End basado en Angular y Back-End basdo en Transact-SQL.",
+	"Actio.Localization": "Alicante (España)",
+	
 	"subheader": "Portafolio de Pedro",
 	"Timeline": "Línea temporal",
 	"AboutMe": "Acerca de mí",
 	"WorkExperience": "Experiencia laboral",
-	"AboutMeContentLine1": "Licenciado en Ingeniería Informática con más de tres años de experiencia laboral, siempre buscando superar nuevos desafíos y adquirir nuevos conocimientos.",
-	"AboutMeContentLine2": "Alicantino apasionado de los viajes y de difrutar de la naturaleza en compañía de amigos, descubriendo nuevas rutas y destinos por donde perderse en los ratos libres."
+	"AboutMeContentLine1": "Graduado en ingeniería informática en la Universidad de Alicante y desarrollador de aplicaciones web y móviles con más de tres años de experiencia, en la búsqueda constante de nuevos desafíos. ",
+	"AboutMeContentLine2": "Alicantino apasionado de los viajes y de disfrutar de la naturaleza en compañía de amigos, descubriendo nuevas rutas y destinos por donde perderse en los ratos libres.",
+	"DownloadCV": "Currículum (Español)",
+	"Contact": "Contacto",
+	"Email": "Tu email",
+	"Subject": "Asunto",
+	"Message": "Mensaje",
+	"LeaveAComment": "Deja un comentario...",
+	"SendMessage": "Enviar mensaje",
+	"EmailSentSuccessfully": "Email enviado correctamente",
+	"MyPortfolio": "Mi portafolio",
+	"MyPortfolioDescription": "Página web destinada a mostrar mi portafolio. Desarrollada con Angular 17 y Tailwind.",
+	"Repository": "Repositorio",
+	"MyProjects": "Mis proyectos"
 }
