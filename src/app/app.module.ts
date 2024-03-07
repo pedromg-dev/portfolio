@@ -27,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { SkillsComponent } from './skills/skills.component';
 
 //Use this route in hosting (Production)
 // export function HttpLoaderFactory(http: HttpClient) {
@@ -58,6 +59,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ContactComponent,
     ProjectsComponent,
     ProjectCardComponent,
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,
