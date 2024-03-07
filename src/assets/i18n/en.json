@@ -40,5 +40,7 @@
 	"Petrofac.Localization": "Leiden (The Netherlands)",
 	"FormelD.Localization": "Colonia (Germany)",
 	"GTT.Localization": "Alicante (Spain)",
-	"Actio.Localization": "Alicante (Spain)"
+	"Actio.Localization": "Alicante (Spain)",
+	"MailExample": "mail@example.com",
+	"TechnicalSkills": "Technical skills"
 }
