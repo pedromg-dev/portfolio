@@ -8,7 +8,7 @@
         <form [formGroup]="contactForm" (ngSubmit)="onSubmit($event)" class="space-y-8">
             <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{'Email' | translate}}</label>
-                <input type="email" formControlName="email"
+                <input type="email" formControlName="email" placeholder="{{'MailExample'| translate}}"
                     class="shadow-sm bg-blue-50 border border-blue-200 hover:border-blue-300 
                     text-blue-900 text-sm rounded-lg block w-full p-2.5 dark:bg-blue-600 dark:border-blue-600 dark:text-blue-50 
                         dark:hover:border-blue-400 dark:shadow-sm-light" required>

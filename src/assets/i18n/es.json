@@ -45,5 +45,7 @@
 	"MyPortfolio": "Mi portafolio",
 	"MyPortfolioDescription": "Página web destinada a mostrar mi portafolio. Desarrollada con Angular 17 y Tailwind.",
 	"Repository": "Repositorio",
-	"MyProjects": "Mis proyectos"
+	"MyProjects": "Mis proyectos",
+	"MailExample": "email@ejemplo.com",
+	"TechnicalSkills": "Aptitudes técnicas"
 }
