@@ -1,6 +1,8 @@
-<nav class="flex gap-10">
+<nav class="flex gap-10 items-center">
         <a (click)="navigateTo('about-me')" class="cursor-pointer pt-index-sidebar-item"> <app-index-sidebar-item
                         text="{{'AboutMe' | translate }}" /></a>
+        <a (click)="navigateTo('skills')" class="cursor-pointer pt-index-sidebar-item"> <app-index-sidebar-item
+                        text="{{'TechnicalSkills' | translate }}" /></a>
         <a (click)="navigateTo('work-experience')" class="cursor-pointer pt-index-sidebar-item"><app-index-sidebar-item
                         text="{{'WorkExperience' | translate }}" /></a>
         <a (click)="navigateTo('projects')" class="cursor-pointer pt-index-sidebar-item"><app-index-sidebar-item
