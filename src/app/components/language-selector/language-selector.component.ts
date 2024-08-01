@@ -16,8 +16,8 @@ export class LanguageSelectorComponent {
       this.isEnglish = this.translate.currentLang == "es" ? false : true;
     }
   
-    changeLanguage(language: string): void {
-      this.translate.use(language);
-      this.isEnglish = language == "es" ? false : true;
+    changeLanguage(): void {
+      this.translate.use(this.translate.currentLang == "es" ? 'en' : 'es');
+      this.isEnglish = !this.isEnglish;
     }
   }
