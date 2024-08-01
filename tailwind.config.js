@@ -19,14 +19,6 @@ module.exports = {
       'poppins': ["Poppins", "sans-serif"],
       'kode-mono': ["Kode Mono", "monospace"],
     },
-    extend: {
-      backgroundImage: {
-        'white-mode': "url(assets/images/background-white-mode.svg)",
-        'dark-mode': "url(assets/images/background-dark-mode.svg)",
-        'mobile-white-mode': "url(assets/images/background-white-mode-mobile.svg)",
-        'mobile-dark-mode': "url(assets/images/background-dark-mode-mobile.svg)",
-      }
-    },
     "colors": {
       "blue": {
         50: "#E6EDF9",

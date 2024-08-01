@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gradient-to-b from-blue-50 to-blue-200 dark:from-blue-600 dark:to-blue-900 text-blue-900 dark:text-blue-100;
+  @apply bg-gradient-to-b from-blue-100 to-blue-200 dark:from-blue-600 dark:to-blue-800 text-blue-900 dark:text-blue-100;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  @apply transition-colors duration-300;
 }
 .pt-section {
   padding-top: 50px;
-  /* margin-top: 100px; */
-  /* margin-top: -100px; */
 }
 
 html {
@@ -29,8 +28,3 @@ html {
   @apply bg-blue-600 dark:bg-blue-100;
   border-radius: 10px;
 }
-
-/* .pt-information-block {
-  @apply rounded-md bg-blue-200 dark:bg-blue-700 bg-blend-luminosity shadow-md shadow-blue-700 dark:shadow-blue-300;
-  padding: 20px;
-} */
