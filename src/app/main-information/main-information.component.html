@@ -1,23 +1,27 @@
-<div class="portfolio-description lg:fixed lg:flex mt-10 min-[1540px]:mt-40">
-  <div class="flex flex-col justify-between">
-    <div>
+<div class="portfolio-description mt-10">
+  <div class="flex flex-col">
+    <div class="lg:flex lg:items-center lg:justify-center lg:gap-20">
       <div style="position: relative; margin-bottom: -15px;">
-        <img src="assets/images/my-profile-picture.png" class="object-cover h-96 min-[1240px]:h-96 mx-auto align-middle" style="
-          filter: drop-shadow(0 0 1px rgba(0, 0, 0, .5)); mask-image: linear-gradient(to bottom, black 95%, transparent 100%);"
-          alt="Pedro Antonio Moya Garcia">
+        <img src="assets/images/my-profile-picture.png" class="object-cover mx-auto lg:mx-0 align-middle"
+          style="
+          filter: drop-shadow(0 0 3px rgba(0, 0, 0, .5)); mask-image: linear-gradient(to bottom, black 95%, transparent 100%);" alt="Pedro Antonio Moya Garcia">
       </div>
-      <h1
-        class="text-2xl min-[1240px]:text-2xl min-[1530px]:text-2xl font-bold text-transparent mt-5 bg-clip-text bg-gradient-to-br from-blue-300 to-blue-900 dark:from-blue-100 dark:to-blue-400 flex">
-        <label class="mx-auto align-middle">Pedro Antonio Moya García</label>
-      </h1>
-      <h2
-        class="text-lg xmin-[1530px]:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-blue-900 dark:from-blue-100 dark:to-blue-400 flex">
-        <label class="mx-auto align-middle">{{'FullStackDeveloper' | translate}}</label>
-      </h2>
-      <app-pdf-downloader />
-    </div>
-    <div class="text-2xl font-extralight">
-      <app-social-media />
+      <div class="flex justify-center flex-col">
+        <h1
+          class="mt-5 lg:mt-0 text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-blue-900 dark:from-blue-100 dark:to-blue-400 mx-auto align-middle text-2xl lg:text-6xl">
+          Pedro Antonio Moya García
+        </h1>
+        <h2
+          class=" mx-auto lg:mx-0  text-lg xmin-[1530px]:text-2xl lg:mt-5 font-semibold text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-blue-900 dark:from-blue-100 dark:to-blue-400 flex">
+          <span class="lg:text-4xl">{{'FullStackDeveloper' | translate}}</span>
+        </h2>
+        <div class="flex items-center flex-col lg:flex-row justify-center lg:justify-start lg:items-center lg:gap-5 mx-auto lg:mx-0">
+          <app-pdf-downloader />
+          <div class="text-2xl font-extralight">
+            <app-social-media />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
