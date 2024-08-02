@@ -37,6 +37,12 @@ module.exports = {
         900: "#081121",
         950: "#040911"
       }
+    },
+    extend: {
+      backgroundImage: {
+        'gradient-45-light': 'linear-gradient(45deg, transparent 50%, #3470D1 50%)',
+        'gradient-45-dark': 'linear-gradient(45deg, transparent 50%, #2555A2 50%)',
+      }
     }
   },
   plugins: [],

@@ -27,3 +27,16 @@ html {
   @apply bg-blue-600 dark:bg-blue-100;
   border-radius: 10px;
 }
+
+.pt-button {
+  cursor: pointer;
+  background-position: 25%;
+  background-size: 400%;
+  -webkit-transition: background 500ms ease-in-out, color 500ms ease-in-out;
+  transition: background 500ms ease-in-out, color 500ms ease-in-out;
+  @apply shadow-sm shadow-blue-800 dark:shadow-blue-900;
+}
+
+.pt-button:hover {
+  background-position: 100%;
+}
