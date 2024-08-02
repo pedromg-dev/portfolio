@@ -28,6 +28,7 @@ export class SidebarComponent {
   }
 
   navigateTo(index: string) {
+    
     this.document.getElementById(index)!.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
