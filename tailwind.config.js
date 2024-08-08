@@ -21,27 +21,23 @@ module.exports = {
     },
     "colors": {
       "blue": {
-        50: "#E6EDF9",
-        65: "#cbe0fb",
-        75: "#ace1ec",
-        85: "#9fc6e5",
-        95: "#c5e9ef",
-        100: "#CDDCF4",
-        200: "#9BB9E8",
-        300: "#6593DC",
-        400: "#3470D1",
-        500: "#2555A2",
-        600: "#1D4381",
-        700: "#16325F",
-        800: "#0F2342",
-        900: "#081121",
-        950: "#040911"
+        50: "#EEF4F7",
+        100: "#DCE9EF",
+        200: "#BDD5E0",
+        300: "#9BBFD0",
+        400: "#78A9BF",
+        500: "#5894B0",
+        600: "#43768E",
+        700: "#33596B",
+        800: "#223D49",
+        900: "#101D23",
+        950: "#080E11"
       }
     },
     extend: {
       backgroundImage: {
-        'gradient-45-light': 'linear-gradient(45deg, transparent 50%, #3470D1 50%)',
-        'gradient-45-dark': 'linear-gradient(45deg, transparent 50%, #2555A2 50%)',
+        'gradient-45-light': 'linear-gradient(45deg, transparent 50%, #5894B0 50%)',
+        'gradient-45-dark': 'linear-gradient(45deg, transparent 50%, #5894B0 50%)',
       }
     }
   },
