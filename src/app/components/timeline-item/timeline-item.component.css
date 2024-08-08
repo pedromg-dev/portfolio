@@ -1,11 +1,12 @@
 .pt-item-timeline {
-    /* @apply bg-gradient-to-b from-blue-300 to-blue-300 dark:from-blue-600 dark:to-blue-700 shadow-sm 
-    shadow-blue-900 ; */
     padding: 20px;
-    @apply z-20 shadow-sm dark:shadow-blue-900/50 bg-blue-400/20 dark:bg-blue-700/75 
+    @apply z-20 shadow-sm dark:shadow-blue-900/50 bg-blue-400/50 dark:bg-blue-700/75 
     py-5 backdrop-blur-lg text-blue-800 dark:text-blue-200 top-auto;
 }
 
-/* .pt-item-timeline:hover {
-    @apply -scale-y-125;
-} */
+.pt-item-timeline:hover {
+    @apply bg-blue-500/40 dark:bg-blue-800/20;
+    @apply transition-colors duration-300;
+}
+
+

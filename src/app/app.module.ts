@@ -29,6 +29,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { SkillsComponent } from './skills/skills.component';
 import { SkillCardComponent } from './components/skill-card/skill-card.component';
+import { TimelineItemLeftComponent } from './components/timeline-item-left/timeline-item-left.component';
 
 //Use this route in hosting (Production)
 // export function HttpLoaderFactory(http: HttpClient) {
@@ -62,6 +63,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ProjectCardComponent,
     SkillsComponent,
     SkillCardComponent,
+    TimelineItemLeftComponent,
   ],
   imports: [
     BrowserModule,
