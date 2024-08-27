@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gradient-to-b from-blue-200 to-blue-200 dark:from-blue-600 dark:to-blue-800 text-blue-900 dark:text-blue-100;
+  @apply bg-gradient-to-b from-blue-200 to-blue-300 dark:from-blue-600 dark:to-blue-800 text-blue-900 dark:text-blue-100;
   background-attachment: fixed;
   @apply transition-colors duration-300;
 }
