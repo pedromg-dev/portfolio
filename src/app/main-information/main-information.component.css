@@ -19,7 +19,7 @@
   height: 50px;
   margin-left: -15px;
 
-  @apply border border-blue-500 dark:border-blue-400;
+  @apply border border-blue-500 dark:border-blue-600;
   border-radius: 50px;
   box-sizing: border-box;
 }
@@ -32,7 +32,7 @@
   width: 6px;
   height: 6px;
   margin-left: -3px;
-  @apply bg-blue-500 dark:bg-blue-400;
+  @apply bg-blue-500 dark:bg-blue-600;
   border-radius: 100%;
   -webkit-animation: sdb10 2s infinite;
   animation: sdb10 2s infinite;
