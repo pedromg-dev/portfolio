@@ -1,6 +1,6 @@
-<div class="portfolio-description pt-20 lg:pt-40">
-  <div class="flex flex-col">
-    <div class="lg:flex lg:items-center lg:justify-center">
+<div class="portfolio-description flex flex-col">
+  <div class="flex lg:pt-0">
+    <div class="lg:flex lg:items-center pt-10 lg:justify-center">
       <div style="position: relative; margin-bottom: -15px;">
         <img src="assets/images/my-profile-picture.png" class="object-cover mx-auto lg:mx-0 align-middle"
           style="
@@ -8,14 +8,15 @@
       </div>
       <div class="flex justify-center flex-col">
         <h1
-          class="mt-5 lg:mt-0 text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-blue-900 dark:from-blue-100 dark:to-blue-400 mx-auto align-middle text-2xl lg:text-6xl">
+          class="mt-5 lg:mt-0 text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-blue-900 dark:from-blue-100 dark:to-blue-400 mx-auto align-middle text-2xl lg:text-6xl">
           Pedro Antonio Moya García
         </h1>
         <h2
-          class=" mx-auto lg:mx-0  text-lg xmin-[1530px]:text-2xl lg:mt-5 font-semibold text-transparent bg-clip-text bg-gradient-to-br from-blue-300 to-blue-900 dark:from-blue-100 dark:to-blue-400 flex">
+          class=" mx-auto lg:mx-0  text-lg xmin-[1530px]:text-2xl lg:mt-5 font-semibold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-blue-900 dark:from-blue-100 dark:to-blue-400 flex">
           <span class="lg:text-4xl">{{'FullStackDeveloper' | translate}}</span>
         </h2>
-        <div class="flex items-center flex-col lg:flex-row justify-center lg:justify-start lg:items-center lg:gap-5 mx-auto lg:mx-0 lg:mt-20">
+        <div
+          class="flex items-center flex-col lg:flex-row justify-center lg:justify-start lg:items-center lg:gap-5 mx-auto lg:mx-0 lg:mt-20">
           <app-pdf-downloader />
           <div class="text-2xl font-extralight">
             <app-social-media />
@@ -24,4 +25,7 @@
       </div>
     </div>
   </div>
+  <section id="pt-scroll-component-id" class="pt-scroll-component max-lg:hidden">
+    <a href="#about-me"><span></span></a>
+  </section>
 </div>
