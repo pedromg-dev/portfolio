@@ -1,24 +1,36 @@
-import { Component } from '@angular/core';
-import { TranslateService } from "@ngx-translate/core";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { LanguageService } from '../../language.service';
 
 @Component({
   selector: 'app-pdf-downloader',
   templateUrl: './pdf-downloader.component.html',
-  styleUrl: './pdf-downloader.component.css'
+  styleUrls: ['./pdf-downloader.component.css']
 })
-export class PdfDownloaderComponent {
+export class PdfDownloaderComponent implements OnInit, OnDestroy {
 
-  constructor(public translate: TranslateService) { }
+  private currentLang = 'es';
+  private languageSub: Subscription = new Subscription;
+
+  constructor(private languageService: LanguageService) { }
+
+  ngOnInit() {
+    this.languageSub = this.languageService.currentLanguage$.subscribe(lang => {
+      this.currentLang = lang;
+    });
+  }
 
   downloadPdf() {
-
-    var path = 'assets/pdfs/CV-Pedro-Antonio-Moya.pdf';
-    var documentName = 'CV-Pedro-Antonio-Moya.pdf';
-
-    if(this.translate.currentLang === 'en') {
+    var path = '';
+    var documentName = '';
+    if (this.currentLang === 'en') {
+      path = 'assets/pdfs/CV-Pedro-Antonio-Moya.pdf';
+      documentName = 'CV-Pedro-Antonio-Moya.pdf';
+    }
+    else {
       path = 'assets/pdfs/CV-Pedro-Antonio-Moya-ENG.pdf';
       documentName = 'Resume-Pedro-Antonio-Moya.pdf';
-    } 
+    }
 
     fetch(path)
       .then(response => response.blob())
@@ -28,12 +40,14 @@ export class PdfDownloaderComponent {
         a.href = url;
         a.download = documentName;
         a.click();
+        window.URL.revokeObjectURL(url);
       })
       .catch((error) => console.error(error));
   }
 
-  
-
-  ngOnInit() {
+  ngOnDestroy() {
+    if (this.languageSub) {
+      this.languageSub.unsubscribe();
+    }
   }
 }
