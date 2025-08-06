@@ -1,7 +1,6 @@
 <div class="flex mt-10 lg:mt-3">
-    <button type="button" class="pt-button bg-blue-200 dark:bg-blue-600 px-5 py-3 border-blue-400 rounded-lg  
-    hover:text-blue-100 bg-gradient-45-light dark:bg-gradient-45-dark" (click)="downloadPdf()">
+    <a (click)="downloadPdf()" class="cta-button fade-in delay-3">
         <i class="fas fa-download me-2"></i>
-        {{'DownloadCV' | translate}}
-    </button>
+        <span data-translate-key="downloadCV" style="margin-left: 0.5rem;">Descargar CV</span>
+    </a>
 </div>
