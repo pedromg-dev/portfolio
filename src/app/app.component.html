@@ -1,7 +1,6 @@
 <canvas #matrixBg class="animated-bg"></canvas>
 <canvas #particlesBg class="animated-bg"></canvas>
 
-
 <nav #navbar class="navbar">
   <a href="#" class="nav-logo">pedromg-dev</a>
   <div class="nav-right-cluster">
@@ -15,13 +14,11 @@
     <button #langSwitcher class="lang-switcher" (click)="toggleLanguage()">{{ currentLang.toUpperCase() }}</button>
 
     <button #themeSwitcher class="theme-switcher" (click)="toggleTheme()" aria-label="Cambiar tema">
-
       <svg class="icon sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round"
           d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
       </svg>
-
       <svg class="icon moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -43,7 +40,6 @@
   <a href="#experiencia" class="mobile-nav-link" data-translate-key="navExperience" [class.active]="activeSection === 'experiencia'" (click)="closeMobileMenu()">Experiencia</a>
   <a href="#proyectos" class="mobile-nav-link" data-translate-key="navProjects" [class.active]="activeSection === 'proyectos'" (click)="closeMobileMenu()">Proyectos</a>
 </div>
-
 
 <header class="hero" id="hero">
   <div class="hero-content">
@@ -85,19 +81,14 @@
       <div class="sobre-mi-content">
         <h2 class="section-title" data-translate-key="aboutTitle">Sobre Mí</h2>
         <p data-translate-key="aboutP1">
-          Ingeniero informático apasionado por la tecnología y la resolución de problemas. Con más de 5 años de
-          experiencia, he trabajado en proyectos desafiantes en España, Alemania y Países Bajos, especializándome en el
-          ecosistema .NET.
         </p>
         <p data-translate-key="aboutP2">
-          Me encanta viajar, la naturaleza y enfrentar nuevos retos que me permitan crecer profesionalmente. Siempre
-          buscando aprender y aplicar nuevas tecnologías para crear productos de alto impacto.
         </p>
         <div class="skills">
           <h3 data-translate-key="skillsTitle">Habilidades Clave</h3>
           <div class="skills-container">
-            <span>C#</span> <span>.NET</span> <span>Blazor</span> <span>Angular</span> <span>Azure</span>
-            <span>SQL</span> <span>JavaScript</span> <span>HTML & CSS</span> <span>Git</span> <span>Scrum</span>
+            <span>.NET</span> <span>C#</span> <span>Blazor</span> <span>Azure</span>
+            <span>SQL</span> <span>JavaScript</span> <span>HTML & CSS</span>
           </div>
         </div>
         <div class="contact-form">
@@ -134,100 +125,63 @@
     </div>
   </section>
 
-
   <section id="experiencia" class="experience-section content-section">
     <h2 class="section-title" data-translate-key="experienceTitle">Experiencia Laboral</h2>
     <div class="timeline">
-      <div class="timeline-item left">
-        <div class="timeline-date timeline-date-desktop" data-translate-key="exp1Date">Enero 2022 - Presente | Países
-          Bajos</div>
-        <div class="timeline-content">
-          <h3 data-translate-key="exp1Title">Full-Stack Developer en Petrofac</h3>
-          <span class="timeline-date timeline-date-mobile" data-translate-key="exp1Date">Enero 2022 - Presente | Países
-            Bajos</span>
-          <p data-translate-key="exp1Desc">Desarrollo y mantenimiento de aplicaciones ERP. Uso de .NET, Angular y SQL
-            Server en un entorno de integración continua con Azure DevOps.</p>
-        </div>
-      </div>
       <div class="timeline-item right">
-        <div class="timeline-date timeline-date-desktop" data-translate-key="exp2Date">Marzo 2020 - Diciembre 2021 |
-          Alemania</div>
+        <div class="timeline-date timeline-date-desktop" data-translate-key="exp5Date"></div>
         <div class="timeline-content">
-          <h3 data-translate-key="exp2Title">Full-Stack Developer en FormelD</h3>
-          <span class="timeline-date timeline-date-mobile" data-translate-key="exp2Date">Marzo 2020 - Diciembre 2021 |
-            Alemania</span>
-          <p data-translate-key="exp2Desc">Creación de aplicaciones móviles con Xamarin para el sector automotriz y
-            desarrollo de APIs REST con .NET para la gestión de datos.</p>
+          <h3 data-translate-key="exp5Title"></h3>
+          <span class="timeline-date timeline-date-mobile" data-translate-key="exp5Date"></span>
+          <p data-translate-key="exp5Desc"></p>
         </div>
       </div>
       <div class="timeline-item left">
-        <div class="timeline-date timeline-date-desktop" data-translate-key="exp3Date">Julio 2019 - Febrero 2020 |
-          Alicante, España</div>
+        <div class="timeline-date timeline-date-desktop" data-translate-key="exp1Date"></div>
         <div class="timeline-content">
-          <h3 data-translate-key="exp3Title">Junior Developer en GTT</h3>
-          <span class="timeline-date timeline-date-mobile" data-translate-key="exp3Date">Julio 2019 - Febrero 2020 |
-            Alicante, España</span>
-          <p data-translate-key="exp3Desc">Participación en el desarrollo de software de gestión, trabajando
-            principalmente con C# y WinForms.</p>
+          <h3 data-translate-key="exp1Title"></h3>
+          <span class="timeline-date timeline-date-mobile" data-translate-key="exp1Date"></span>
+          <p data-translate-key="exp1Desc"></p>
         </div>
       </div>
       <div class="timeline-item right">
-        <div class="timeline-date timeline-date-desktop" data-translate-key="exp4Date">Febrero 2019 - Junio 2019 |
-          Alicante, España</div>
+        <div class="timeline-date timeline-date-desktop" data-translate-key="exp2Date"></div>
         <div class="timeline-content">
-          <h3 data-translate-key="exp4Title">Prácticas en Actio</h3>
-          <span class="timeline-date timeline-date-mobile" data-translate-key="exp4Date">Febrero 2019 - Junio 2019 |
-            Alicante, España</span>
-          <p data-translate-key="exp4Desc">Primer contacto con el desarrollo profesional, dando soporte en proyectos web
-            con HTML, CSS y JavaScript.</p>
+          <h3 data-translate-key="exp2Title"></h3>
+          <span class="timeline-date timeline-date-mobile" data-translate-key="exp2Date"></span>
+          <p data-translate-key="exp2Desc"></p>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="timeline-date timeline-date-desktop" data-translate-key="exp3Date"></div>
+        <div class="timeline-content">
+          <h3 data-translate-key="exp3Title"></h3>
+          <span class="timeline-date timeline-date-mobile" data-translate-key="exp3Date"></span>
+          <p data-translate-key="exp3Desc"></p>
+        </div>
+      </div>
+      <div class="timeline-item right">
+        <div class="timeline-date timeline-date-desktop" data-translate-key="exp4Date"></div>
+        <div class="timeline-content">
+          <h3 data-translate-key="exp4Title"></h3>
+          <span class="timeline-date timeline-date-mobile" data-translate-key="exp4Date"></span>
+          <p data-translate-key="exp4Desc"></p>
         </div>
       </div>
     </div>
   </section>
-
 
   <section id="proyectos" class="proyectos-section content-section">
     <h2 class="section-title" data-translate-key="projectsTitle">Proyectos Destacados</h2>
     <div class="proyectos-grid">
-      <!-- <div class="proyecto-card">
-        <img src="https://placehold.co/600x400/000/00FF41?text=ERP+Petrofac" alt="Proyecto ERP para Petrofac"
-          onerror="this.onerror=null;this.src='https://placehold.co/600x400/1A1A1A/00A8E8?text=ERP+Petrofac';">
-        <div class="card-content">
-          <h3 data-translate-key="proj1Title">ERP para Petrofac</h3>
-          <p data-translate-key="proj1Desc">Desarrollo de un sistema ERP completo para la gestión de recursos en un
-            entorno internacional, mejorando la eficiencia operativa.</p>
-          <div class="tecnologias"><span>.NET Core</span><span>Angular</span><span>SQL Server</span><span>Azure</span>
-          </div>
-          <div class="card-links">
-            <a href="#" class="project-link" data-translate-key="projLinkDemo">Ver Demo</a>
-            <a href="#" class="project-link" data-translate-key="projLinkCode">Ver Código</a>
-          </div>
-        </div>
-      </div> -->
     </div>
   </section>
 
-  <!-- Pie de página -->
   <footer class="footer content-section">
     <div class="footer-content">
-      <p data-translate-key="footerMessage">Diseñado y desarrollado por Pedro Antonio Moya García.</p>
+      <p data-translate-key="footerMessage"></p>
       <div class="footer-socials">
-        <a href="#" target="_blank" aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
-            <path
-              d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z">
-            </path>
-          </svg>
-        </a>
-        <a href="#" target="_blank" aria-label="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
-            <path fill-rule="evenodd"
-              d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z"
-            clip-rule="evenodd"></path>
-          </svg>
-        </a>
-      </div>
-      <!-- <p class="copyright" data-translate-key="footerCopyright" [innerHTML]="(translations[currentLang] as any)['footerCopyright']"></p> -->
+        </div>
     </div>
   </footer>
 </div>
