@@ -11,6 +11,7 @@
     --text-glow: 0 0 5px rgba(0, 255, 65, 0.7);
     --border-color: #222;
     --button-text-primary: #000;
+    --timeline-card-bg: #1e1e1e;
 }
 
 body.light-mode {
@@ -26,6 +27,7 @@ body.light-mode {
     --text-glow: none;
     --border-color: #ddd;
     --button-text-primary: #FFF;
+    --timeline-card-bg: #f7f7f7;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -451,7 +453,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 }
 .timeline-content {
     padding: 20px 30px;
-    background-color: var(--surface-color);
+    background-color: var(--timeline-card-bg);
     position: relative;
     border-radius: 8px;
     border: 1px solid var(--border-color);
@@ -488,7 +490,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 
 .proyectos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 .proyecto-card {
-    background-color: var(--surface-color); border-radius: 15px; overflow: hidden;
+    background-color: var(--timeline-card-bg); border-radius: 15px; overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     transition: transform 0.3s ease, box-shadow 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
     display: flex; flex-direction: column; border: 1px solid var(--border-color);
