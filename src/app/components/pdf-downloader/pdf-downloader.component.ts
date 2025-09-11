@@ -23,7 +23,7 @@ export class PdfDownloaderComponent implements OnInit, OnDestroy {
   downloadPdf() {
     var path = '';
     var documentName = '';
-    if (this.currentLang === 'en') {
+    if (this.currentLang === 'es') {
       path = 'assets/pdfs/CV-Pedro-Antonio-Moya.pdf';
       documentName = 'CV-Pedro-Antonio-Moya.pdf';
     }
