@@ -191,8 +191,8 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       }
       ctx.fillStyle = 'rgba(0,0,0,.05)';
       ctx.fillRect(0, 0, w, h);
-      ctx.fillStyle = '#00FF41';
-      ctx.font = '15pt Roboto Mono';
+      ctx.fillStyle = '#38BDF8';
+      ctx.font = '15pt Outfit, monospace';
 
       ypos.forEach((y, ind) => {
         const text = String.fromCharCode(Math.random() * 128);

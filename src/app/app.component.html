@@ -8,7 +8,6 @@
     <div class="nav-links">
       <a href="#sobre-mi" class="nav-link" data-translate-key="navAbout" [class.active]="activeSection === 'sobre-mi'" (click)="closeMobileMenu()">Sobre Mí</a>
       <a href="#experiencia" class="nav-link" data-translate-key="navExperience" [class.active]="activeSection === 'experiencia'" (click)="closeMobileMenu()">Experiencia</a>
-      <a href="#proyectos" class="nav-link" data-translate-key="navProjects" [class.active]="activeSection === 'proyectos'" (click)="closeMobileMenu()">Proyectos</a>
     </div>
 
     <button #langSwitcher class="lang-switcher" (click)="toggleLanguage()">{{ currentLang.toUpperCase() }}</button>
@@ -38,7 +37,6 @@
   <button #closeMenuBtn class="close-menu-btn" (click)="closeMobileMenu()" aria-label="Cerrar menú">&times;</button>
   <a href="#sobre-mi" class="mobile-nav-link" data-translate-key="navAbout" [class.active]="activeSection === 'sobre-mi'" (click)="closeMobileMenu()">Sobre Mí</a>
   <a href="#experiencia" class="mobile-nav-link" data-translate-key="navExperience" [class.active]="activeSection === 'experiencia'" (click)="closeMobileMenu()">Experiencia</a>
-  <a href="#proyectos" class="mobile-nav-link" data-translate-key="navProjects" [class.active]="activeSection === 'proyectos'" (click)="closeMobileMenu()">Proyectos</a>
 </div>
 
 <header class="hero" id="hero">
@@ -47,8 +45,7 @@
     <p class="fade-in delay-1" data-translate-key="heroRole">Senior Full-Stack .NET & Blazor Developer</p>
     <p class="hero-subtitle fade-in delay-2" data-translate-key="heroSubtitle">Transformando ideas en soluciones de
       software robustas y eficientes.</p>
-    <a href="#proyectos" class="cta-button fade-in delay-3" data-translate-key="heroButton">Ver mis proyectos</a>
-    <app-pdf-downloader />
+    <app-pdf-downloader class="fade-in delay-3" />
 
     <div class="hero-socials fade-in delay-4">
       <a href="https://www.linkedin.com/in/pmoyagarcia/" target="_blank" aria-label="LinkedIn">
@@ -168,12 +165,6 @@
           <p data-translate-key="exp4Desc"></p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="proyectos" class="proyectos-section content-section">
-    <h2 class="section-title" data-translate-key="projectsTitle">Proyectos Destacados</h2>
-    <div class="proyectos-grid">
     </div>
   </section>
 
