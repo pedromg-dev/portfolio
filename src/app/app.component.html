@@ -1,31 +1,22 @@
 <app-sidebar />
-<main>
-  <div class="fixed bottom-2 right-2 flex justify-center overflow-hidden pointer-events-none">
-    <div class="flex-none flex justify-end">
-      <picture>
-        @if(!darkModeEnabled()) {
-          <img src="assets/images/pedromg-dev-logo-1.svg" alt class="w-[20rem] lg:w-[40rem] xl:w-[50rem] flex-none max-w-none" decoding="async">
-        }
-        @else {
-          <img src="assets/images/pedromg-dev-logo-dark.svg" alt class="w-[20rem] lg:w-[40rem] xl:w-[50rem] flex-none max-w-none" decoding="async">
-        }
-      </picture>
-    </div>
+<main class="min-h-screen bg-surface text-ink dark:bg-surface-dark dark:text-ink-dark">
+  <div class="fixed bottom-4 right-4 pointer-events-none opacity-[0.04] dark:opacity-[0.06] select-none z-0">
+    <img src="assets/images/pedromg-dev-logo-1.svg" alt="" class="dark:hidden w-[18rem] lg:w-[32rem] flex-none max-w-none" decoding="async">
+    <img src="assets/images/pedromg-dev-logo-dark.svg" alt="" class="hidden dark:block w-[18rem] lg:w-[32rem] flex-none max-w-none" decoding="async">
   </div>
-  <div>
-    <div>
-      <div class="bg-blue-300 dark:bg-blue-800 h-screen flex justify-center items-center">
-        <app-main-information />
-      </div>
-      <div class="w-full">
-        <app-about-me />
-        <app-skills />
-        <app-timeline />
-        <app-projects />
-        <app-contact />
-      </div>
+
+  <div class="relative z-10">
+    <section class="min-h-[calc(100vh-5rem)] pt-24 pb-16 flex justify-center items-center border-b border-border dark:border-border-dark">
+      <app-main-information class="w-full" />
+    </section>
+
+    <div class="w-full divide-y divide-border dark:divide-border-dark">
+      <app-about-me class="block" />
+      <app-skills class="block" />
+      <app-timeline class="block" />
+      <app-projects class="block" />
+      <app-contact class="block" />
     </div>
   </div>
   <app-drawer-menu />
 </main>
-

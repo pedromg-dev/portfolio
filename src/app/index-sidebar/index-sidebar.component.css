@@ -1,3 +1,7 @@
 .pt-index-sidebar-item:hover {
-    @apply text-blue-400 dark:text-blue-100;
+    background-color: oklch(0.955 0.009 75);
+}
+
+:host-context(html.dark) .pt-index-sidebar-item:hover {
+    background-color: oklch(0.24 0.012 65);
 }

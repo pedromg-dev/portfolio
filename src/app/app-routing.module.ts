@@ -1,10 +1,23 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { inject, NgModule } from '@angular/core';
+import { CanActivateFn, Router, RouterModule, Routes } from '@angular/router';
+import { detectLang, isLang } from './i18n.service';
 
-const routes: Routes = [];
+const redirectToDetectedLang: CanActivateFn = () =>
+  inject(Router).createUrlTree(['/', detectLang()]);
+
+const validLangGuard: CanActivateFn = (route) =>
+  isLang(route.paramMap.get('lang'))
+    ? true
+    : inject(Router).createUrlTree(['/', detectLang()]);
+
+const routes: Routes = [
+  { path: '', pathMatch: 'full', canActivate: [redirectToDetectedLang], children: [] },
+  { path: ':lang', canActivate: [validLangGuard], children: [] },
+  { path: '**', canActivate: [redirectToDetectedLang], children: [] }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

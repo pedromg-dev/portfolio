@@ -1,27 +1,39 @@
-<div class="pt-theme-selector flex gap-2 items-center">
-    <div class="pt-icon-theme">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" fill="currentColor"
-                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
-        </svg>
-    </div>
-    <div class="toggleWrapper">
-        <input type="checkbox" class="dn" id="dn" (click)="switchTheme() " [checked]="inputChecked" />
-        <label for="dn" class="toggle">
-            <span class="toggle__handler">
-                <span class="crater crater--1"></span>
-                <span class="crater crater--2"></span>
-                <span class="crater crater--3"></span>
-            </span>
+<button
+  type="button"
+  (click)="switchTheme()"
+  [class.is-dark]="isDark"
+  [class.is-light]="!isDark"
+  [class.pulse-burst]="isAnimating"
+  [attr.aria-label]="isDark ? 'Switch to light theme' : 'Switch to dark theme'"
+  [attr.aria-pressed]="isDark"
+  class="theme-orb-btn min-w-[44px] min-h-[44px] relative inline-flex items-center justify-center rounded-xl border border-border dark:border-border-dark bg-surface-elevated dark:bg-surface-dark-elevated overflow-hidden">
 
-        </label>
-    </div>
-    <div class="pt-icon-theme">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" fill="currentColor"
-                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-        </svg>
-    </div>
-</div>
+  <span class="theme-glow" aria-hidden="true"></span>
+
+  <span class="icon-stage relative w-6 h-6 flex items-center justify-center" aria-hidden="true">
+    <!-- Sun Icon (Light Mode) -->
+    <svg class="sun-svg absolute inset-0 w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle class="sun-core" cx="12" cy="12" r="4.5" fill="currentColor" />
+      <g class="sun-rays" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <line x1="12" y1="2.25" x2="12" y2="4.25" />
+        <line x1="12" y1="19.75" x2="12" y2="21.75" />
+        <line x1="4.25" y1="12" x2="2.25" y2="12" />
+        <line x1="21.75" y1="12" x2="19.75" y2="12" />
+        <line x1="5.8" y1="5.8" x2="4.4" y2="4.4" />
+        <line x1="19.6" y1="19.6" x2="18.2" y2="18.2" />
+        <line x1="18.2" y1="5.8" x2="19.6" y2="4.4" />
+        <line x1="4.4" y1="19.6" x2="5.8" y2="18.2" />
+      </g>
+    </svg>
+
+    <!-- Moon & Stars Icon (Dark Mode) -->
+    <svg class="moon-svg absolute inset-0 w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        class="moon-body"
+        d="M20.2 14.4A8.2 8.2 0 0 1 9.6 3.8a8.2 8.2 0 1 0 10.6 10.6Z"
+        fill="currentColor" />
+      <circle class="moon-star star-1" cx="18.5" cy="5.5" r="1" fill="currentColor" />
+      <circle class="moon-star star-2" cx="15" cy="8.5" r="0.75" fill="currentColor" />
+    </svg>
+  </span>
+</button>

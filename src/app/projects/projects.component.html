@@ -1,18 +1,56 @@
 <app-section-with-header id="projects">
-    <div headerSection>
-        <h2>{{'MyProjects' | translate }}</h2>
-    </div>
-    <div bodySection class="lg:ml-4 lg:px-4 pt-information-block">
-        <div class="grid justify-center lg:justify-start">
-            <app-project-card projectName="{{'MyPortfolio' | translate}}" projectDescription="{{'MyPortfolioDescription' | translate}}"
-                projectImageUrl="assets/images/portfolio-image-project.png" projectRepositoryUrl="https://github.com/pedromg-dev/portfolio">
-                
-                <div class="flex gap-10 border-t mt-5 border-blue-200 items-end"  logosSection>
-					<app-tech-logo url="assets/images/Angular.png" name="Angular" />
-                    <app-tech-logo url="assets/images/Tailwind.png" name="Tailwind" />
-				</div>
-                </app-project-card>
+  <div headerSection>
+    <h2>{{'MyProjects' | translate }}</h2>
+  </div>
+  <div bodySection>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <app-project-card
+        projectName="{{'MyPortfolio' | translate}}"
+        projectDescription="{{'MyPortfolioDescription' | translate}}"
+        projectImageUrl="assets/images/portfolio-image-project.png"
+        projectRepositoryUrl="https://github.com/pedromg-dev/portfolio">
+        <div class="flex flex-wrap gap-5 border-t pt-4 mt-4 border-border dark:border-border-dark items-end" logosSection>
+          <app-tech-logo url="assets/images/Angular.png" name="Angular 17" />
+          <app-tech-logo url="assets/images/Tailwind.png" name="Tailwind" />
         </div>
+      </app-project-card>
+
+      <article class="flex flex-col justify-between h-full p-6 bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark rounded-xl transition-colors duration-200 hover:border-border-strong dark:hover:border-border-dark-strong">
+        <div class="flex flex-col gap-3">
+          <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark">
+            {{ 'ProjectN1Badge' | translate }}
+          </span>
+          <h3 class="text-xl font-semibold text-ink dark:text-ink-dark">
+            {{ 'ProjectN1Title' | translate }}
+          </h3>
+          <p class="text-sm sm:text-base text-ink-muted dark:text-ink-dark-muted leading-relaxed">
+            {{ 'ProjectN1Description' | translate }}
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-5 border-t pt-4 mt-6 border-border dark:border-border-dark items-end">
+          <app-tech-logo url="assets/images/Net-Core.png" name=".NET" customImageWidth="48" />
+          <app-tech-logo url="assets/images/Angular.png" name="Web & Mobile" />
+        </div>
+      </article>
+
+      <article class="flex flex-col justify-between h-full p-6 bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark rounded-xl transition-colors duration-200 hover:border-border-strong dark:hover:border-border-dark-strong">
+        <div class="flex flex-col gap-3">
+          <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark">
+            {{ 'ProjectFoodapetBadge' | translate }}
+          </span>
+          <h3 class="text-xl font-semibold text-ink dark:text-ink-dark">
+            {{ 'ProjectFoodapetTitle' | translate }}
+          </h3>
+          <p class="text-sm sm:text-base text-ink-muted dark:text-ink-dark-muted leading-relaxed">
+            {{ 'ProjectFoodapetDescription' | translate }}
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-5 border-t pt-4 mt-6 border-border dark:border-border-dark items-end">
+          <app-tech-logo url="assets/images/Net-Core.png" name=".NET Backend" customImageWidth="48" />
+          <app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
+          <app-tech-logo url="assets/images/HTML-icon.png" name="Ionic Hybrid" />
+        </div>
+      </article>
     </div>
-    
+  </div>
 </app-section-with-header>

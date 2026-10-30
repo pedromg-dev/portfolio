@@ -1,96 +1,186 @@
 <app-section-with-header id="work-experience">
-	<div headerSection>
-		<h2>{{ 'WorkExperience' | translate }}</h2>
-	</div>
-	<div bodySection class="md:ml-4">
-		<div>
-			<app-timeline-item title="{{ 'FullStackDeveloperInPetrofac' | translate }}"
-				dates="{{ 'Petrofac.Dates' | translate }}" description="{{ 'Petrofac.Description' | translate }}"
-				localization="{{ 'Petrofac.Localization' | translate }}"
-				>
+  <div headerSection>
+    <h2>{{ 'WorkExperience' | translate }}</h2>
+  </div>
+  <div bodySection>
+    <div class="flex flex-col">
+      <!-- 1. TUI (Dec 2024 - Present) -->
+      <app-timeline-item
+        [isCurrent]="true"
+        company="{{ 'TUI.Company' | translate }}"
+        title="{{ 'TUI.Role' | translate }}"
+        subtitle="{{ 'TUI.Subtitle' | translate }}"
+        dates="{{ 'TUI.Dates' | translate }}"
+        localization="{{ 'TUI.Localization' | translate }}">
+        <div additionalInfo>
+          <ul class="flex flex-col gap-3 mt-4 text-sm sm:text-base text-ink-muted dark:text-ink-dark-muted">
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'TUI.Bullet1.Label' | translate }}</strong>
+              {{ 'TUI.Bullet1.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'TUI.Bullet2.Label' | translate }}</strong>
+              {{ 'TUI.Bullet2.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'TUI.Bullet3.Label' | translate }}</strong>
+              {{ 'TUI.Bullet3.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'TUI.Bullet4.Label' | translate }}</strong>
+              {{ 'TUI.Bullet4.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'TUI.Bullet5.Label' | translate }}</strong>
+              {{ 'TUI.Bullet5.Text' | translate }}
+            </li>
+          </ul>
+        </div>
 
-				<div additionalInfo>
-					<ul class="space-y-1 list-disc list-inside mt-5 lg:ml-10">
-						<li class="mb-5">
-							{{ 'Petrofac.AdditionalInfo.Line1' | translate }}
-						</li>
-					</ul>
-				</div>
+        <div class="flex flex-wrap gap-6 border-t pt-4 mt-5 border-border dark:border-border-dark items-end justify-start" logosSection>
+          <app-tech-logo url="assets/images/Net-Core.png" name=".NET 10" customImageWidth="52" />
+          <app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
+          <app-tech-logo url="assets/images/Blazor.png" name="Blazor" />
+          <app-tech-logo url="assets/images/microsoft-sql-icon.png" name="SQL Server" />
+        </div>
+      </app-timeline-item>
 
-				<div class="flex flex-wrap gap-10 border-t mt-5 border-blue-200 items-end justify-center"  logosSection>
-					<app-tech-logo url="assets/images/Blazor.png" name="Blazor" />
-					<app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
-					<app-tech-logo url="assets/images/Cosmodb.png" name="CosmoDB" />
-					<app-tech-logo url="assets/images/Aspnetmvc.png" name=".NET" />
-					<app-tech-logo url="assets/images/HTML-icon.png" name="HTML" />
-					<app-tech-logo url="assets/images/CSS-icon.png" name="CSS" />
-				</div>
-			</app-timeline-item>
-			<app-timeline-item title="{{ 'FullStackDeveloperInFormelD' | translate }}"
-				dates="{{ 'FormelD.Dates' | translate }}" description="{{ 'FormelD.Description' | translate }}"
-				localization="{{ 'FormelD.Localization' | translate }}"
-				>
-				<div additionalInfo>
-					<ul class="space-y-1 list-disc list-inside mt-5 lg:ml-10">
-						<li class="mb-5">
-							{{ 'FormelD.AditionalInfo.Line1' | translate }}
-						</li>
-						<li>
-							{{ 'FormelD.AditionalInfo.Line2' | translate }}
-						</li>
-					</ul>
-				</div>
+      <!-- 2. Petrofac (Oct 2022 - Dec 2024) -->
+      <app-timeline-item
+        company="{{ 'Petrofac.Company' | translate }}"
+        title="{{ 'FullStackDeveloperInPetrofac' | translate }}"
+        subtitle="{{ 'Petrofac.Subtitle' | translate }}"
+        dates="{{ 'Petrofac.Dates' | translate }}"
+        localization="{{ 'Petrofac.Localization' | translate }}">
+        <div additionalInfo>
+          <ul class="flex flex-col gap-3 mt-4 text-sm sm:text-base text-ink-muted dark:text-ink-dark-muted">
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'Petrofac.Bullet1.Label' | translate }}</strong>
+              {{ 'Petrofac.Bullet1.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'Petrofac.Bullet2.Label' | translate }}</strong>
+              {{ 'Petrofac.Bullet2.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'Petrofac.Bullet3.Label' | translate }}</strong>
+              {{ 'Petrofac.Bullet3.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'Petrofac.Bullet4.Label' | translate }}</strong>
+              {{ 'Petrofac.Bullet4.Text' | translate }}
+            </li>
+          </ul>
+        </div>
 
-				<div class="flex flex-wrap gap-10 border-t mt-5 border-blue-200 items-end justify-center" logosSection>
-					<app-tech-logo url="assets/images/Angular.png" name="Angular" />
-					<app-tech-logo url="assets/images/Net-Core.png" name=".NET Core" customImageWidth="65" />
-					<app-tech-logo url="assets/images/Xamarin.png" name="Xamarin" />
-					<app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
-					<app-tech-logo url="assets/images/microsoft-sql-icon.png" name="SQL Server" />
-					<app-tech-logo url="assets/images/HTML-icon.png" name="HTML" />
-					<app-tech-logo url="assets/images/CSS-icon.png" name="CSS" />
-				</div>
-			</app-timeline-item>
+        <div class="flex flex-wrap gap-6 border-t pt-4 mt-5 border-border dark:border-border-dark items-end justify-start" logosSection>
+          <app-tech-logo url="assets/images/Net-Core.png" name=".NET 8" customImageWidth="52" />
+          <app-tech-logo url="assets/images/Blazor.png" name="Blazor Server" />
+          <app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
+          <app-tech-logo url="assets/images/Cosmodb.png" name="CosmosDB" />
+          <app-tech-logo url="assets/images/HTML-icon.png" name="HTML5" />
+          <app-tech-logo url="assets/images/CSS-icon.png" name="CSS3" />
+        </div>
+      </app-timeline-item>
 
-			<app-timeline-item title="{{ 'FullStackDeveloperInGTT' | translate }}"
-				dates="{{ 'GTT.Dates' | translate }}" description="{{ 'GTT.Description' | translate }}"
-				localization="{{ 'GTT.Localization' | translate }}"
-				>
-				<div additionalInfo>
-					<ul class="space-y-1 list-disc list-inside mt-5 lg:ml-10">
-						<li>
-							{{ 'GTT.AditionalInfo.Line1' | translate }}
-						</li>
-					</ul>
-				</div>
+      <!-- 3. Formel D Group (Oct 2021 - Oct 2022) -->
+      <app-timeline-item
+        company="{{ 'FormelD.Company' | translate }}"
+        title="{{ 'FullStackDeveloperInFormelD' | translate }}"
+        subtitle="{{ 'FormelD.Subtitle' | translate }}"
+        dates="{{ 'FormelD.Dates' | translate }}"
+        localization="{{ 'FormelD.Localization' | translate }}">
+        <div additionalInfo>
+          <ul class="flex flex-col gap-3 mt-4 text-sm sm:text-base text-ink-muted dark:text-ink-dark-muted">
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'FormelD.Bullet1.Label' | translate }}</strong>
+              {{ 'FormelD.Bullet1.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'FormelD.Bullet2.Label' | translate }}</strong>
+              {{ 'FormelD.Bullet2.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'FormelD.Bullet3.Label' | translate }}</strong>
+              {{ 'FormelD.Bullet3.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'FormelD.Bullet4.Label' | translate }}</strong>
+              {{ 'FormelD.Bullet4.Text' | translate }}
+            </li>
+          </ul>
+        </div>
 
-				<div class="flex flex-wrap gap-10 border-t mt-5 border-blue-200 items-end justify-center" logosSection>
-					<app-tech-logo url="assets/images/Aspnetmvc.png" name=".NET MVC" />
-					<app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
-					<app-tech-logo url="assets/images/HTML-icon.png" name="HTML" />
-					<app-tech-logo url="assets/images/CSS-icon.png" name="CSS" />
-				</div>
-			</app-timeline-item>
+        <div class="flex flex-wrap gap-6 border-t pt-4 mt-5 border-border dark:border-border-dark items-end justify-start" logosSection>
+          <app-tech-logo url="assets/images/Angular.png" name="Angular 13" />
+          <app-tech-logo url="assets/images/Net-Core.png" name=".NET Core 6" customImageWidth="52" />
+          <app-tech-logo url="assets/images/Xamarin.png" name="Xamarin" />
+          <app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
+          <app-tech-logo url="assets/images/microsoft-sql-icon.png" name="SQL Server" />
+        </div>
+      </app-timeline-item>
 
-			<app-timeline-item title="{{ 'FullStackDeveloperInActio' | translate }}"
-				dates="{{ 'Actio.Dates' | translate }}" description="{{ 'Actio.Description' | translate }}"
-				localization="{{ 'Actio.Localization' | translate }}"
-				>
-				<div additionalInfo>
-					<ul class="space-y-1 list-disc list-inside mt-5 lg:ml-10">
-						<li>
-							{{ 'Actio.AditionalInfo.Line1' | translate }}
-						</li>
-					</ul>
-				</div>
+      <!-- 4. GTT (Sep 2020 - Oct 2021) -->
+      <app-timeline-item
+        company="{{ 'GTT.Company' | translate }}"
+        title="{{ 'FullStackDeveloperInGTT' | translate }}"
+        subtitle="{{ 'GTT.Subtitle' | translate }}"
+        dates="{{ 'GTT.Dates' | translate }}"
+        localization="{{ 'GTT.Localization' | translate }}">
+        <div additionalInfo>
+          <ul class="flex flex-col gap-3 mt-4 text-sm sm:text-base text-ink-muted dark:text-ink-dark-muted">
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'GTT.Bullet1.Label' | translate }}</strong>
+              {{ 'GTT.Bullet1.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'GTT.Bullet2.Label' | translate }}</strong>
+              {{ 'GTT.Bullet2.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'GTT.Bullet3.Label' | translate }}</strong>
+              {{ 'GTT.Bullet3.Text' | translate }}
+            </li>
+          </ul>
+        </div>
 
-				<div class="flex flex-wrap gap-10 border-t mt-5 border-blue-200 items-end justify-center" logosSection>
-					<app-tech-logo url="assets/images/Angular.png" name="Angular" />
-					<app-tech-logo url="assets/images/microsoft-sql-icon.png" name="SQL Server" />
-					<app-tech-logo url="assets/images/HTML-icon.png" name="HTML" />
-					<app-tech-logo url="assets/images/CSS-icon.png" name="CSS" />
-				</div>
-			</app-timeline-item>
-		</div>
-	</div>
+        <div class="flex flex-wrap gap-6 border-t pt-4 mt-5 border-border dark:border-border-dark items-end justify-start" logosSection>
+          <app-tech-logo url="assets/images/Aspnetmvc.png" name="ASP.NET MVC" />
+          <app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
+          <app-tech-logo url="assets/images/HTML-icon.png" name="HTML5" />
+          <app-tech-logo url="assets/images/CSS-icon.png" name="CSS3" />
+        </div>
+      </app-timeline-item>
+
+      <!-- 5. ACTIO (Sep 2018 - Feb 2019) -->
+      <app-timeline-item
+        [isLast]="true"
+        company="{{ 'Actio.Company' | translate }}"
+        title="{{ 'FullStackDeveloperInActio' | translate }}"
+        subtitle="{{ 'Actio.Subtitle' | translate }}"
+        dates="{{ 'Actio.Dates' | translate }}"
+        localization="{{ 'Actio.Localization' | translate }}">
+        <div additionalInfo>
+          <ul class="flex flex-col gap-3 mt-4 text-sm sm:text-base text-ink-muted dark:text-ink-dark-muted">
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'Actio.Bullet1.Label' | translate }}</strong>
+              {{ 'Actio.Bullet1.Text' | translate }}
+            </li>
+            <li class="leading-relaxed">
+              <strong class="font-semibold text-ink dark:text-ink-dark">{{ 'Actio.Bullet2.Label' | translate }}</strong>
+              {{ 'Actio.Bullet2.Text' | translate }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-wrap gap-6 border-t pt-4 mt-5 border-border dark:border-border-dark items-end justify-start" logosSection>
+          <app-tech-logo url="assets/images/Angular.png" name="Angular" />
+          <app-tech-logo url="assets/images/C-Sharp.png" name="C#" />
+          <app-tech-logo url="assets/images/microsoft-sql-icon.png" name="SQL Server" />
+          <app-tech-logo url="assets/images/HTML-icon.png" name="HTML5" />
+          <app-tech-logo url="assets/images/CSS-icon.png" name="CSS3" />
+        </div>
+      </app-timeline-item>
+    </div>
+  </div>
 </app-section-with-header>
