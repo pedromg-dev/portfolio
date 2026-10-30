@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { Inject } from '@angular/core';
-import { TranslateService } from "@ngx-translate/core";
+import { I18nService } from '../../i18n.service';
 
 @Component({
   selector: 'app-language-selector',
@@ -9,15 +7,13 @@ import { TranslateService } from "@ngx-translate/core";
   styleUrl: './language-selector.component.css'
 })
 export class LanguageSelectorComponent {
+  constructor(private i18n: I18nService) {}
 
-    isEnglish: boolean = false;
-  
-    constructor(public translate: TranslateService, @Inject(DOCUMENT) private document: Document) {
-      this.isEnglish = this.translate.currentLang == "es" ? false : true;
-    }
-  
-    changeLanguage(): void {
-      this.translate.use(this.translate.currentLang == "es" ? 'en' : 'es');
-      this.isEnglish = !this.isEnglish;
-    }
+  get isEnglish(): boolean {
+    return this.i18n.currentLang === 'en';
   }
+
+  changeLanguage(): void {
+    this.i18n.switchTo(this.isEnglish ? 'es' : 'en');
+  }
+}

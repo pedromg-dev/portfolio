@@ -1,1 +1,8 @@
-/* styles moved to home component */
+main {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+.container {
+  flex: 1;
+}

@@ -1,32 +1,86 @@
 <app-section-with-header id="skills">
-    <div headerSection>
-        <h2>{{'TechnicalSkills' | translate }}</h2>
+  <div headerSection>
+    <h2>{{'TechnicalSkills' | translate }}</h2>
+  </div>
+  <div bodySection class="flex flex-col gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="p-5 rounded-xl bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark flex flex-col gap-3">
+        <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark">{{ 'Skills.Backend.Title' | translate }}</span>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">C#</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">.NET 10</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">.NET 8</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">.NET Core 6</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">ASP.NET Core</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">ASP.NET MVC</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">RESTful &amp; Minimal APIs</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Microservices</span>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-xl bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark flex flex-col gap-3">
+        <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark">{{ 'Skills.Architecture.Title' | translate }}</span>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Clean Architecture</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">CQRS</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">MediatR</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">SOLID Principles</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Domain-Driven Design (DDD)</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Dependency Injection</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">ERP Modernization</span>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-xl bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark flex flex-col gap-3">
+        <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark">{{ 'Skills.Frontend.Title' | translate }}</span>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Blazor (Server &amp; WASM)</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Angular (SPA)</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">TypeScript</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">JavaScript (ES6+)</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">HTML5 &amp; CSS3</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Tailwind &amp; Bootstrap</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Xamarin &amp; Ionic</span>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-xl bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark flex flex-col gap-3">
+        <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark">{{ 'Skills.Data.Title' | translate }}</span>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">SQL Server (T-SQL)</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Oracle (PL/SQL)</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Azure CosmosDB (NoSQL)</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Entity Framework Core</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Dapper ORM</span>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-xl bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark flex flex-col gap-3">
+        <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark">{{ 'Skills.Cloud.Title' | translate }}</span>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Microsoft Azure</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">AWS</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">TeamCity</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Octopus Deploy</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Zero-Downtime CI/CD</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">IIS &amp; Git</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Agile / Scrum</span>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-xl bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark flex flex-col gap-3">
+        <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark">{{ 'Skills.Testing.Title' | translate }}</span>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">xUnit</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Unit &amp; Integration Testing</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Performance Profiling</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Query Optimization</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Legacy Code Refactoring</span>
+          <span class="px-2.5 py-1 text-xs sm:text-sm font-medium rounded-md bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark border border-border dark:border-border-dark">Code Reviews</span>
+        </div>
+      </div>
     </div>
-    <div bodySection class="lg:ml-4 lg:px-4 pt-information-block ">
 
-        <app-tech-slider />
-
-        <div class="mb-1 text-base font-medium text-blue-700 dark:text-blue-400">.NET</div>
-        <div class="w-full bg-gray-200 rounded-full h-3.5 mb-4 dark:bg-gray-700">
-            <div class="bg-blue-700 h-3.5 rounded-full dark:bg-blue-400" style="width: 95%"></div>
-        </div>
-        <div class="mb-1 text-base font-medium text-blue-700 dark:text-blue-400">Angular</div>
-        <div class="w-full bg-gray-200 rounded-full h-3.5 mb-4 dark:bg-gray-700">
-            <div class="bg-blue-700 h-3.5 rounded-full dark:bg-blue-400" style="width: 90%"></div>
-        </div>
-        <div class="mb-1 text-base font-medium text-blue-700 dark:text-blue-400">HTML</div>
-        <div class="w-full bg-gray-200 rounded-full h-3.5 mb-4 dark:bg-gray-700">
-            <div class="bg-blue-700 h-3.5 rounded-full dark:bg-blue-400" style="width: 95%"></div>
-        </div>
-        <div class="mb-1 text-base font-medium text-blue-700 dark:text-blue-400">C#</div>
-        <div class="w-full bg-gray-200 rounded-full h-3.5 mb-4 dark:bg-gray-700">
-            <div class="bg-blue-700 h-3.5 rounded-full dark:bg-blue-400" style="width: 95%"></div>
-        </div>
-        <div class="mb-1 text-base font-medium text-blue-700 dark:text-blue-400">Javascript</div>
-        <div class="w-full bg-gray-200 rounded-full h-3.5 mb-4 dark:bg-gray-700">
-            <div class="bg-blue-700 h-3.5 rounded-full dark:bg-blue-400" style="width: 95%"></div>
-        </div> 
-
-        
-    </div>
-<app-tech-slider /> 
+    <app-tech-slider />
+  </div>
+</app-section-with-header>

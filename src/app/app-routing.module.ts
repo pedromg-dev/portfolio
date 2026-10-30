@@ -1,16 +1,23 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { inject, NgModule } from '@angular/core';
+import { CanActivateFn, Router, RouterModule, Routes } from '@angular/router';
+import { detectLang, isLang } from './i18n.service';
+
+const redirectToDetectedLang: CanActivateFn = () =>
+  inject(Router).createUrlTree(['/', detectLang()]);
+
+const validLangGuard: CanActivateFn = (route) =>
+  isLang(route.paramMap.get('lang'))
+    ? true
+    : inject(Router).createUrlTree(['/', detectLang()]);
 
 const routes: Routes = [
-  { path: 'es', component: HomeComponent },
-  { path: 'en', component: HomeComponent },
-  { path: '', redirectTo: '/es', pathMatch: 'full' },
-  { path: '**', redirectTo: '/es' }
+  { path: '', pathMatch: 'full', canActivate: [redirectToDetectedLang], children: [] },
+  { path: ':lang', canActivate: [validLangGuard], children: [] },
+  { path: '**', canActivate: [redirectToDetectedLang], children: [] }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

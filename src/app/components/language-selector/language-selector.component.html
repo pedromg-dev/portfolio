@@ -1,19 +1,14 @@
-<div class="flex w-24">
-    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-        class="text-blue-700 dark:text-blue-100 hover:text-blue-900 dark:hover:text-blue-200"
-        type="button" (click)="changeLanguage()">
-
-        @if(this.isEnglish) {
-        <div class="flex items-center gap-2">
-            <img src="assets/images/spanish-flag-icon.png" alt="Spanish" class="w-5" />
-            <span>Español</span>
-        </div>
-        }
-        @else {
-        <div class="flex items-center gap-2">
-            <img src="assets/images/united-kingdom-flag-icon.png" alt="English" class="w-5" />
-            <span>English</span>
-        </div>
-        }
-    </button>
+<div class="flex">
+  <button id="dropdownDefaultButton"
+    class="min-h-[44px] px-3 rounded-lg inline-flex items-center gap-2 text-sm font-medium text-ink-muted dark:text-ink-dark-muted hover:text-ink dark:hover:text-ink-dark hover:bg-surface-elevated dark:hover:bg-surface-dark-elevated transition-colors"
+    type="button" (click)="changeLanguage()">
+    @if(this.isEnglish) {
+      <img src="assets/images/spanish-flag-icon.png" alt="Español" class="w-4 h-4 object-contain" />
+      <span>ES</span>
+    }
+    @else {
+      <img src="assets/images/united-kingdom-flag-icon.png" alt="English" class="w-4 h-4 object-contain" />
+      <span>EN</span>
+    }
+  </button>
 </div>

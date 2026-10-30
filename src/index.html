@@ -3,67 +3,93 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Pedro Antonio Moya García | Desarrollador Web Alicante</title>
+    <script>
+        try {
+            var t = localStorage.getItem('theme');
+            if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        } catch (e) { }
+    </script>
+    <title>Pedro Antonio Moya García — Senior Full-Stack .NET & Angular Developer | C# & .NET 10</title>
     <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Pedro Antonio Moya García, Desarrollador Web en Alicante. Experto Full-Stack en .NET, Blazor, Angular y creación de soluciones de software eficientes.">
-    <meta name="keywords" content="pedro antonio moya garcia, desarrollador web alicante, web developer alicante, .net developer alicante, full-stack developer, .net, blazor, c#, angular, portfolio, software developer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Senior Full-Stack .NET Developer with over 6+ years of international experience (Netherlands, Germany, Spain) in C#, .NET 10, Clean Architecture, CQRS, Blazor, Angular, Azure & AWS.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f9f6f0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#110f0d" media="(prefers-color-scheme: dark)">
+
     <meta name="author" content="Pedro Antonio Moya García">
     <meta name="google-site-verification" content="SE9SvS0Ro2lmfszxWQnQWf8mzdmgyLoHxMb_zfG-uZ0" />
-    <link rel="canonical" href="https://www.pedromg.dev/">
-    <link rel="alternate" hreflang="es" href="https://www.pedromg.dev/" />
-    <link rel="alternate" hreflang="en" href="https://www.pedromg.dev/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.pedromg.dev/" />
-    
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    
-    <link rel="icon" href="favicon.ico">
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.pedromg.dev/">
-    <meta property="og:title" content="Pedro Moya García | Senior Full-Stack .NET & Blazor Developer in Alicante">
-    <meta property="og:description" content="Portfolio of Pedro Antonio Moya García, a Full-Stack .NET and Blazor software developer based in Alicante.">
-    <meta property="og:image" content="https://www.pedromg.dev/assets/images/my-profile-picture.png">
+    <link rel="canonical" href="https://www.pedromg.dev/en" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.pedromg.dev/">
-    <meta property="twitter:title" content="Pedro Moya García | Senior Full-Stack .NET & Blazor Developer in Alicante">
-    <meta property="twitter:description" content="Portfolio of Pedro Antonio Moya García, a Full-Stack .NET and Blazor software developer based in Alicante.">
-    <meta property="twitter:image" content="https://www.pedromg.dev/assets/images/my-profile-picture.png">
+    <link rel="alternate" hreflang="es" href="https://www.pedromg.dev/es" />
+    <link rel="alternate" hreflang="en" href="https://www.pedromg.dev/en" />
+    <link rel="alternate" hreflang="x-default" href="https://www.pedromg.dev/" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Pedro Antonio Moya García — Senior Full-Stack .NET Developer" />
+    <meta property="og:title" content="Pedro Antonio Moya García — Senior Full-Stack .NET Developer | C# & .NET 10" />
+    <meta property="og:description" content="Senior Full-Stack .NET Developer with 6+ years of international experience (NL, DE, ES) specializing in C#, .NET 10, Microservices, Clean Architecture, Blazor & Angular." />
+    <meta property="og:url" content="https://www.pedromg.dev/" />
+    <meta property="og:image" content="https://www.pedromg.dev/assets/images/portfolio-image-project.png" />
+    <meta property="og:image:alt" content="Pedro Antonio Moya García — Senior Full-Stack .NET & Angular Developer Portfolio" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pedro Antonio Moya García — Senior Full-Stack .NET Developer" />
+    <meta name="twitter:description" content="Senior Full-Stack .NET Developer (6+ years across NL, DE & ES) specializing in .NET 10, Clean Architecture, Blazor & Angular." />
+    <meta name="twitter:image" content="https://www.pedromg.dev/assets/images/portfolio-image-project.png" />
+    <meta name="twitter:image:alt" content="Pedro Antonio Moya García — Portfolio" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Structured Data (Schema.org) -->
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfilePage",
-      "mainEntity": {
-        "@type": "Person",
-        "name": "Pedro Antonio Moya García",
-        "alternateName": "Pedro Moya García",
-        "jobTitle": "Senior Full-Stack .NET & Blazor Developer",
-        "knowsAbout": ["C#", ".NET", "Blazor", "Angular", "Azure", "SQL", "JavaScript", "Software Development"],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Alicante",
-          "addressCountry": "ES"
-        },
-        "url": "https://www.pedromg.dev/",
-        "image": "https://www.pedromg.dev/assets/images/my-profile-picture.png",
-        "sameAs": [
-          "#",
-          "#"
-        ]
-      }
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Pedro Antonio Moya García",
+            "url": "https://www.pedromg.dev/",
+            "image": "https://www.pedromg.dev/assets/images/my-profile-picture.png",
+            "sameAs": [
+                "https://www.linkedin.com/in/pmoyagarcia/",
+                "https://github.com/pedromg-dev"
+            ],
+            "jobTitle": "Senior Full-Stack .NET Developer",
+            "alumniOf": [
+                {
+                    "@type": "CollegeOrUniversity",
+                    "name": "University of Alicante"
+                },
+                {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Gdańsk University of Technology"
+                }
+            ],
+            "knowsLanguage": ["es", "en"],
+            "knowsAbout": [".NET 10", ".NET 8", "C#", "Software Architecture", "Clean Architecture", "CQRS", "MediatR", "Microservices", "Blazor", "Angular", "SQL Server", "Oracle PL/SQL", "Azure CosmosDB", "Microsoft Azure", "AWS", "TeamCity", "Octopus Deploy"],
+            "worksFor": {
+                "@type": "Organization",
+                "name": "TUI"
+            },
+            "description": "Senior Full-Stack .NET Developer with over 6+ years of international experience (Netherlands, Germany, Spain) designing, modernizing, and scaling enterprise-grade, microservices-oriented solutions.",
+            "gender": "https://schema.org/Male",
+            "birthPlace": {
+                "@type": "Place",
+                "name": "Alicante, Spain"
+            },
+            "nationality": "Spanish"
+        }
     </script>
 </head>
 
-<body>
+<body class="antialiased leading-relaxed font-sans bg-surface text-ink dark:bg-surface-dark dark:text-ink-dark transition-colors duration-300">
     <app-root></app-root>
 </body>
 

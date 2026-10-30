@@ -1,101 +1,121 @@
-.toggleWrapper input {
-    position: absolute;
-    left: -99em;
-}
-.toggle {
+.theme-orb-btn {
     cursor: pointer;
-    display: inline-block;
-    position: relative;
-    width: 71px;
-    height: 32px; 
-    border-radius: 84px;
-    transition: background-color 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-    @apply bg-blue-300 dark:bg-blue-700;
+    transition: border-color 250ms ease, background-color 250ms ease, transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.toggle__handler {
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    top: 3px;
-    left: 3px;
-    width: 25px;
-    height: 25px;
-    background-color: #ffcf96;
-    border-radius: 50px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
-    transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transform: rotate(-45deg);
+.theme-orb-btn:hover {
+    border-color: oklch(0.50 0.14 42);
+    transform: translateY(-1px);
 }
-.toggle__handler .crater {
+
+:host-context(html.dark) .theme-orb-btn:hover {
+    border-color: oklch(0.74 0.14 42);
+}
+
+.theme-orb-btn:active {
+    transform: scale(0.93);
+}
+
+/* Ambient halo inside button */
+.theme-glow {
     position: absolute;
-    background-color: #e8cda5;
+    inset: 0;
+    border-radius: inherit;
     opacity: 0;
-    transition: opacity 200ms ease-in-out;
-    border-radius: 100%;
-}
-.toggle__handler .crater--1 {
-    top: 18px;
-    left: 6px;
-    width: 4px;
-    height: 4px;
-}
-.toggle__handler .crater--2 {
-    top: 16px;
-    left: 15px;
-    width: 6px;
-    height: 6px;
-}
-.toggle__handler .crater--3 {
-    top: 7px;
-    left: 13px;
-    width: 5px;
-    height: 5px;
-}
-input:checked + .toggle {
-    @apply bg-blue-100 dark:bg-blue-600;
-}
-input:checked + .toggle:before {
-    color: #749ed7;
-}
-input:checked + .toggle:after {
-    color: #fff;
-}
-input:checked + .toggle .toggle__handler {
-    background-color: #ffe5b5;
-    transform: translate3d(40px, 0, 0) rotate(0);
-}
-input:checked + .toggle .toggle__handler .crater {
-    opacity: 1;
-}
-input:checked + .toggle .star--1 {
-    width: 2px;
-    height: 2px;
-}
-input:checked + .toggle .star--2 {
-    width: 4px;
-    height: 4px;
-    transform: translate3d(-5px, 0, 0);
-}
-input:checked + .toggle .star--3 {
-    width: 2px;
-    height: 2px;
-    transform: translate3d(-7px, 0, 0);
-}
-input:checked + .toggle .star--4, input:checked + .toggle .star--5, input:checked + .toggle .star--6 {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-}
-input:checked + .toggle .star--4 {
-    transition: all 300ms 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-}
-input:checked + .toggle .star--5 {
-    transition: all 300ms 300ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
-}
-input:checked + .toggle .star--6 {
-    transition: all 300ms 400ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    transition: opacity 300ms ease, transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
 }
 
-.pt-icon-theme {
-    @apply text-blue-700 dark:text-blue-300 ;
+.theme-orb-btn.is-light .theme-glow {
+    background: radial-gradient(circle at center, oklch(0.75 0.14 65 / 0.22) 0%, transparent 72%);
+}
+
+.theme-orb-btn.is-dark .theme-glow {
+    background: radial-gradient(circle at center, oklch(0.74 0.14 42 / 0.25) 0%, transparent 72%);
+}
+
+.theme-orb-btn:hover .theme-glow {
+    opacity: 1;
+}
+
+.theme-orb-btn.pulse-burst .theme-glow {
+    opacity: 1;
+    transform: scale(1.35);
+}
+
+/* Sun states & animations */
+.sun-svg {
+    color: oklch(0.52 0.15 48);
+    transition: transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 320ms ease;
+    transform-origin: center;
+}
+
+.sun-rays {
+    transform-origin: center;
+    transition: transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 280ms ease;
+}
+
+.theme-orb-btn.is-light .sun-svg {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.theme-orb-btn.is-light:hover .sun-rays {
+    transform: rotate(45deg) scale(1.06);
+}
+
+.theme-orb-btn.is-dark .sun-svg {
+    opacity: 0;
+    transform: rotate(110deg) scale(0.25);
+    pointer-events: none;
+}
+
+.theme-orb-btn.is-dark .sun-rays {
+    opacity: 0;
+    transform: scale(0.4);
+}
+
+/* Moon & stars states & animations */
+.moon-svg {
+    color: oklch(0.76 0.14 42);
+    transition: transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 320ms ease;
+    transform-origin: center;
+}
+
+.moon-star {
+    transform-origin: center;
+    transition: transform 450ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 350ms ease;
+}
+
+.star-1 {
+    transition-delay: 80ms;
+}
+
+.star-2 {
+    transition-delay: 150ms;
+}
+
+.theme-orb-btn.is-light .moon-svg {
+    opacity: 0;
+    transform: rotate(-110deg) scale(0.25);
+    pointer-events: none;
+}
+
+.theme-orb-btn.is-light .moon-star {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.theme-orb-btn.is-dark .moon-svg {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.theme-orb-btn.is-dark:hover .moon-svg {
+    transform: rotate(-12deg) scale(1.05);
+}
+
+.theme-orb-btn.is-dark .moon-star {
+    opacity: 1;
+    transform: scale(1);
 }

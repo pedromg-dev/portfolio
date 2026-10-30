@@ -1,10 +1,40 @@
 <app-section-with-header id="about-me">
-    <div headerSection >
-        <h2>{{'AboutMe' | translate }}</h2>
+  <div headerSection>
+    <h2>{{'AboutMe' | translate }}</h2>
+  </div>
+  <div bodySection class="flex flex-col gap-8">
+    <div class="flex flex-col gap-4 text-base sm:text-lg leading-relaxed text-ink-muted dark:text-ink-dark-muted">
+      <p>{{ 'AboutMeContentLine1' | translate }}</p>
+      <p>{{ 'AboutMeContentLine2' | translate }}</p>
     </div>
-    <div bodySection class="lg:ml-4 lg:px-4 pt-information-block">
-        <p>{{ 'AboutMeContentLine1' | translate }}</p>
-        <br />
-        <p>{{ 'AboutMeContentLine2' | translate }}</p>
+
+    <div class="pt-6 border-t border-border dark:border-border-dark flex flex-col gap-4">
+      <h3 class="font-mono text-xs uppercase tracking-widest text-accent dark:text-accent-dark">
+        {{ 'EducationTitle' | translate }}
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-5 rounded-xl bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark flex flex-col justify-between gap-2">
+          <div class="flex items-baseline justify-between gap-3">
+            <span class="font-semibold text-base text-ink dark:text-ink-dark">{{ 'EducationUA.Degree' | translate }}</span>
+            <span class="font-mono text-xs text-accent dark:text-accent-dark shrink-0">{{ 'EducationUA.Dates' | translate }}</span>
+          </div>
+          <span class="text-sm text-ink-muted dark:text-ink-dark-muted">{{ 'EducationUA.School' | translate }}</span>
+        </div>
+
+        <div class="p-5 rounded-xl bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark flex flex-col justify-between gap-2">
+          <div class="flex items-baseline justify-between gap-3">
+            <span class="font-semibold text-base text-ink dark:text-ink-dark">{{ 'EducationErasmus.Degree' | translate }}</span>
+            <span class="font-mono text-xs text-accent dark:text-accent-dark shrink-0">{{ 'EducationErasmus.Dates' | translate }}</span>
+          </div>
+          <span class="text-sm text-ink-muted dark:text-ink-dark-muted">{{ 'EducationErasmus.School' | translate }}</span>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm">
+        <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark shrink-0">{{ 'LanguagesLabel' | translate }}</span>
+        <span class="text-ink-muted dark:text-ink-dark-muted">{{ 'LanguagesValue' | translate }}</span>
+      </div>
     </div>
+  </div>
 </app-section-with-header>

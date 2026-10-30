@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-theme-switch',
@@ -8,30 +7,52 @@ import { Inject } from '@angular/core';
   styleUrl: './theme-switch.component.css'
 })
 export class ThemeSwitchComponent {
-  inputChecked : boolean = false;
+  isAnimating: boolean = false;
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
-    if (this.document.documentElement.classList.contains('dark')) {
-      this.inputChecked = true;
-    }
+  constructor(@Inject(DOCUMENT) private document: Document) {}
+
+  get isDark(): boolean {
+    return this.document.documentElement.classList.contains('dark');
   }
 
+  get inputChecked(): boolean {
+    return this.isDark;
+  }
 
-  switchTheme() {
-    localStorage.removeItem('theme');
+  switchTheme(): void {
+    this.isAnimating = true;
+    setTimeout(() => {
+      this.isAnimating = false;
+    }, 550);
 
-    if (this.document.documentElement.classList.contains('dark')) {
-      this.document.documentElement.classList.remove('dark');
-      this.document.documentElement.classList.add('light');
-      document.body.classList.remove('dark')
-      document.body.classList.add('light')
-      localStorage['theme'] = 'light';
+    const root = this.document.documentElement;
+    const body = this.document.body;
+    const nextIsDark = !this.isDark;
+
+    const applyTheme = () => {
+      if (nextIsDark) {
+        root.classList.remove('light');
+        root.classList.add('dark');
+        body.classList.remove('light');
+        body.classList.add('dark');
+        localStorage['theme'] = 'dark';
+      } else {
+        root.classList.remove('dark');
+        root.classList.add('light');
+        body.classList.remove('dark');
+        body.classList.add('light');
+        localStorage['theme'] = 'light';
+      }
+    };
+
+    const docWithTransition = this.document as Document & {
+      startViewTransition?: (callback: () => void) => void;
+    };
+
+    if (docWithTransition.startViewTransition) {
+      docWithTransition.startViewTransition(() => applyTheme());
     } else {
-      this.document.documentElement.classList.remove('light');
-      this.document.documentElement.classList.add('dark');
-      document.body.classList.remove('light')
-      document.body.classList.add('dark')
-      localStorage['theme'] = 'dark';
+      applyTheme();
     }
   }
 }

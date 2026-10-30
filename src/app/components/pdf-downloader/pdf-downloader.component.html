@@ -1,6 +1,10 @@
-<div class="flex mt-10 lg:mt-3">
-    <a (click)="downloadPdf()" class="cta-button fade-in delay-3">
-        <i class="fas fa-download me-2"></i>
-        <span data-translate-key="downloadCV" style="margin-left: 0.5rem;">Descargar CV</span>
-    </a>
+<div class="flex">
+  <button type="button"
+    class="pt-button min-h-[44px] inline-flex items-center gap-2.5 bg-ink text-surface hover:bg-accent dark:bg-ink-dark dark:text-surface-dark dark:hover:bg-accent-dark px-5 py-2.5 rounded-lg text-sm font-medium transition-colors"
+    (click)="downloadPdf()">
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+    </svg>
+    <span>{{'DownloadCV' | translate}}</span>
+  </button>
 </div>

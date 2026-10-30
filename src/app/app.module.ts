@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,7 +31,6 @@ import { SkillsComponent } from './skills/skills.component';
 import { SkillCardComponent } from './components/skill-card/skill-card.component';
 import { TimelineItemLeftComponent } from './components/timeline-item-left/timeline-item-left.component';
 import { TechSliderComponent } from './components/tech-slider/tech-slider.component';
-import { HomeComponent } from './home/home.component';
 
 //Use this route in hosting (Production)
 // export function HttpLoaderFactory(http: HttpClient) {
@@ -67,7 +66,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SkillCardComponent,
     TimelineItemLeftComponent,
     TechSliderComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +81,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       }
     })
   ],
-  providers: [],
+  providers: [provideClientHydration()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,21 +1,16 @@
-<section id="{{this.id}}" class="pt-section">
-	<div class="container max-w-5xl px-5 md:px-4 py-12 mx-auto" data-aos="fade-left"
-	data-aos-offset="500"
-	data-aos-duration="500"
-	>
-		<div class="gap-4 lg:grid-cols-12 pt-10">
-			<div>
-				<div class="text-center lg:text-left mb-14 before:block before:w-24 before:h-3 before:mb-5 before:rounded-md before:mx-auto lg:before:mx-0">
-					<h3 class="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-blue-900 dark:from-blue-100 dark:to-blue-400">
-                    <ng-content select="[headerSection]"></ng-content>
-                    </h3>
-				</div>
-			</div>
-			<div>
-				<div class="pt-about-me-body">
-                    <ng-content select="[bodySection]"></ng-content>
-                </div>
-			</div>
-		</div>
-	</div>
+<section id="{{this.id}}" class="py-16 lg:py-24">
+  <div class="container max-w-5xl px-5 md:px-6 mx-auto" data-aos="fade-up" data-aos-offset="100" data-aos-duration="450">
+    <div class="flex flex-col gap-10">
+      <div class="flex flex-col items-start gap-3">
+        <span class="w-10 h-0.5 bg-accent dark:bg-accent-dark rounded-full"></span>
+        <div class="text-2xl sm:text-3xl font-bold tracking-tight text-ink dark:text-ink-dark">
+          <ng-content select="[headerSection]"></ng-content>
+        </div>
+      </div>
+
+      <div class="min-w-0">
+        <ng-content select="[bodySection]"></ng-content>
+      </div>
+    </div>
+  </div>
 </section>
