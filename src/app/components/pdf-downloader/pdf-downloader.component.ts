@@ -28,6 +28,7 @@ export class PdfDownloaderComponent {
         a.href = url;
         a.download = documentName;
         a.click();
+        window.URL.revokeObjectURL(url);
       })
       .catch((error) => console.error(error));
   }
