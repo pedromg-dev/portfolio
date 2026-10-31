@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
-import { GlobalService } from '../global.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { firstValueFrom } from 'rxjs';
 
@@ -41,7 +40,6 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private globalService: GlobalService,
     private http: HttpClient,
     public translate: TranslateService,
     private cdr: ChangeDetectorRef
@@ -119,31 +117,10 @@ export class ContactComponent implements OnInit {
     };
 
     try {
-      try {
-        // Primary: Vercel Serverless Function powered by Vercel Environment Variables
-        await firstValueFrom(
-          this.http.post('/api/send-email', formValues)
-        );
-      } catch (backendError: any) {
-        // Fallback for local development if serverless endpoint is not running
-        if (backendError?.status === 404) {
-          const emailjs = (await import('@emailjs/browser')).default;
-          emailjs.init(this.globalService.EMAIL_PUBLIC_ID);
-          await emailjs.send(
-            this.globalService.EMAIL_SERVICE_ID,
-            this.globalService.EMAIL_TEMPLATE_ID,
-            {
-              ...formValues,
-              user_email: formValues.email,
-              from_email: formValues.email,
-              from_name: formValues.email,
-              reply_to: formValues.email
-            }
-          );
-        } else {
-          throw backendError;
-        }
-      }
+      // Sent securely via backend Vercel Serverless Function reading Vercel Environment Variables
+      await firstValueFrom(
+        this.http.post('/api/send-email', formValues)
+      );
 
       this.showNotificationEmailSent = true;
       this.justSentEmail = true;
