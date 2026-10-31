@@ -30,14 +30,14 @@ export class SidebarComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.isScrolled = window.scrollY > 24;
+    this.isScrolled = window.scrollY > 30;
 
     this.ngZone.runOutsideAngular(() => {
       let ticking = false;
       const onScroll = () => {
         if (!ticking) {
           window.requestAnimationFrame(() => {
-            const nextScrolled = window.scrollY > 24;
+            const nextScrolled = this.isScrolled ? window.scrollY > 16 : window.scrollY > 36;
             if (this.isScrolled !== nextScrolled) {
               this.isScrolled = nextScrolled;
               this.cdr.detectChanges();
