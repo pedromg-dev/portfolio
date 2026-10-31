@@ -17,7 +17,6 @@ export class CustomWebsitesComponent implements OnInit {
   requestForm: FormGroup = this.fb.group({
     projectType: ['business', Validators.required],
     timeline: ['normal', Validators.required],
-    budget: ['500-1200', Validators.required],
     details: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(3000)]],
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
     email: ['', [Validators.required, Validators.email, Validators.maxLength(150)]],
@@ -80,10 +79,6 @@ export class CustomWebsitesComponent implements OnInit {
     this.requestForm.patchValue({ timeline });
   }
 
-  setBudget(budget: string): void {
-    this.requestForm.patchValue({ budget });
-  }
-
   goBackToHome(): void {
     this.router.navigate(['/', this.i18n.currentLang]).then(() => {
       if (isPlatformBrowser(this.platformId)) {
@@ -112,7 +107,6 @@ export class CustomWebsitesComponent implements OnInit {
     const raw = this.requestForm.value;
     const projectTypeName = this.getProjectTypeName(raw.projectType);
     const timelineName = this.getTimelineName(raw.timeline);
-    const budgetName = this.getBudgetName(raw.budget);
 
     const subject = `[Solicitud Web a Medida] ${projectTypeName} - ${raw.name}`;
 
@@ -126,7 +120,6 @@ export class CustomWebsitesComponent implements OnInit {
       `Empresa / Web actual: ${raw.company || 'No especificado'}`,
       `Tipo de proyecto: ${projectTypeName}`,
       `Plazo estimado: ${timelineName}`,
-      `Presupuesto aproximado: ${budgetName}`,
       '',
       'DETALLES DEL PROYECTO / REQUERIMIENTOS:',
       '----------------------------------------------',
@@ -141,7 +134,6 @@ export class CustomWebsitesComponent implements OnInit {
       company: raw.company,
       projectType: projectTypeName,
       timeline: timelineName,
-      budget: budgetName,
       subject,
       message: formattedMessage
     };
@@ -151,8 +143,7 @@ export class CustomWebsitesComponent implements OnInit {
       this.submitSuccess = true;
       this.requestForm.reset({
         projectType: 'business',
-        timeline: 'normal',
-        budget: '500-1200'
+        timeline: 'normal'
       });
       if (isPlatformBrowser(this.platformId)) {
         window.scrollTo({ top: 200, behavior: 'smooth' });
@@ -194,16 +185,5 @@ export class CustomWebsitesComponent implements OnInit {
       flexible: 'Flexible / Sin prisa'
     };
     return map[timeline] || timeline;
-  }
-
-  private getBudgetName(budget: string): string {
-    const map: Record<string, string> = {
-      'under-500': 'Hasta 500 €',
-      '500-1200': '500 € – 1.200 €',
-      '1200-2500': '1.200 € – 2.500 €',
-      'over-2500': 'Más de 2.500 €',
-      flexible: 'Por definir / Necesito orientación'
-    };
-    return map[budget] || budget;
   }
 }
