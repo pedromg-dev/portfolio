@@ -75,6 +75,7 @@ body,
 .pt-header {
   padding: 16px 16px 0 16px;
   transition: padding 450ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, padding;
 }
 .pt-header .pt-sidebar {
   max-width: 64rem;

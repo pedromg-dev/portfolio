@@ -1,4 +1,4 @@
-import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { TranslateService } from "@ngx-translate/core";
 
@@ -7,27 +7,52 @@ import { TranslateService } from "@ngx-translate/core";
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnDestroy {
   isEnglish: boolean = false;
   isOpen: boolean = false;
   isScrolled: boolean = false;
+  private cleanupScroll?: () => void;
 
   constructor(
     public translate: TranslateService,
     @Inject(DOCUMENT) private document: Document,
-    @Inject(PLATFORM_ID) private platformId: object
+    @Inject(PLATFORM_ID) private platformId: object,
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
-    this.updateScrollState();
-  }
-
-  @HostListener('window:scroll')
-  updateScrollState(): void {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
+
     this.isScrolled = window.scrollY > 24;
+
+    // Run scroll listener outside NgZone with passive: true and requestAnimationFrame
+    // to avoid triggering Angular change detection ticks on every scrolled pixel.
+    this.ngZone.runOutsideAngular(() => {
+      let ticking = false;
+      const onScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const nextScrolled = window.scrollY > 24;
+            if (this.isScrolled !== nextScrolled) {
+              this.isScrolled = nextScrolled;
+              this.cdr.detectChanges();
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      this.cleanupScroll = () => window.removeEventListener('scroll', onScroll);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.cleanupScroll?.();
   }
 
   toggleMenu(): void {
