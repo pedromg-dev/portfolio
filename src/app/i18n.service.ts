@@ -58,7 +58,14 @@ export class I18nService {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('lang', lang);
     }
-    this.router.navigate(['/', lang]);
+    const currentUrl = this.router.url;
+    const parts = currentUrl.split(/[?#]/)[0].split('/').filter(Boolean);
+    if (parts.length > 0 && isLang(parts[0])) {
+      parts[0] = lang;
+      this.router.navigate(['/', ...parts]);
+    } else {
+      this.router.navigate(['/', lang]);
+    }
   }
 
   private langFromUrl(): Lang | null {
@@ -80,9 +87,13 @@ export class I18nService {
     this.translate.use(lang).subscribe(() => {
       this.document.documentElement.lang = lang;
 
-      const title = this.translate.instant('SeoTitle');
-      const description = this.translate.instant('SeoDescription');
-      const url = `${SITE_URL}/${lang}`;
+      const isCustomWeb = this.router.url.includes('custom-websites') ||
+                          this.router.url.includes('solicitar-web') ||
+                          this.router.url.includes('request-website');
+
+      const title = this.translate.instant(isCustomWeb ? 'CustomWebSeoTitle' : 'SeoTitle');
+      const description = this.translate.instant(isCustomWeb ? 'CustomWebSeoDescription' : 'SeoDescription');
+      const url = isCustomWeb ? `${SITE_URL}/${lang}/custom-websites` : `${SITE_URL}/${lang}`;
 
       this.title.setTitle(title);
       this.meta.updateTag({ name: 'description', content: description });
@@ -94,10 +105,17 @@ export class I18nService {
       this.meta.updateTag({ name: 'twitter:title', content: title });
       this.meta.updateTag({ name: 'twitter:description', content: description });
 
-      this.setLink('canonical', url);
-      this.setLink('alternate', `${SITE_URL}/es`, 'es');
-      this.setLink('alternate', `${SITE_URL}/en`, 'en');
-      this.setLink('alternate', SITE_URL + '/', 'x-default');
+      if (isCustomWeb) {
+        this.setLink('canonical', url);
+        this.setLink('alternate', `${SITE_URL}/es/custom-websites`, 'es');
+        this.setLink('alternate', `${SITE_URL}/en/custom-websites`, 'en');
+        this.setLink('alternate', `${SITE_URL}/es/custom-websites`, 'x-default');
+      } else {
+        this.setLink('canonical', url);
+        this.setLink('alternate', `${SITE_URL}/es`, 'es');
+        this.setLink('alternate', `${SITE_URL}/en`, 'en');
+        this.setLink('alternate', SITE_URL + '/', 'x-default');
+      }
     });
   }
 

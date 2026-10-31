@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 import { TranslateService } from "@ngx-translate/core";
+import { I18nService } from '../i18n.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,6 +17,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   constructor(
     public translate: TranslateService,
+    private i18n: I18nService,
+    private router: Router,
     @Inject(DOCUMENT) private document: Document,
     @Inject(PLATFORM_ID) private platformId: object,
     private ngZone: NgZone,
@@ -28,8 +32,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
     this.isScrolled = window.scrollY > 24;
 
-    // Run scroll listener outside NgZone with passive: true and requestAnimationFrame
-    // to avoid triggering Angular change detection ticks on every scrolled pixel.
     this.ngZone.runOutsideAngular(() => {
       let ticking = false;
       const onScroll = () => {
@@ -59,10 +61,48 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.isOpen = !this.isOpen;
   }
 
+  goToCustomWebsites(): void {
+    this.isOpen = false;
+    this.router.navigate(['/', this.i18n.currentLang, 'custom-websites']).then(() => {
+      if (isPlatformBrowser(this.platformId)) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
+
   navigateTo(index: string): void {
+    this.isOpen = false;
+
+    const isOnCustomWeb = this.router.url.includes('custom-websites') ||
+                          this.router.url.includes('solicitar-web') ||
+                          this.router.url.includes('request-website');
+
+    if (isOnCustomWeb) {
+      this.router.navigate(['/', this.i18n.currentLang]).then(() => {
+        if (!isPlatformBrowser(this.platformId)) {
+          return;
+        }
+        if (index === 'hero') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          setTimeout(() => {
+            const element = this.document.getElementById(index);
+            if (element) {
+              const top = element.getBoundingClientRect().top + window.scrollY - 72;
+              window.scrollTo({ top, behavior: 'smooth' });
+            }
+          }, 150);
+        }
+      });
+      return;
+    }
+
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     if (index === 'hero') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      this.isOpen = false;
       return;
     }
 
@@ -74,7 +114,5 @@ export class SidebarComponent implements OnInit, OnDestroy {
         behavior: 'smooth'
       });
     }
-
-    this.isOpen = false;
   }
 }

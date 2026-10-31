@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { ViewportScroller } from "@angular/common";
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
+import { I18nService } from '../i18n.service';
 
 @Component({
   selector: 'app-index-sidebar',
@@ -7,10 +9,39 @@ import { ViewportScroller } from "@angular/common";
   styleUrl: './index-sidebar.component.css'
 })
 export class IndexSidebarComponent {
-  constructor(private scroller: ViewportScroller) {}
+  constructor(
+    private router: Router,
+    private i18n: I18nService,
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {}
 
   navigateTo(index: string): void {
-    const element = window.document.getElementById(index);
+    const isOnCustomWeb = this.router.url.includes('custom-websites') ||
+                          this.router.url.includes('solicitar-web') ||
+                          this.router.url.includes('request-website');
+
+    if (isOnCustomWeb) {
+      this.router.navigate(['/', this.i18n.currentLang]).then(() => {
+        if (!isPlatformBrowser(this.platformId)) {
+          return;
+        }
+        setTimeout(() => {
+          const element = this.document.getElementById(index);
+          if (element) {
+            const top = element.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }, 150);
+      });
+      return;
+    }
+
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    const element = this.document.getElementById(index);
     if (element) {
       const top = element.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({
@@ -18,9 +49,5 @@ export class IndexSidebarComponent {
         behavior: 'smooth'
       });
     }
-  }
-
-  scrollToIndex(index: string): void {
-    this.scroller.scrollToAnchor(index);
   }
 }

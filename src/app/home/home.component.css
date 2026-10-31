@@ -1,0 +1,7 @@
+.hero-fade-bottom {
+  background: linear-gradient(to bottom, transparent, var(--color-surface, #f9f9fb));
+}
+
+:host-context(.dark) .hero-fade-bottom {
+  background: linear-gradient(to bottom, transparent, var(--color-surface-dark, #0f1013));
+}
