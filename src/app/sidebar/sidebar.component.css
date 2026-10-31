@@ -8,6 +8,26 @@
     background-color: oklch(0.18 0.012 65 / 0.88);
 }
 
+@media (min-width: 1024px) {
+    .pt-sidebar-desktop-grid {
+        display: grid !important;
+        grid-template-columns: 1fr auto 1fr !important;
+        align-items: center !important;
+    }
+
+    .pt-sidebar-left {
+        justify-self: start !important;
+    }
+
+    .pt-sidebar-center {
+        justify-self: center !important;
+    }
+
+    .pt-sidebar-right {
+        justify-self: end !important;
+    }
+}
+
 .line {
     fill: none;
     stroke-width: 6;
