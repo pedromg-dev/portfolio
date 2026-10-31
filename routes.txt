@@ -1,2 +1,4 @@
 /es
 /en
+/es/custom-websites
+/en/custom-websites

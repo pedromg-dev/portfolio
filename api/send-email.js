@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  const { email, subject, message } = req.body || {};
+  const { email, subject, message, name, phone, company, projectType, budget, timeline } = req.body || {};
 
   if (!email || !subject || !message) {
     return res.status(400).json({ error: 'Missing required fields: email, subject, message' });
@@ -36,7 +36,13 @@ export default async function handler(req, res) {
       email,
       user_email: email,
       from_email: email,
-      from_name: email,
+      from_name: name || email,
+      name: name || '',
+      phone: phone || '',
+      company: company || '',
+      project_type: projectType || '',
+      budget: budget || '',
+      timeline: timeline || '',
       reply_to: email,
       subject,
       message
