@@ -108,8 +108,7 @@ html.dark .pt-header.is-scrolled .pt-sidebar {
   background: linear-gradient(
     to bottom,
     oklch(0.945 0.012 75 / 0) 0%,
-    oklch(0.945 0.012 75 / 0.35) 35%,
-    oklch(0.985 0.006 75 / 0.85) 75%,
+    oklch(0.985 0.006 75 / 0.5) 60%,
     oklch(0.985 0.006 75) 100%
   );
 }
@@ -118,8 +117,7 @@ html.dark .hero-fade-bottom {
   background: linear-gradient(
     to bottom,
     oklch(0.10 0.008 65 / 0) 0%,
-    oklch(0.10 0.008 65 / 0.35) 35%,
-    oklch(0.15 0.01 65 / 0.85) 75%,
+    oklch(0.15 0.01 65 / 0.5) 60%,
     oklch(0.15 0.01 65) 100%
   );
 }
@@ -127,6 +125,6 @@ html.dark .hero-fade-bottom {
 
 /* Portrait fade mask to softly blend the chest/torso into the hero background */
 .hero-portrait-mask {
-  mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
 }
