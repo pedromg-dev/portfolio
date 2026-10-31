@@ -37,8 +37,8 @@ export class AppComponent implements OnInit {
     }
     const [aosModule, flowbite] = await Promise.all([import('aos'), import('flowbite')]);
     const AOS = (aosModule as any).default ?? aosModule;
-    AOS.init();
-    window.addEventListener('load', () => AOS.refresh());
+    AOS.init({ once: true, duration: 400, easing: 'ease-out-cubic', throttleDelay: 99, offset: 60 });
+    window.addEventListener('load', () => AOS.refresh(), { passive: true });
     flowbite.initFlowbite();
   }
 }

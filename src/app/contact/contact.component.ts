@@ -76,8 +76,12 @@ export class ContactComponent implements OnInit {
           message: response.message || this.contactForm.get('message')?.value
         });
       }
-    } catch {
-      this.aiError = this.translate.instant('AIErrorNotification');
+    } catch (err: any) {
+      console.error('AI generate email error:', err);
+      const serverDetails = err?.error?.details || err?.error?.error;
+      this.aiError = serverDetails
+        ? `${this.translate.instant('AIErrorNotification')} (${serverDetails})`
+        : this.translate.instant('AIErrorNotification');
     } finally {
       this.isGeneratingAI = false;
     }
