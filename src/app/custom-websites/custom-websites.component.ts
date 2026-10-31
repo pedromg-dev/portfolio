@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { I18nService, SITE_URL } from '../i18n.service';
   templateUrl: './custom-websites.component.html',
   styleUrl: './custom-websites.component.css'
 })
-export class CustomWebsitesComponent implements OnInit {
+export class CustomWebsitesComponent implements OnInit, OnDestroy {
   requestForm: FormGroup = this.fb.group({
     projectType: ['business', Validators.required],
     timeline: ['normal', Validators.required],
@@ -48,6 +48,11 @@ export class CustomWebsitesComponent implements OnInit {
     this.updateSeo();
   }
 
+  ngOnDestroy(): void {
+    const script = this.document.getElementById('custom-web-jsonld');
+    script?.remove();
+  }
+
   updateSeo(): void {
     const lang = this.i18n.currentLang;
     const isEs = lang === 'es';
@@ -69,6 +74,74 @@ export class CustomWebsitesComponent implements OnInit {
     this.meta.updateTag({ property: 'og:url', content: pageUrl });
     this.meta.updateTag({ name: 'twitter:title', content: pageTitle });
     this.meta.updateTag({ name: 'twitter:description', content: pageDescription });
+
+    this.injectStructuredData(isEs, pageUrl, pageDescription);
+  }
+
+  private injectStructuredData(isEs: boolean, pageUrl: string, pageDescription: string): void {
+    const schemaData = {
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      'name': isEs ? 'Pedro Moya — Desarrollo de Páginas Web a Medida' : 'Pedro Moya — Custom Website Development',
+      'url': pageUrl,
+      'image': `${SITE_URL}/assets/images/portfolio-image-project.png`,
+      'description': pageDescription,
+      'provider': {
+        '@type': 'Person',
+        'name': 'Pedro Antonio Moya García',
+        'url': SITE_URL
+      },
+      'areaServed': [
+        { '@type': 'Country', 'name': 'Spain' },
+        { '@type': 'Country', 'name': 'Worldwide' }
+      ],
+      'serviceType': isEs ? 'Desarrollo y Diseño Web' : 'Web Development and Design',
+      'hasOfferCatalog': {
+        '@type': 'OfferCatalog',
+        'name': isEs ? 'Servicios de Desarrollo Web' : 'Web Development Services',
+        'itemListElement': [
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'Service',
+              'name': isEs ? 'Landing Pages de Alta Conversión' : 'High-Converting Landing Pages'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'Service',
+              'name': isEs ? 'Sitios Web Corporativos' : 'Corporate Websites'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'Service',
+              'name': isEs ? 'Tiendas Online (E-Commerce)' : 'Online Stores (E-Commerce)'
+            }
+          },
+          {
+            '@type': 'Offer',
+            'itemOffered': {
+              '@type': 'Service',
+              'name': isEs ? 'Aplicaciones Web a Medida y SaaS' : 'Custom Web Applications and SaaS'
+            }
+          }
+        ]
+      }
+    };
+
+    let script = this.document.getElementById('custom-web-jsonld') as HTMLScriptElement | null;
+    if (script) {
+      script.textContent = JSON.stringify(schemaData);
+    } else {
+      script = this.document.createElement('script');
+      script.id = 'custom-web-jsonld';
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(schemaData);
+      this.document.head.appendChild(script);
+    }
   }
 
   setProjectType(type: string): void {
