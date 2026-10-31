@@ -79,10 +79,16 @@ export class ContactComponent implements OnInit {
       }
     } catch (err: any) {
       console.error('AI generate email error:', err);
-      const serverDetails = err?.error?.details || err?.error?.error;
-      this.aiError = serverDetails
-        ? `${this.translate.instant('AIErrorNotification')} (${serverDetails})`
-        : this.translate.instant('AIErrorNotification');
+      const raw = err?.error?.details || err?.error?.error || err?.message;
+      let detailMsg = '';
+      if (typeof raw === 'string') {
+        detailMsg = raw;
+      } else if (raw && typeof raw === 'object') {
+        detailMsg = raw.message || raw.error || JSON.stringify(raw);
+      } else {
+        detailMsg = 'Error';
+      }
+      this.aiError = `${this.translate.instant('AIErrorNotification')} (${detailMsg})`;
     } finally {
       this.isGeneratingAI = false;
       this.cdr.detectChanges();
@@ -117,7 +123,6 @@ export class ContactComponent implements OnInit {
     };
 
     try {
-      // Sent securely via backend Vercel Serverless Function reading Vercel Environment Variables
       await firstValueFrom(
         this.http.post('/api/send-email', formValues)
       );
@@ -139,7 +144,15 @@ export class ContactComponent implements OnInit {
       }, 8000);
     } catch (error: any) {
       console.error('Send email error:', error);
-      const errorText = error?.error?.details || error?.error?.error || error?.message || 'Error sending email';
+      const raw = error?.error?.details || error?.error?.error || error?.message;
+      let errorText = '';
+      if (typeof raw === 'string') {
+        errorText = raw;
+      } else if (raw && typeof raw === 'object') {
+        errorText = raw.message || raw.text || JSON.stringify(raw);
+      } else {
+        errorText = 'Error sending email';
+      }
       this.sendEmailError = errorText;
     } finally {
       this.isSendingEmail = false;

@@ -16,10 +16,10 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required fields: email, subject, message' });
   }
 
-  const serviceId = process.env.EMAILJS_SERVICE_ID;
-  const templateId = process.env.EMAILJS_TEMPLATE_ID;
-  const publicKey = process.env.EMAILJS_PUBLIC_KEY || process.env.EMAILJS_USER_ID;
-  const privateKey = process.env.EMAILJS_PRIVATE_KEY || process.env.EMAILJS_ACCESS_TOKEN;
+  const serviceId = (process.env.EMAILJS_SERVICE_ID || '').trim();
+  const templateId = (process.env.EMAILJS_TEMPLATE_ID || '').trim();
+  const publicKey = (process.env.EMAILJS_PUBLIC_KEY || process.env.EMAILJS_USER_ID || '').trim();
+  const privateKey = (process.env.EMAILJS_PRIVATE_KEY || process.env.EMAILJS_ACCESS_TOKEN || '').trim();
 
   if (!serviceId || !templateId || !publicKey) {
     return res.status(500).json({
@@ -48,11 +48,14 @@ export default async function handler(req, res) {
   }
 
   try {
+    const origin = req.headers.origin || 'https://www.pedromg.dev';
+
     const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'User-Agent': 'pedromg-portfolio'
+        'Origin': origin,
+        'Referer': `${origin}/`
       },
       body: JSON.stringify(payload)
     });
