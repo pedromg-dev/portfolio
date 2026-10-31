@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
@@ -21,7 +21,7 @@ interface GeneratedEmailResponse {
       state('void', style({
         opacity: 0
       })),
-      transition('void <=> *', animate(400)),
+      transition('void <=> *', animate(350)),
     ]),
   ]
 })
@@ -34,6 +34,9 @@ export class ContactComponent implements OnInit {
   });
 
   showNotificationEmailSent: boolean = false;
+  isSendingEmail: boolean = false;
+  justSentEmail: boolean = false;
+  sendEmailError: string = '';
   isGeneratingAI: boolean = false;
   aiError: string = '';
 
@@ -41,7 +44,8 @@ export class ContactComponent implements OnInit {
     private formBuilder: FormBuilder,
     private globalService: GlobalService,
     private http: HttpClient,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {}
@@ -84,37 +88,78 @@ export class ContactComponent implements OnInit {
         : this.translate.instant('AIErrorNotification');
     } finally {
       this.isGeneratingAI = false;
+      this.cdr.detectChanges();
     }
   }
 
   onSubmit(e: Event): void {
-    if (this.contactForm.valid) {
-      this.sendEmail(e);
+    e.preventDefault();
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      return;
     }
+    this.sendEmail(e);
   }
 
   public async sendEmail(e: Event): Promise<void> {
     e.preventDefault();
-    const emailjs = (await import('@emailjs/browser')).default;
-    emailjs.init(this.globalService.EMAIL_PUBLIC_ID);
-    emailjs
-      .send(this.globalService.EMAIL_SERVICE_ID, this.globalService.EMAIL_TEMPLATE_ID, {
+    if (this.isSendingEmail) {
+      return;
+    }
+
+    this.isSendingEmail = true;
+    this.sendEmailError = '';
+    this.showNotificationEmailSent = false;
+    this.justSentEmail = false;
+    this.cdr.detectChanges();
+
+    try {
+      const emailjs = (await import('@emailjs/browser')).default;
+      emailjs.init(this.globalService.EMAIL_PUBLIC_ID);
+
+      const templateParams = {
         subject: this.contactForm.value.subject,
         message: this.contactForm.value.message,
         email: this.contactForm.value.email,
-      })
-      .then(
-        () => {
-          this.showNotificationEmailSent = true;
-          this.contactForm.reset();
-        },
-        (error) => {
-          console.error('Error', (error as EmailJSResponseStatus).text);
-        },
+        user_email: this.contactForm.value.email,
+        from_email: this.contactForm.value.email,
+        from_name: this.contactForm.value.email,
+        reply_to: this.contactForm.value.email
+      };
+
+      await emailjs.send(
+        this.globalService.EMAIL_SERVICE_ID,
+        this.globalService.EMAIL_TEMPLATE_ID,
+        templateParams
       );
+
+      this.showNotificationEmailSent = true;
+      this.justSentEmail = true;
+      this.contactForm.reset();
+
+      // Auto dismiss success animation on button after 4s
+      setTimeout(() => {
+        this.justSentEmail = false;
+        this.cdr.detectChanges();
+      }, 4000);
+
+      // Auto dismiss banner after 8s
+      setTimeout(() => {
+        this.showNotificationEmailSent = false;
+        this.cdr.detectChanges();
+      }, 8000);
+    } catch (error: any) {
+      console.error('EmailJS send error:', error);
+      const errorText = (error as EmailJSResponseStatus)?.text || error?.message || 'Error sending email';
+      this.sendEmailError = errorText;
+    } finally {
+      this.isSendingEmail = false;
+      this.cdr.detectChanges();
+    }
   }
 
   closeNotificationEmailSent(): void {
     this.showNotificationEmailSent = false;
+    this.cdr.detectChanges();
   }
 }
