@@ -10,11 +10,9 @@
   "HeroLocationBadge": "Alicante, Spain · 6+ Years International Experience (NL · DE · ES)",
   "GreetingsName": "Greetings {{name}}!",
   "heading": "Welcome everybody",
-
   "AboutMe": "Executive Summary",
   "AboutMeContentLine1": "Senior Full-Stack .NET Developer with over 6+ years of international experience (Netherlands, Germany, Spain) designing, modernizing, and scaling enterprise-grade, microservices-oriented solutions. Deep expertise in the .NET ecosystem (C#, .NET 10, .NET 8, ASP.NET Core) and modern reactive frontends using Blazor (Server/WebAssembly) and Angular.",
   "AboutMeContentLine2": "Proven track record of driving end-to-end legacy ERP re-engineering, implementing Clean Architecture, CQRS (MediatR), and SOLID principles, and optimizing high-throughput relational (SQL Server, Oracle PL/SQL) and NoSQL (Azure CosmosDB) data stores. Adept at owning the full software development lifecycle (SDLC), automating zero-downtime CI/CD pipelines (TeamCity, Octopus Deploy), and delivering cloud-ready applications across Microsoft Azure and AWS.",
-
   "EducationTitle": "Education & International Exchange",
   "EducationUA.Degree": "Bachelor's Degree in Computer Engineering (Software Engineering Specialty)",
   "EducationUA.School": "University of Alicante (UA), Spain",
@@ -24,7 +22,6 @@
   "EducationErasmus.Dates": "2018",
   "LanguagesLabel": "Languages",
   "LanguagesValue": "Spanish (Native) · English (Advanced / Professional Working Proficiency in international teams across NL & DE)",
-
   "TechnicalSkills": "Technical Skills & Core Stack",
   "Skills.Backend.Title": "Backend & .NET Ecosystem",
   "Skills.Architecture.Title": "Architecture & Patterns",
@@ -32,10 +29,8 @@
   "Skills.Data.Title": "Data & Persistence",
   "Skills.Cloud.Title": "Cloud, DevOps & CI/CD",
   "Skills.Testing.Title": "Testing & Quality Assurance",
-
   "WorkExperience": "Professional Experience",
   "PresentBadge": "Current",
-
   "TUI.Company": "TUI",
   "TUI.Role": "Senior Full-Stack .NET Developer",
   "TUI.Subtitle": ".NET 10 · Microservices · Blazor",
@@ -51,7 +46,6 @@
   "TUI.Bullet4.Text": "Built real-time interactive data visualization dashboards and internal operational tools from scratch using Blazor and .NET.",
   "TUI.Bullet5.Label": "CI/CD & Release Automation:",
   "TUI.Bullet5.Text": "Automated and managed end-to-end CI/CD pipelines and release workflows using TeamCity and Octopus Deploy, ensuring reliable, repeatable, and zero-downtime production deployments.",
-
   "FullStackDeveloperInPetrofac": "Full-Stack .NET Developer",
   "Petrofac.Company": "Petrofac",
   "Petrofac.Subtitle": ".NET 8 · Blazor Server · Azure CosmosDB",
@@ -66,7 +60,6 @@
   "Petrofac.Bullet3.Text": "Developed highly interactive, responsive user interfaces with Blazor Server, significantly improving user experience, system responsiveness, and complex enterprise workflow efficiency.",
   "Petrofac.Bullet4.Label": "Business Continuity & Cost Optimization:",
   "Petrofac.Bullet4.Text": "Guaranteed 100% business continuity throughout the transition phase, delivering a secure, decoupled, and optimized platform that substantially reduced operational and maintenance costs.",
-
   "FullStackDeveloperInFormelD": "Full-Stack .NET Developer",
   "FormelD.Company": "Formel D Group",
   "FormelD.Subtitle": ".NET Core 6 · Angular · SQL Server",
@@ -81,7 +74,6 @@
   "FormelD.Bullet3.Text": "Designed and deployed scalable RESTful APIs to seamlessly serve both the primary web platform and the enterprise mobile application ecosystem.",
   "FormelD.Bullet4.Label": "Cross-Platform Process Digitalization:",
   "FormelD.Bullet4.Text": "Developed cross-platform mobile applications using Xamarin focused on digitizing internal field processes, including employee time tracking and daily operations management.",
-
   "FullStackDeveloperInGTT": "Full-Stack .NET Developer",
   "GTT.Company": "Gestión Tributaria Territorial (GTT)",
   "GTT.Subtitle": "ASP.NET MVC · Oracle PL/SQL",
@@ -94,7 +86,6 @@
   "GTT.Bullet2.Text": "Designed, optimized, and maintained complex Stored Procedures and functions in Oracle PL/SQL, ensuring data integrity and high performance during massive tax data processing batches.",
   "GTT.Bullet3.Label": "Web Interface Modernization:",
   "GTT.Bullet3.Text": "Delivered frontend enhancements using ASP.NET MVC, HTML5, CSS3, Bootstrap, and JavaScript/jQuery, streamlining daily workflows for public officials.",
-
   "FullStackDeveloperInActio": "Full-Stack .NET Developer",
   "Actio.Company": "ACTIO Procesos & Tecnología",
   "Actio.Subtitle": ".NET · Angular · SQL Server",
@@ -105,7 +96,6 @@
   "Actio.Bullet1.Text": "Engineered a full-featured Single Page Application (SPA) e-commerce platform from the ground up for the automotive spare parts sector using Angular and .NET.",
   "Actio.Bullet2.Label": "Relational Database Design:",
   "Actio.Bullet2.Text": "Designed and managed the relational database model and backend logic using Transact-SQL (T-SQL) in Microsoft SQL Server to support rapid querying across large product catalogs and order volumes.",
-
   "subheader": "Pedro's Portfolio",
   "Timeline": "Timeline",
   "DownloadCV": "Resume",
@@ -138,5 +128,10 @@
   "ProjectFoodapetBadge": "Bachelor's Thesis",
   "ProjectFoodapetDescription": "Full-stack e-commerce platform built from scratch featuring a .NET web backend API and an Ionic cross-platform mobile application.",
   "Repository": "Repository",
-  "MailExample": "mail@example.com"
+  "MailExample": "mail@example.com",
+  "SendingMessage": "Sending message...",
+  "EmailSentFollowUp": "Thank you for reaching out! I will reply as soon as possible.",
+  "EmailSentErrorTitle": "Could not send email",
+  "FieldRequired": "This field is required.",
+  "EmailInvalid": "Please enter a valid email address."
 }
