@@ -82,7 +82,7 @@ body::-webkit-scrollbar {
   transition: padding 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .pt-header .pt-sidebar {
-  max-width: 64rem;
+  max-width: 76rem;
   border-radius: 0.75rem;
   transition: max-width 300ms cubic-bezier(0.22, 1, 0.36, 1),
     border-radius 300ms cubic-bezier(0.22, 1, 0.36, 1),

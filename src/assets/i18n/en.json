@@ -1,7 +1,7 @@
 {
   "SeoTitle": "Pedro Antonio Moya García — Senior Full-Stack .NET Developer | C# & .NET 10",
   "SeoDescription": "Senior Full-Stack .NET Developer with 6+ years of international experience (NL, DE, ES) in C#, .NET 10, Clean Architecture, CQRS, Blazor, Angular, Azure & AWS.",
-  "NavAbout": "Executive Summary",
+  "NavAbout": "About",
   "NavProjects": "Featured Projects",
   "NavExperience": "Work Experience",
   "NavSkills": "Technical Skills",
@@ -10,7 +10,7 @@
   "HeroLocationBadge": "Alicante, Spain · 6+ Years International Experience (NL · DE · ES)",
   "GreetingsName": "Greetings {{name}}!",
   "heading": "Welcome everybody",
-  "AboutMe": "Executive Summary",
+  "AboutMe": "About Me",
   "AboutMeContentLine1": "Senior Full-Stack .NET Developer with over 6+ years of international experience (Netherlands, Germany, Spain) designing, modernizing, and scaling enterprise-grade, microservices-oriented solutions. Deep expertise in the .NET ecosystem (C#, .NET 10, .NET 8, ASP.NET Core) and modern reactive frontends using Blazor (Server/WebAssembly) and Angular.",
   "AboutMeContentLine2": "Proven track record of driving end-to-end legacy ERP re-engineering, implementing Clean Architecture, CQRS (MediatR), and SOLID principles, and optimizing high-throughput relational (SQL Server, Oracle PL/SQL) and NoSQL (Azure CosmosDB) data stores. Adept at owning the full software development lifecycle (SDLC), automating zero-downtime CI/CD pipelines (TeamCity, Octopus Deploy), and delivering cloud-ready applications across Microsoft Azure and AWS.",
   "EducationTitle": "Education & International Exchange",

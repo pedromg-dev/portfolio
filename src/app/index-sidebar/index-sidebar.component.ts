@@ -17,37 +17,35 @@ export class IndexSidebarComponent {
   ) {}
 
   navigateTo(index: string): void {
-    const isOnCustomWeb = this.router.url.includes('custom-websites') ||
+    const isSpecialView = this.router.url.includes('custom-websites') ||
                           this.router.url.includes('solicitar-web') ||
                           this.router.url.includes('request-website');
 
-    if (isOnCustomWeb) {
+    if (isSpecialView) {
       this.router.navigate(['/', this.i18n.currentLang]).then(() => {
-        if (!isPlatformBrowser(this.platformId)) {
-          return;
-        }
-        setTimeout(() => {
-          const element = this.document.getElementById(index);
-          if (element) {
-            const top = element.getBoundingClientRect().top + window.scrollY - 80;
-            window.scrollTo({ top, behavior: 'smooth' });
-          }
-        }, 150);
+        this.scrollToTarget(index);
       });
       return;
     }
 
+    this.scrollToTarget(index);
+  }
+
+  private scrollToTarget(index: string, attempts = 0): void {
     if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    if (index === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
 
     const element = this.document.getElementById(index);
     if (element) {
       const top = element.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({
-        top,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top, behavior: 'smooth' });
+    } else if (attempts < 8) {
+      setTimeout(() => this.scrollToTarget(index, attempts + 1), 60);
     }
   }
 }
