@@ -1,5 +1,4 @@
 // Vercel Serverless Function: AI email drafter using Google Gemini REST API
-// Dynamically discovers active models for the user's API key and falls back cleanly.
 
 async function discoverModels(apiKey) {
   for (const apiVersion of ['v1beta', 'v1']) {
@@ -16,7 +15,7 @@ async function discoverModels(apiKey) {
         return { apiVersion, models: usable };
       }
     } catch {
-      // Continue to next version or fallback
+      // Continue to next version
     }
   }
   return null;
@@ -27,7 +26,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
+  const rawKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
+  const apiKey = rawKey ? rawKey.trim().replace(/^["']|["']$/g, '') : '';
+
   if (!apiKey) {
     return res.status(500).json({
       error: 'Missing GEMINI_API_KEY environment variable in Vercel.',
@@ -54,7 +55,6 @@ Keep the tone direct, natural, and free of clichés or filler. You must return O
   
   const attempts = [];
   if (discovered && discovered.models.length > 0) {
-    // Sort preferred models: flash > pro > others
     const sorted = [...discovered.models].sort((a, b) => {
       const score = name => {
         if (name.includes('flash')) return 10;
@@ -63,17 +63,18 @@ Keep the tone direct, natural, and free of clichés or filler. You must return O
       };
       return score(b) - score(a);
     });
-    for (const m of sorted.slice(0, 5)) {
+    for (const m of sorted.slice(0, 6)) {
       attempts.push({ apiVersion: discovered.apiVersion, model: m });
     }
   }
 
-  // Fallback candidate list if discovery returned nothing or was restricted
+  // Fallback candidate list if discovery returned nothing
   const fallbackCandidates = [
     { apiVersion: 'v1beta', model: 'gemini-1.5-flash-latest' },
     { apiVersion: 'v1beta', model: 'gemini-1.5-flash' },
     { apiVersion: 'v1beta', model: 'gemini-2.0-flash' },
     { apiVersion: 'v1beta', model: 'gemini-2.0-flash-exp' },
+    { apiVersion: 'v1beta', model: 'gemini-2.5-flash' },
     { apiVersion: 'v1', model: 'gemini-1.5-flash' },
     { apiVersion: 'v1beta', model: 'gemini-1.5-pro' },
     { apiVersion: 'v1', model: 'gemini-pro' }
@@ -90,20 +91,27 @@ Keep the tone direct, natural, and free of clichés or filler. You must return O
   for (const { apiVersion, model } of attempts) {
     const url = `https://generativelanguage.googleapis.com/${apiVersion}/models/${model}:generateContent?key=${apiKey}`;
 
+    // Prompt embedding system instructions inside contents to guarantee compatibility across v1beta and v1
+    const promptWithInstructions = `${systemInstructionText}\n\nUser note to Pedro: "${prompt.trim()}". Return JSON format: {"subject": "...", "message": "..."}`;
+
     const payload = {
-      systemInstruction: {
-        parts: [{ text: systemInstructionText }]
-      },
       contents: [
         {
           role: 'user',
-          parts: [{ text: `Draft a contact email to Pedro based on this note: "${prompt.trim()}". Return JSON format: {"subject": "...", "message": "..."}` }]
+          parts: [{ text: promptWithInstructions }]
         }
       ],
       generationConfig: {
         responseMimeType: 'application/json'
       }
     };
+
+    // If on v1beta, also include systemInstruction explicitly
+    if (apiVersion === 'v1beta') {
+      payload.systemInstruction = {
+        parts: [{ text: systemInstructionText }]
+      };
+    }
 
     try {
       const response = await fetch(url, {
@@ -115,10 +123,11 @@ Keep the tone direct, natural, and free of clichés or filler. You must return O
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         const status = response.status;
-        lastError = errorData?.error?.message || `HTTP ${status}`;
+        const rawErrMsg = errorData?.error?.message || errorData?.error || errorData?.message;
+        lastError = typeof rawErrMsg === 'string' ? rawErrMsg : (JSON.stringify(rawErrMsg) || `HTTP ${status}`);
         console.warn(`[Gemini] ${apiVersion}/${model} returned ${status}:`, lastError);
 
-        // If auth failure or quota limit, abort immediately to return exact error
+        // If auth failure or quota limit, abort immediately to return exact error to user
         if (status === 401 || status === 403 || status === 429) {
           break;
         }
@@ -156,6 +165,6 @@ Keep the tone direct, natural, and free of clichés or filler. You must return O
   console.error('All Gemini attempts failed:', lastError);
   return res.status(500).json({
     error: 'Failed to generate email draft with Gemini.',
-    details: lastError
+    details: typeof lastError === 'string' ? lastError : JSON.stringify(lastError)
   });
 }
