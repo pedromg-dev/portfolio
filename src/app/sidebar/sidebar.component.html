@@ -1,10 +1,10 @@
 <header class="pt-header fixed top-0 inset-x-0 z-30 flex justify-center pointer-events-none" [class.is-scrolled]="isScrolled">
   <nav
-    class="pt-sidebar pointer-events-auto flex flex-col lg:flex-row items-center justify-between w-full px-4 lg:px-6 py-2 border border-border dark:border-border-dark"
+    class="pt-sidebar pointer-events-auto flex flex-col pt-sidebar-desktop-grid w-full px-4 lg:px-6 py-2 border border-border dark:border-border-dark"
     aria-label="Primary Navigation">
 
     <!-- ZONA IZQUIERDA: Marca / Logo (y barra móvil) -->
-    <div class="flex items-center justify-between w-full lg:w-auto lg:min-w-[120px] flex-shrink-0">
+    <div class="pt-sidebar-left flex items-center justify-between w-full lg:w-auto flex-shrink-0">
       <a (click)="navigateTo('hero')"
         class="cursor-pointer font-mono text-sm font-bold tracking-tight text-ink dark:text-ink-dark hover:text-accent dark:hover:text-accent-dark min-h-[40px] inline-flex items-center px-1">
         pedromg.dev
@@ -27,22 +27,22 @@
           class="menu min-h-[40px] min-w-[40px] inline-flex items-center justify-center rounded-lg text-ink dark:text-ink-dark hover:bg-surface-elevated dark:hover:bg-surface-dark-elevated focus:outline-none">
           <svg class="w-7 h-7" viewBox="0 0 100 100" aria-hidden="true">
             <path stroke="currentColor" class="line line1"
-              d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+              d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 L 25.000021,25.000058" />
             <path stroke="currentColor" class="line line2" d="M 20,50 H 80" />
             <path stroke="currentColor" class="line line3"
-              d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+              d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 L 25.000021,25.000058 L 25.000021,74.999942" />
           </svg>
         </button>
       </div>
     </div>
 
     <!-- ZONA CENTRAL: Navegación de secciones (centrado con espacio generoso) -->
-    <div class="hidden lg:flex items-center justify-center flex-1 mx-2 xl:mx-4">
+    <div class="pt-sidebar-center hidden lg:flex items-center justify-center">
       <app-index-sidebar />
     </div>
 
     <!-- ZONA DERECHA: Solicita tu web + Idioma + Tema (alineados a la derecha) -->
-    <div class="hidden lg:flex items-center justify-end gap-2.5 flex-shrink-0 lg:min-w-[240px]">
+    <div class="pt-sidebar-right hidden lg:flex items-center justify-end gap-2.5 flex-shrink-0">
       <a (click)="goToCustomWebsites()"
         class="cursor-pointer min-h-[38px] px-3.5 inline-flex items-center rounded-lg text-xs font-semibold tracking-tight border border-border-strong dark:border-border-dark-strong bg-surface dark:bg-surface-dark-elevated text-ink dark:text-ink-dark hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark transition-colors shadow-sm whitespace-nowrap">
         <span>{{ 'NavRequestWebsite' | translate }}</span>
@@ -52,7 +52,7 @@
     </div>
 
     <!-- MENÚ DESPLEGABLE MÓVIL (con animación suave) -->
-    <div class="mobile-menu-wrapper w-full lg:hidden" [class.is-open]="isOpen" [attr.aria-hidden]="!isOpen" id="navbar-hamburger">
+    <div class="mobile-menu-wrapper w-full col-span-3 lg:hidden" [class.is-open]="isOpen" [attr.aria-hidden]="!isOpen" id="navbar-hamburger">
       <div class="mobile-menu-inner">
         <div class="pt-2 pb-1 border-t border-border dark:border-border-dark mt-2">
           <ul class="menu-list flex flex-col gap-1 font-medium">
