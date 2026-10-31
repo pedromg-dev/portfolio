@@ -101,3 +101,25 @@ html.dark .pt-header.is-scrolled .pt-sidebar {
   from { transform: translateY(-14px); opacity: 0.6; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+
+/* Hero bottom fade into general surface background */
+.hero-fade-bottom {
+  background: linear-gradient(
+    to bottom,
+    oklch(0.945 0.012 75 / 0) 0%,
+    oklch(0.945 0.012 75 / 0.35) 35%,
+    oklch(0.985 0.006 75 / 0.85) 75%,
+    oklch(0.985 0.006 75) 100%
+  );
+}
+
+html.dark .hero-fade-bottom {
+  background: linear-gradient(
+    to bottom,
+    oklch(0.10 0.008 65 / 0) 0%,
+    oklch(0.10 0.008 65 / 0.35) 35%,
+    oklch(0.15 0.01 65 / 0.85) 75%,
+    oklch(0.15 0.01 65) 100%
+  );
+}
