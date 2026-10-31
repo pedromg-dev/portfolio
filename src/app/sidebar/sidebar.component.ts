@@ -73,30 +73,21 @@ export class SidebarComponent implements OnInit, OnDestroy {
   navigateTo(index: string): void {
     this.isOpen = false;
 
-    const isOnCustomWeb = this.router.url.includes('custom-websites') ||
+    const isSpecialView = this.router.url.includes('custom-websites') ||
                           this.router.url.includes('solicitar-web') ||
                           this.router.url.includes('request-website');
 
-    if (isOnCustomWeb) {
+    if (isSpecialView) {
       this.router.navigate(['/', this.i18n.currentLang]).then(() => {
-        if (!isPlatformBrowser(this.platformId)) {
-          return;
-        }
-        if (index === 'hero') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          setTimeout(() => {
-            const element = this.document.getElementById(index);
-            if (element) {
-              const top = element.getBoundingClientRect().top + window.scrollY - 72;
-              window.scrollTo({ top, behavior: 'smooth' });
-            }
-          }, 150);
-        }
+        this.scrollToTarget(index);
       });
       return;
     }
 
+    this.scrollToTarget(index);
+  }
+
+  private scrollToTarget(index: string, attempts = 0): void {
     if (!isPlatformBrowser(this.platformId)) {
       return;
     }
@@ -113,6 +104,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
         top,
         behavior: 'smooth'
       });
+    } else if (attempts < 8) {
+      setTimeout(() => this.scrollToTarget(index, attempts + 1), 60);
     }
   }
 }

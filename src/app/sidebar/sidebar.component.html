@@ -1,16 +1,19 @@
 <header class="pt-header fixed top-0 inset-x-0 z-30 flex justify-center pointer-events-none" [class.is-scrolled]="isScrolled">
   <nav
-    class="pt-sidebar pointer-events-auto flex flex-col lg:flex-row items-center justify-between w-full px-4 lg:px-6 py-2.5 border border-border dark:border-border-dark"
+    class="pt-sidebar pointer-events-auto flex flex-col lg:flex-row items-center justify-between w-full px-4 lg:px-6 py-2 border border-border dark:border-border-dark"
     aria-label="Primary Navigation">
-    <div class="flex items-center justify-between w-full lg:w-auto">
+
+    <!-- ZONA IZQUIERDA: Marca / Logo (y barra móvil) -->
+    <div class="flex items-center justify-between w-full lg:w-auto lg:min-w-[120px] flex-shrink-0">
       <a (click)="navigateTo('hero')"
-        class="cursor-pointer font-mono text-sm font-semibold tracking-tight text-ink dark:text-ink-dark hover:text-accent dark:hover:text-accent-dark min-h-[44px] inline-flex items-center px-2">
+        class="cursor-pointer font-mono text-sm font-bold tracking-tight text-ink dark:text-ink-dark hover:text-accent dark:hover:text-accent-dark min-h-[40px] inline-flex items-center px-1">
         pedromg.dev
       </a>
 
+      <!-- Controles móviles superiores -->
       <div class="flex items-center gap-2 lg:hidden">
         <a (click)="goToCustomWebsites()"
-          class="cursor-pointer min-h-[36px] px-2.5 inline-flex items-center rounded-lg text-xs font-semibold border border-border-strong dark:border-border-dark-strong bg-surface dark:bg-surface-dark-elevated text-ink dark:text-ink-dark hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark transition-colors shadow-sm">
+          class="cursor-pointer min-h-[34px] px-2.5 inline-flex items-center rounded-lg text-xs font-semibold border border-border-strong dark:border-border-dark-strong bg-surface dark:bg-surface-dark-elevated text-ink dark:text-ink-dark hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark transition-colors shadow-sm">
           <span>{{ 'NavRequestWebsite' | translate }}</span>
         </a>
         <app-language-selector />
@@ -21,7 +24,7 @@
           [attr.aria-expanded]="isOpen"
           aria-label="Menu"
           aria-controls="navbar-hamburger"
-          class="menu min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg text-ink dark:text-ink-dark hover:bg-surface-elevated dark:hover:bg-surface-dark-elevated focus:outline-none">
+          class="menu min-h-[40px] min-w-[40px] inline-flex items-center justify-center rounded-lg text-ink dark:text-ink-dark hover:bg-surface-elevated dark:hover:bg-surface-dark-elevated focus:outline-none">
           <svg class="w-7 h-7" viewBox="0 0 100 100" aria-hidden="true">
             <path stroke="currentColor" class="line line1"
               d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
@@ -33,17 +36,22 @@
       </div>
     </div>
 
-    <app-index-sidebar class="hidden lg:flex items-center" />
+    <!-- ZONA CENTRAL: Navegación de secciones (centrado con espacio generoso) -->
+    <div class="hidden lg:flex items-center justify-center flex-1 mx-2 xl:mx-4">
+      <app-index-sidebar />
+    </div>
 
-    <div class="hidden lg:flex items-center gap-3">
+    <!-- ZONA DERECHA: Solicita tu web + Idioma + Tema (alineados a la derecha) -->
+    <div class="hidden lg:flex items-center justify-end gap-2.5 flex-shrink-0 lg:min-w-[240px]">
       <a (click)="goToCustomWebsites()"
-        class="cursor-pointer min-h-[38px] px-3.5 inline-flex items-center rounded-lg text-xs font-semibold tracking-tight border border-border-strong dark:border-border-dark-strong bg-surface dark:bg-surface-dark-elevated text-ink dark:text-ink-dark hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark transition-colors shadow-sm">
+        class="cursor-pointer min-h-[38px] px-3.5 inline-flex items-center rounded-lg text-xs font-semibold tracking-tight border border-border-strong dark:border-border-dark-strong bg-surface dark:bg-surface-dark-elevated text-ink dark:text-ink-dark hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark transition-colors shadow-sm whitespace-nowrap">
         <span>{{ 'NavRequestWebsite' | translate }}</span>
       </a>
       <app-language-selector />
       <app-theme-switch class="flex items-center" />
     </div>
 
+    <!-- MENÚ DESPLEGABLE MÓVIL (con animación suave) -->
     <div class="mobile-menu-wrapper w-full lg:hidden" [class.is-open]="isOpen" [attr.aria-hidden]="!isOpen" id="navbar-hamburger">
       <div class="mobile-menu-inner">
         <div class="pt-2 pb-1 border-t border-border dark:border-border-dark mt-2">
