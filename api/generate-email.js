@@ -1,5 +1,26 @@
 // Vercel Serverless Function: AI email drafter using Google Gemini REST API
-// Uses native Node.js global fetch to eliminate node_modules runtime bundling issues on Vercel.
+// Dynamically discovers active models for the user's API key and falls back cleanly.
+
+async function discoverModels(apiKey) {
+  for (const apiVersion of ['v1beta', 'v1']) {
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/${apiVersion}/models?key=${apiKey}`);
+      if (!res.ok) continue;
+      const data = await res.json();
+      const models = data?.models || [];
+      const usable = models
+        .filter(m => Array.isArray(m.supportedGenerationMethods) && m.supportedGenerationMethods.includes('generateContent'))
+        .map(m => m.name.replace(/^models\//, ''));
+      
+      if (usable.length > 0) {
+        return { apiVersion, models: usable };
+      }
+    } catch {
+      // Continue to next version or fallback
+    }
+  }
+  return null;
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -26,67 +47,88 @@ export default async function handler(req, res) {
 
   const systemInstructionText = `You are an assistant helping a recruiter, client, or colleague draft a concise, professional contact email to Pedro Antonio Moya García (Senior Full-Stack .NET Developer specializing in C#, .NET 10, Clean Architecture, Microservices, Blazor, Angular, SQL Server, Azure CosmosDB, and Azure/AWS).
 ${langInstruction}
-Keep the tone direct, natural, and free of clichés or filler. Return a valid JSON object with "subject" and "message".`;
+Keep the tone direct, natural, and free of clichés or filler. You must return ONLY a valid JSON object with "subject" and "message" fields. Example: {"subject": "...", "message": "..."}`;
 
-  const requestBody = {
-    systemInstruction: {
-      parts: [{ text: systemInstructionText }]
-    },
-    contents: [
-      {
-        role: 'user',
-        parts: [{ text: `Draft a contact email to Pedro based on this note: "${prompt.trim()}"` }]
-      }
-    ],
-    generationConfig: {
-      responseMimeType: 'application/json',
-      responseSchema: {
-        type: 'OBJECT',
-        properties: {
-          subject: {
-            type: 'STRING',
-            description: 'Concise email subject line'
-          },
-          message: {
-            type: 'STRING',
-            description: 'Well-structured email body ready to send'
-          }
-        },
-        required: ['subject', 'message']
-      }
+  // 1. Try to discover available models for this specific API key
+  const discovered = await discoverModels(apiKey);
+  
+  const attempts = [];
+  if (discovered && discovered.models.length > 0) {
+    // Sort preferred models: flash > pro > others
+    const sorted = [...discovered.models].sort((a, b) => {
+      const score = name => {
+        if (name.includes('flash')) return 10;
+        if (name.includes('pro')) return 5;
+        return 1;
+      };
+      return score(b) - score(a);
+    });
+    for (const m of sorted.slice(0, 5)) {
+      attempts.push({ apiVersion: discovered.apiVersion, model: m });
     }
-  };
+  }
 
-  const candidateModels = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash'];
+  // Fallback candidate list if discovery returned nothing or was restricted
+  const fallbackCandidates = [
+    { apiVersion: 'v1beta', model: 'gemini-1.5-flash-latest' },
+    { apiVersion: 'v1beta', model: 'gemini-1.5-flash' },
+    { apiVersion: 'v1beta', model: 'gemini-2.0-flash' },
+    { apiVersion: 'v1beta', model: 'gemini-2.0-flash-exp' },
+    { apiVersion: 'v1', model: 'gemini-1.5-flash' },
+    { apiVersion: 'v1beta', model: 'gemini-1.5-pro' },
+    { apiVersion: 'v1', model: 'gemini-pro' }
+  ];
+
+  for (const fb of fallbackCandidates) {
+    if (!attempts.some(a => a.apiVersion === fb.apiVersion && a.model === fb.model)) {
+      attempts.push(fb);
+    }
+  }
+
   let lastError = null;
 
-  for (const model of candidateModels) {
+  for (const { apiVersion, model } of attempts) {
+    const url = `https://generativelanguage.googleapis.com/${apiVersion}/models/${model}:generateContent?key=${apiKey}`;
+
+    const payload = {
+      systemInstruction: {
+        parts: [{ text: systemInstructionText }]
+      },
+      contents: [
+        {
+          role: 'user',
+          parts: [{ text: `Draft a contact email to Pedro based on this note: "${prompt.trim()}". Return JSON format: {"subject": "...", "message": "..."}` }]
+        }
+      ],
+      generationConfig: {
+        responseMimeType: 'application/json'
+      }
+    };
+
     try {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
       const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(requestBody)
+        body: JSON.stringify(payload)
       });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
         const status = response.status;
         lastError = errorData?.error?.message || `HTTP ${status}`;
-        console.warn(`Model ${model} returned ${status}:`, lastError);
+        console.warn(`[Gemini] ${apiVersion}/${model} returned ${status}:`, lastError);
 
-        // If it's a 404 (model unavailable for key) or 400 (bad model), try next model
-        if (status === 404 || status === 400) {
-          continue;
+        // If auth failure or quota limit, abort immediately to return exact error
+        if (status === 401 || status === 403 || status === 429) {
+          break;
         }
-        // If auth failure (401/403) or rate limit (429), break and report immediately
-        break;
+        continue;
       }
 
       const data = await response.json();
       const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
       if (!rawText) {
-        throw new Error('Empty response from Gemini API');
+        continue;
       }
 
       let parsed;
@@ -97,7 +139,7 @@ Keep the tone direct, natural, and free of clichés or filler. Return a valid JS
         if (jsonMatch) {
           parsed = JSON.parse(jsonMatch[0]);
         } else {
-          throw new Error('Invalid JSON format from model');
+          parsed = { subject: 'Contact - Pedro Antonio Moya García', message: rawText.trim() };
         }
       }
 
@@ -107,14 +149,13 @@ Keep the tone direct, natural, and free of clichés or filler. Return a valid JS
       });
     } catch (err) {
       lastError = err?.message || String(err);
-      console.warn(`Error with model ${model}:`, lastError);
+      console.warn(`[Gemini] Network error with ${apiVersion}/${model}:`, lastError);
     }
   }
 
-  console.error('All Gemini models failed:', lastError);
+  console.error('All Gemini attempts failed:', lastError);
   return res.status(500).json({
     error: 'Failed to generate email draft with Gemini.',
     details: lastError
   });
 }
-
