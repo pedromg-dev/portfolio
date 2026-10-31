@@ -1,5 +1,5 @@
 // Vercel Serverless Function: Send contact email via EmailJS REST API
-// Controlled via Vercel Environment Variables:
+// Controlled strictly via private Vercel Environment Variables:
 // - EMAILJS_SERVICE_ID
 // - EMAILJS_TEMPLATE_ID
 // - EMAILJS_PUBLIC_KEY (or EMAILJS_USER_ID)
@@ -16,10 +16,17 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required fields: email, subject, message' });
   }
 
-  const serviceId = process.env.EMAILJS_SERVICE_ID || 'service_vgnn3ru';
-  const templateId = process.env.EMAILJS_TEMPLATE_ID || 'template_h6b7f1v';
-  const publicKey = process.env.EMAILJS_PUBLIC_KEY || process.env.EMAILJS_USER_ID || 'k3wuOEcR8MgPBUPztUHoW';
+  const serviceId = process.env.EMAILJS_SERVICE_ID;
+  const templateId = process.env.EMAILJS_TEMPLATE_ID;
+  const publicKey = process.env.EMAILJS_PUBLIC_KEY || process.env.EMAILJS_USER_ID;
   const privateKey = process.env.EMAILJS_PRIVATE_KEY || process.env.EMAILJS_ACCESS_TOKEN;
+
+  if (!serviceId || !templateId || !publicKey) {
+    return res.status(500).json({
+      error: 'Missing EmailJS configuration in Vercel.',
+      details: 'EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, and EMAILJS_PUBLIC_KEY must be configured in Vercel Project Settings > Environment Variables.'
+    });
+  }
 
   const payload = {
     service_id: serviceId,
