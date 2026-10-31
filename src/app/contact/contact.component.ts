@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { TranslateService } from '@ngx-translate/core';
-import type { EmailJSResponseStatus } from '@emailjs/browser';
 import { GlobalService } from '../global.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { firstValueFrom } from 'rxjs';
@@ -113,25 +112,38 @@ export class ContactComponent implements OnInit {
     this.justSentEmail = false;
     this.cdr.detectChanges();
 
+    const formValues = {
+      subject: this.contactForm.value.subject,
+      message: this.contactForm.value.message,
+      email: this.contactForm.value.email
+    };
+
     try {
-      const emailjs = (await import('@emailjs/browser')).default;
-      emailjs.init(this.globalService.EMAIL_PUBLIC_ID);
-
-      const templateParams = {
-        subject: this.contactForm.value.subject,
-        message: this.contactForm.value.message,
-        email: this.contactForm.value.email,
-        user_email: this.contactForm.value.email,
-        from_email: this.contactForm.value.email,
-        from_name: this.contactForm.value.email,
-        reply_to: this.contactForm.value.email
-      };
-
-      await emailjs.send(
-        this.globalService.EMAIL_SERVICE_ID,
-        this.globalService.EMAIL_TEMPLATE_ID,
-        templateParams
-      );
+      try {
+        // Primary: Vercel Serverless Function powered by Vercel Environment Variables
+        await firstValueFrom(
+          this.http.post('/api/send-email', formValues)
+        );
+      } catch (backendError: any) {
+        // Fallback for local development if serverless endpoint is not running
+        if (backendError?.status === 404) {
+          const emailjs = (await import('@emailjs/browser')).default;
+          emailjs.init(this.globalService.EMAIL_PUBLIC_ID);
+          await emailjs.send(
+            this.globalService.EMAIL_SERVICE_ID,
+            this.globalService.EMAIL_TEMPLATE_ID,
+            {
+              ...formValues,
+              user_email: formValues.email,
+              from_email: formValues.email,
+              from_name: formValues.email,
+              reply_to: formValues.email
+            }
+          );
+        } else {
+          throw backendError;
+        }
+      }
 
       this.showNotificationEmailSent = true;
       this.justSentEmail = true;
@@ -149,8 +161,8 @@ export class ContactComponent implements OnInit {
         this.cdr.detectChanges();
       }, 8000);
     } catch (error: any) {
-      console.error('EmailJS send error:', error);
-      const errorText = (error as EmailJSResponseStatus)?.text || error?.message || 'Error sending email';
+      console.error('Send email error:', error);
+      const errorText = error?.error?.details || error?.error?.error || error?.message || 'Error sending email';
       this.sendEmailError = errorText;
     } finally {
       this.isSendingEmail = false;
