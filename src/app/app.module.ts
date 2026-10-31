@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { ThemeSwitchComponent } from './components/theme-switch/theme-switch.component';
@@ -70,7 +70,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
@@ -81,7 +80,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       }
     })
   ],
-  providers: [provideClientHydration()],
+  providers: [
+    provideClientHydration(),
+    provideHttpClient(withFetch())
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
