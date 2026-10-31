@@ -249,86 +249,44 @@
           }
         </div>
 
-        <!-- Step 3 & 4: Timeline & Budget -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Step 3: Timeline -->
+        <fieldset>
+          <legend class="block text-sm sm:text-base font-bold text-ink dark:text-ink-dark mb-3">
+            {{ 'CustomWebTimelineLabel' | translate }}
+          </legend>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+            <button
+              type="button"
+              (click)="setTimeline('urgent')"
+              [class.card-selected]="requestForm.get('timeline')?.value === 'urgent'"
+              class="px-3.5 py-3 rounded-lg border text-xs sm:text-sm font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition shadow-sm">
+              {{ 'CustomWebTimelineUrgent' | translate }}
+            </button>
+            <button
+              type="button"
+              (click)="setTimeline('normal')"
+              [class.card-selected]="requestForm.get('timeline')?.value === 'normal'"
+              class="px-3.5 py-3 rounded-lg border text-xs sm:text-sm font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition shadow-sm">
+              {{ 'CustomWebTimelineNormal' | translate }}
+            </button>
+            <button
+              type="button"
+              (click)="setTimeline('medium')"
+              [class.card-selected]="requestForm.get('timeline')?.value === 'medium'"
+              class="px-3.5 py-3 rounded-lg border text-xs sm:text-sm font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition shadow-sm">
+              {{ 'CustomWebTimelineMedium' | translate }}
+            </button>
+            <button
+              type="button"
+              (click)="setTimeline('flexible')"
+              [class.card-selected]="requestForm.get('timeline')?.value === 'flexible'"
+              class="px-3.5 py-3 rounded-lg border text-xs sm:text-sm font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition shadow-sm">
+              {{ 'CustomWebTimelineFlexible' | translate }}
+            </button>
+          </div>
+        </fieldset>
 
-          <!-- Timeline -->
-          <fieldset>
-            <legend class="block text-sm font-bold text-ink dark:text-ink-dark mb-3">
-              {{ 'CustomWebTimelineLabel' | translate }}
-            </legend>
-            <div class="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                (click)="setTimeline('urgent')"
-                [class.card-selected]="requestForm.get('timeline')?.value === 'urgent'"
-                class="px-3 py-2.5 rounded-lg border text-xs font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition">
-                {{ 'CustomWebTimelineUrgent' | translate }}
-              </button>
-              <button
-                type="button"
-                (click)="setTimeline('normal')"
-                [class.card-selected]="requestForm.get('timeline')?.value === 'normal'"
-                class="px-3 py-2.5 rounded-lg border text-xs font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition">
-                {{ 'CustomWebTimelineNormal' | translate }}
-              </button>
-              <button
-                type="button"
-                (click)="setTimeline('medium')"
-                [class.card-selected]="requestForm.get('timeline')?.value === 'medium'"
-                class="px-3 py-2.5 rounded-lg border text-xs font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition">
-                {{ 'CustomWebTimelineMedium' | translate }}
-              </button>
-              <button
-                type="button"
-                (click)="setTimeline('flexible')"
-                [class.card-selected]="requestForm.get('timeline')?.value === 'flexible'"
-                class="px-3 py-2.5 rounded-lg border text-xs font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition">
-                {{ 'CustomWebTimelineFlexible' | translate }}
-              </button>
-            </div>
-          </fieldset>
-
-          <!-- Budget -->
-          <fieldset>
-            <legend class="block text-sm font-bold text-ink dark:text-ink-dark mb-3">
-              {{ 'CustomWebBudgetLabel' | translate }}
-            </legend>
-            <div class="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                (click)="setBudget('under-500')"
-                [class.card-selected]="requestForm.get('budget')?.value === 'under-500'"
-                class="px-3 py-2.5 rounded-lg border text-xs font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition">
-                {{ 'CustomWebBudgetTier1' | translate }}
-              </button>
-              <button
-                type="button"
-                (click)="setBudget('500-1200')"
-                [class.card-selected]="requestForm.get('budget')?.value === '500-1200'"
-                class="px-3 py-2.5 rounded-lg border text-xs font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition">
-                {{ 'CustomWebBudgetTier2' | translate }}
-              </button>
-              <button
-                type="button"
-                (click)="setBudget('1200-2500')"
-                [class.card-selected]="requestForm.get('budget')?.value === '1200-2500'"
-                class="px-3 py-2.5 rounded-lg border text-xs font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition">
-                {{ 'CustomWebBudgetTier3' | translate }}
-              </button>
-              <button
-                type="button"
-                (click)="setBudget('over-2500')"
-                [class.card-selected]="requestForm.get('budget')?.value === 'over-2500'"
-                class="px-3 py-2.5 rounded-lg border text-xs font-semibold text-center border-border dark:border-border-dark text-ink dark:text-ink-dark hover:border-accent/60 transition">
-                {{ 'CustomWebBudgetTier4' | translate }}
-              </button>
-            </div>
-          </fieldset>
-
-        </div>
-
-        <!-- Step 5: Contact info -->
+        <!-- Step 4: Contact info -->
         <fieldset class="pt-6 border-t border-border dark:border-border-dark">
           <legend class="block text-sm sm:text-base font-bold text-ink dark:text-ink-dark mb-4">
             {{ 'CustomWebContactInfoLabel' | translate }}
