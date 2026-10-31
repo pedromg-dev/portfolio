@@ -123,3 +123,10 @@ html.dark .hero-fade-bottom {
     oklch(0.15 0.01 65) 100%
   );
 }
+
+
+/* Portrait fade mask to softly blend the chest/torso into the hero background */
+.hero-portrait-mask {
+  mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 62%, transparent 100%);
+}
