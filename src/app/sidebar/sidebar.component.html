@@ -8,10 +8,10 @@
         pedromg.dev
       </a>
 
-      <div class="flex items-center gap-2.5 lg:hidden">
+      <div class="flex items-center gap-2 lg:hidden">
         <a (click)="goToCustomWebsites()"
-          class="cursor-pointer inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold rounded-full border border-accent/40 bg-accent/10 text-accent dark:text-accent-dark hover:bg-accent/20 transition-all">
-          <span>✨ {{ 'NavRequestWebsite' | translate }}</span>
+          class="cursor-pointer min-h-[36px] px-2.5 inline-flex items-center rounded-lg text-xs font-semibold border border-border-strong dark:border-border-dark-strong bg-surface dark:bg-surface-dark-elevated text-ink dark:text-ink-dark hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark transition-colors shadow-sm">
+          <span>{{ 'NavRequestWebsite' | translate }}</span>
         </a>
         <app-language-selector />
         <app-theme-switch class="flex items-center" />
@@ -24,10 +24,10 @@
           class="menu min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg text-ink dark:text-ink-dark hover:bg-surface-elevated dark:hover:bg-surface-dark-elevated focus:outline-none">
           <svg class="w-7 h-7" viewBox="0 0 100 100" aria-hidden="true">
             <path stroke="currentColor" class="line line1"
-              d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+              d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 L 25.000021,25.000058" />
             <path stroke="currentColor" class="line line2" d="M 20,50 H 80" />
             <path stroke="currentColor" class="line line3"
-              d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+              d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 L 25.000021,25.000058 L 25.000021,74.999942" />
           </svg>
         </button>
       </div>
@@ -37,10 +37,7 @@
 
     <div class="hidden lg:flex items-center gap-3">
       <a (click)="goToCustomWebsites()"
-        class="cursor-pointer inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-full border border-accent/40 bg-accent/10 hover:bg-accent/20 text-accent dark:text-accent-dark hover:border-accent transition-all duration-200 shadow-sm">
-        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2l2.4 7.2 7.6.6-5.8 4.8 1.8 7.4-6-4.6-6 4.6 1.8-7.4-5.8-4.8 7.6-.6z"/>
-        </svg>
+        class="cursor-pointer min-h-[38px] px-3.5 inline-flex items-center rounded-lg text-xs font-semibold tracking-tight border border-border-strong dark:border-border-dark-strong bg-surface dark:bg-surface-dark-elevated text-ink dark:text-ink-dark hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark transition-colors shadow-sm">
         <span>{{ 'NavRequestWebsite' | translate }}</span>
       </a>
       <app-language-selector />
@@ -52,10 +49,7 @@
         <ul class="flex flex-col gap-1 font-medium">
           <li>
             <a (click)="goToCustomWebsites()"
-              class="cursor-pointer flex items-center justify-center gap-2 min-h-[44px] px-3 mb-1 rounded-lg text-accent dark:text-accent-dark bg-accent/10 font-bold border border-accent/30 hover:bg-accent/20 transition-colors">
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2l2.4 7.2 7.6.6-5.8 4.8 1.8 7.4-6-4.6-6 4.6 1.8-7.4-5.8-4.8 7.6-.6z"/>
-              </svg>
+              class="cursor-pointer flex items-center justify-center min-h-[44px] px-3 mb-1 rounded-lg text-ink dark:text-ink-dark font-medium border border-border-strong dark:border-border-dark-strong bg-surface dark:bg-surface-dark-elevated hover:border-accent hover:text-accent dark:hover:border-accent-dark dark:hover:text-accent-dark transition-colors shadow-sm">
               <span>{{ 'NavRequestWebsiteMobile' | translate }}</span>
             </a>
           </li>

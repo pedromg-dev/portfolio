@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, NgZone, OnInit, PLATFORM_ID } from '@angular/core';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { I18nService } from './i18n.service';
 
@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private i18n: I18nService,
+    private ngZone: NgZone,
     @Inject(DOCUMENT) private document: Document,
     @Inject(PLATFORM_ID) platformId: object
   ) {
@@ -37,8 +38,20 @@ export class AppComponent implements OnInit {
     }
     const [aosModule, flowbite] = await Promise.all([import('aos'), import('flowbite')]);
     const AOS = (aosModule as any).default ?? aosModule;
-    AOS.init({ once: true, duration: 400, easing: 'ease-out-cubic', throttleDelay: 99, offset: 60 });
-    window.addEventListener('load', () => AOS.refresh(), { passive: true });
-    flowbite.initFlowbite();
+
+    // Run AOS and Flowbite listeners outside NgZone so they don't capture scroll gestures
+    // or trigger Angular Change Detection ticks on every scroll frame.
+    this.ngZone.runOutsideAngular(() => {
+      AOS.init({
+        once: true,
+        duration: 400,
+        easing: 'ease-out-cubic',
+        throttleDelay: 99,
+        offset: 60,
+        disableMutationObserver: true
+      });
+      AOS.refresh();
+      flowbite.initFlowbite();
+    });
   }
 }

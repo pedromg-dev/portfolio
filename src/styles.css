@@ -7,6 +7,9 @@
     font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Helvetica, system-ui, sans-serif;
     color: oklch(0.18 0.015 65);
     background-color: oklch(0.985 0.006 75);
+    overflow-x: clip;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   html.dark {
@@ -17,6 +20,8 @@
   body {
     @apply bg-surface text-ink dark:bg-surface-dark dark:text-ink-dark transition-colors duration-300;
     margin: 0;
+    overflow-x: clip;
+    overflow-y: visible;
     text-wrap: pretty;
   }
 
@@ -53,13 +58,13 @@
 }
 
 html,
-body,
-* {
+body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-*::-webkit-scrollbar {
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
   display: none;
   width: 0;
   height: 0;
@@ -74,15 +79,14 @@ body,
 /* Navbar: flotante arriba -> anclado al borde superior al hacer scroll */
 .pt-header {
   padding: 16px 16px 0 16px;
-  transition: padding 450ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform, padding;
+  transition: padding 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .pt-header .pt-sidebar {
   max-width: 64rem;
   border-radius: 0.75rem;
-  transition: max-width 450ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-radius 450ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 450ms ease, background-color 300ms ease;
+  transition: max-width 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease, background-color 300ms ease;
 }
 .pt-header.is-scrolled {
   padding: 0;
@@ -92,16 +96,10 @@ body,
   border-radius: 0;
   border-width: 0 0 1px 0;
   box-shadow: 0 6px 24px -12px oklch(0.18 0.015 65 / 0.25);
-  animation: pt-nav-drop 450ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 html.dark .pt-header.is-scrolled .pt-sidebar {
   box-shadow: 0 6px 24px -12px oklch(0 0 0 / 0.6);
 }
-@keyframes pt-nav-drop {
-  from { transform: translateY(-14px); opacity: 0.6; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
 
 /* Hero bottom fade into general surface background */
 .hero-fade-bottom {
@@ -121,7 +119,6 @@ html.dark .hero-fade-bottom {
     oklch(0.15 0.01 65) 100%
   );
 }
-
 
 /* Portrait fade mask to softly blend the chest/torso into the hero background */
 .hero-portrait-mask {
