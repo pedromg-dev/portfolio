@@ -24,11 +24,14 @@ interface GeneratedEmailResponse {
   ]
 })
 export class ContactComponent implements OnInit {
+  formLoadedAt: number = Date.now();
+
   contactForm: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email, Validators.maxLength(150)]],
     subject: ['', Validators.required],
     message: ['', Validators.required],
-    aiPrompt: ['']
+    aiPrompt: [''],
+    website: [''] // Honeypot field (hidden from real users, must stay empty)
   });
 
   showNotificationEmailSent: boolean = false;
@@ -45,7 +48,9 @@ export class ContactComponent implements OnInit {
     private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.formLoadedAt = Date.now();
+  }
 
   applyQuickPrompt(presetKey: string): void {
     const promptText = this.translate.instant(presetKey);
@@ -119,7 +124,9 @@ export class ContactComponent implements OnInit {
     const formValues = {
       subject: this.contactForm.value.subject,
       message: this.contactForm.value.message,
-      email: this.contactForm.value.email
+      email: this.contactForm.value.email,
+      website: this.contactForm.value.website || '',
+      _timestamp: this.formLoadedAt
     };
 
     try {
@@ -129,7 +136,10 @@ export class ContactComponent implements OnInit {
 
       this.showNotificationEmailSent = true;
       this.justSentEmail = true;
-      this.contactForm.reset();
+      this.contactForm.reset({
+        website: ''
+      });
+      this.formLoadedAt = Date.now();
 
       // Auto dismiss success animation on button after 4s
       setTimeout(() => {

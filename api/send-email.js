@@ -1,16 +1,99 @@
 // Vercel Serverless Function: Send contact email via EmailJS REST API
-// Controlled strictly via private Vercel Environment Variables:
-// - EMAILJS_SERVICE_ID
-// - EMAILJS_TEMPLATE_ID
-// - EMAILJS_PUBLIC_KEY (or EMAILJS_USER_ID)
-// - EMAILJS_PRIVATE_KEY (optional, if Access Token is enabled in EmailJS dashboard)
+// Multi-layer Anti-Bot & Anti-Spam protection:
+// 1. Honeypot trap (catches crawlers that autofill all input fields)
+// 2. Time-trap verification (catches bots that submit in < 2.5 seconds)
+// 3. Origin & Referer validation
+// 4. In-memory IP rate limiting (max 3 emails per 10 minutes per IP)
+
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const MAX_REQUESTS_PER_WINDOW = 3;
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const timestamps = rateLimitMap.get(ip) || [];
+  const validTimestamps = timestamps.filter(t => now - t < RATE_LIMIT_WINDOW_MS);
+
+  if (validTimestamps.length >= MAX_REQUESTS_PER_WINDOW) {
+    rateLimitMap.set(ip, validTimestamps);
+    return true;
+  }
+
+  validTimestamps.push(now);
+  rateLimitMap.set(ip, validTimestamps);
+  return false;
+}
+
+function isValidOrigin(req) {
+  const origin = req.headers.origin || '';
+  const referer = req.headers.referer || '';
+
+  // Allow localhost (development), pedromg.dev and any subdomains
+  const allowedHostRegex = /^(https?:\/\/(www\.)?pedromg\.dev|http:\/\/localhost(:\d+)?)/i;
+
+  if (origin && !allowedHostRegex.test(origin)) {
+    return false;
+  }
+  if (referer && !allowedHostRegex.test(referer)) {
+    return false;
+  }
+  return true;
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  const { email, subject, message, name, phone, company, projectType, budget, timeline } = req.body || {};
+  const {
+    email,
+    subject,
+    message,
+    name,
+    phone,
+    company,
+    projectType,
+    budget,
+    timeline,
+    website,
+    _gotcha,
+    _timestamp
+  } = req.body || {};
+
+  // 1. Honeypot trap: if a bot filled the invisible website or _gotcha field
+  if ((website && String(website).trim() !== '') || (_gotcha && String(_gotcha).trim() !== '')) {
+    console.warn('[AntiBot] Honeypot triggered. Silently discarding spam submission.');
+    // Return fake 200 so bot believes it succeeded and does not retry
+    return res.status(200).json({ success: true, message: 'Email sent successfully' });
+  }
+
+  // 2. Time-trap: humans take at least 2.5 seconds to fill and submit
+  if (_timestamp) {
+    const elapsed = Date.now() - Number(_timestamp);
+    if (elapsed < 2500) {
+      console.warn(`[AntiBot] Time-trap triggered (${elapsed}ms). Silently discarding spam submission.`);
+      return res.status(200).json({ success: true, message: 'Email sent successfully' });
+    }
+  }
+
+  // 3. Origin check: prevent direct curl/foreign site POST abuse
+  if (!isValidOrigin(req)) {
+    console.warn('[AntiBot] Rejected request with invalid origin/referer:', req.headers.origin, req.headers.referer);
+    return res.status(403).json({ error: 'Forbidden: Invalid request origin' });
+  }
+
+  // 4. Rate limiting per IP
+  const clientIp = (req.headers['x-forwarded-for'] || '').split(',')[0].trim() ||
+                   req.headers['x-real-ip'] ||
+                   req.socket?.remoteAddress ||
+                   'unknown';
+
+  if (clientIp !== 'unknown' && isRateLimited(clientIp)) {
+    console.warn(`[AntiBot] Rate limit exceeded for IP: ${clientIp}`);
+    return res.status(429).json({
+      error: 'Has enviado demasiados mensajes recientemente. Por favor, inténtalo de nuevo en unos minutos.'
+    });
+  }
 
   if (!email || !subject || !message) {
     return res.status(400).json({ error: 'Missing required fields: email, subject, message' });
