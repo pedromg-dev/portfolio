@@ -14,6 +14,8 @@ import { I18nService, SITE_URL } from '../i18n.service';
   styleUrl: './custom-websites.component.css'
 })
 export class CustomWebsitesComponent implements OnInit, OnDestroy {
+  formLoadedAt: number = Date.now();
+
   requestForm: FormGroup = this.fb.group({
     projectType: ['business', Validators.required],
     timeline: ['normal', Validators.required],
@@ -21,7 +23,8 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
     email: ['', [Validators.required, Validators.email, Validators.maxLength(150)]],
     phone: ['', [Validators.maxLength(40)]],
-    company: ['', [Validators.maxLength(120)]]
+    company: ['', [Validators.maxLength(120)]],
+    website: [''] // Honeypot field (hidden from real users, must stay empty)
   });
 
   isSubmitting: boolean = false;
@@ -42,6 +45,7 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    this.formLoadedAt = Date.now();
     if (isPlatformBrowser(this.platformId)) {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
@@ -208,7 +212,9 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
       projectType: projectTypeName,
       timeline: timelineName,
       subject,
-      message: formattedMessage
+      message: formattedMessage,
+      website: raw.website || '',
+      _timestamp: this.formLoadedAt
     };
 
     try {
@@ -216,8 +222,10 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
       this.submitSuccess = true;
       this.requestForm.reset({
         projectType: 'business',
-        timeline: 'normal'
+        timeline: 'normal',
+        website: ''
       });
+      this.formLoadedAt = Date.now();
       if (isPlatformBrowser(this.platformId)) {
         window.scrollTo({ top: 200, behavior: 'smooth' });
       }

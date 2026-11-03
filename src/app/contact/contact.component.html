@@ -70,6 +70,17 @@
         }
       </div>
 
+      <!-- Anti-bot Honeypot field (hidden from real users, autofilled by bots) -->
+      <div aria-hidden="true" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none; height: 0; width: 0; z-index: -1;">
+        <label for="contact-website">Website</label>
+        <input
+          id="contact-website"
+          type="text"
+          formControlName="website"
+          tabindex="-1"
+          autocomplete="off" />
+      </div>
+
       <!-- Email Field -->
       <div class="flex flex-col gap-1.5">
         <label for="email" class="text-sm font-medium text-ink dark:text-ink-dark">
