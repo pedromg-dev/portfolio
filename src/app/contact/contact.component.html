@@ -5,7 +5,7 @@
   <div bodySection>
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit($event)" class="flex flex-col gap-6" novalidate>
       <!-- Gemini AI Email Draft Assistant -->
-      <div class="p-5 rounded-xl bg-surface-elevated dark:bg-surface-dark-elevated border border-border dark:border-border-dark flex flex-col gap-3">
+      <div class="p-5 sm:p-6 rounded-2xl bg-surface-elevated/75 dark:bg-surface-dark-elevated/75 backdrop-blur-md border border-border/80 dark:border-border-dark/80 shadow-xs flex flex-col gap-3">
         <div class="flex items-center justify-between gap-2">
           <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark">
             {{ 'AIAssistantTitle' | translate }}
