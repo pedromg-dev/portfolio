@@ -18,11 +18,13 @@
 }
 
 .card-selected {
-  border-color: oklch(0.62 0.18 145) !important;
+  outline: 2px solid oklch(0.62 0.18 145) !important;
+  outline-offset: -2px;
   background-color: oklch(0.62 0.18 145 / 0.12) !important;
 }
 
 :host-context(.dark) .card-selected {
-  border-color: oklch(0.75 0.18 145) !important;
+  outline: 2px solid oklch(0.75 0.18 145) !important;
+  outline-offset: -2px;
   background-color: oklch(0.75 0.18 145 / 0.18) !important;
 }

@@ -5,19 +5,15 @@
   <!-- Left column: Dates & Location (Desktop) -->
   <div class="hidden md:flex md:col-span-3 flex-col items-end text-right pr-8 pt-1.5 select-none">
     <span
-      class="font-mono text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border"
+      class="font-mono text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs"
       [class.bg-accent]="isCurrent"
       [class.text-surface]="isCurrent"
-      [class.border-accent]="isCurrent"
       [class.dark:bg-accent-dark]="isCurrent"
       [class.dark:text-surface-dark]="isCurrent"
-      [class.dark:border-accent-dark]="isCurrent"
       [class.bg-surface-elevated]="!isCurrent"
       [class.dark:bg-surface-dark-elevated]="!isCurrent"
       [class.text-ink]="!isCurrent"
-      [class.dark:text-ink-dark]="!isCurrent"
-      [class.border-border]="!isCurrent"
-      [class.dark:border-border-dark]="!isCurrent">
+      [class.dark:text-ink-dark]="!isCurrent">
       {{dates}}
     </span>
     @if (company) {
@@ -33,7 +29,7 @@
     <!-- Vertical connecting line -->
     @if (!isLast) {
       <span
-        class="timeline-line absolute left-[11px] md:left-[-1px] top-3 bottom-0 w-[2px] bg-border dark:bg-border-dark"
+        class="timeline-line absolute left-[11px] md:left-[-1px] top-3 bottom-0 w-[2px] bg-border dark:bg-border-dark opacity-60"
         aria-hidden="true"></span>
     }
 
@@ -48,19 +44,15 @@
     <!-- Mobile Date & Location header -->
     <div class="flex flex-wrap items-center gap-2 mb-3 md:hidden">
       <span
-        class="font-mono text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md border"
+        class="font-mono text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md shadow-xs"
         [class.bg-accent]="isCurrent"
         [class.text-surface]="isCurrent"
-        [class.border-accent]="isCurrent"
         [class.dark:bg-accent-dark]="isCurrent"
         [class.dark:text-surface-dark]="isCurrent"
-        [class.dark:border-accent-dark]="isCurrent"
         [class.bg-surface-elevated]="!isCurrent"
         [class.dark:bg-surface-dark-elevated]="!isCurrent"
         [class.text-ink]="!isCurrent"
-        [class.dark:text-ink-dark]="!isCurrent"
-        [class.border-border]="!isCurrent"
-        [class.dark:border-border-dark]="!isCurrent">
+        [class.dark:text-ink-dark]="!isCurrent">
         {{dates}}
       </span>
       <span class="font-mono text-xs text-ink-muted dark:text-ink-dark-muted">
@@ -69,8 +61,8 @@
     </div>
 
     <!-- Role Details Card -->
-    <div class="pt-item-timeline rounded-2xl p-5 sm:p-6 bg-surface-elevated/75 dark:bg-surface-dark-elevated/75 backdrop-blur-md border border-border/80 dark:border-border-dark/80 shadow-xs hover:border-accent/40 dark:hover:border-accent-dark/40 transition-all duration-200">
-      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-3 border-b border-border dark:border-border-dark">
+    <div class="pt-item-timeline rounded-2xl p-5 sm:p-6 bg-surface-elevated/75 dark:bg-surface-dark-elevated/75 backdrop-blur-md shadow-xs hover:shadow-sm transition-all duration-200">
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-3">
         <div class="flex flex-col gap-1">
           <div class="flex flex-wrap items-center gap-2.5">
             <h3 class="text-lg sm:text-xl font-bold text-ink dark:text-ink-dark">
