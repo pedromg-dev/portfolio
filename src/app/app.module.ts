@@ -21,7 +21,6 @@ import { MainInformationComponent } from './main-information/main-information.co
 import { TechLogoComponent } from './components/tech-logo/tech-logo.component';
 import { DrawerMenuComponent } from './drawer-menu/drawer-menu.component';
 import { LanguageSelectorComponent } from './components/language-selector/language-selector.component';
-import { PdfDownloaderComponent } from './components/pdf-downloader/pdf-downloader.component';
 import { ContactComponent } from './contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -60,7 +59,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     TechLogoComponent,
     DrawerMenuComponent,
     LanguageSelectorComponent,
-    PdfDownloaderComponent,
     ContactComponent,
     ProjectsComponent,
     ProjectCardComponent,
