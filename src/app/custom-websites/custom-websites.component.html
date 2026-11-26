@@ -14,7 +14,7 @@
 
   <!-- Hero Header -->
   <header class="text-center max-w-3xl mx-auto mb-14">
-    <div class="inline-flex items-center px-3 py-1 rounded-md text-xs font-semibold tracking-wide uppercase bg-accent/10 text-accent dark:text-accent-dark mb-4">
+    <div class="inline-flex items-center px-3.5 py-1.5 rounded-md text-xs font-semibold tracking-wide uppercase bg-accent/10 text-accent dark:text-accent-dark mb-4">
       <span>{{ 'CustomWebBadge' | translate }}</span>
     </div>
 
@@ -28,7 +28,7 @@
   </header>
 
   <!-- Key Value Grid / Benefits -->
-  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14" aria-label="Beneficios">
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14" aria-label="Propuesta de valor">
     <div class="p-6 rounded-2xl bg-surface-elevated/75 dark:bg-surface-dark-elevated/75 backdrop-blur-md shadow-xs transition-all hover:shadow-md">
       <div class="w-10 h-10 rounded-xl bg-accent/10 text-accent dark:text-accent-dark flex items-center justify-center mb-3">
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -81,7 +81,7 @@
       <h2 class="text-2xl font-bold text-ink dark:text-ink-dark mb-2">
         {{ 'CustomWebSuccessTitle' | translate }}
       </h2>
-      <p class="text-ink-muted dark:text-ink-dark-muted max-w-xl mx-auto mb-6 text-sm sm:text-base">
+      <p class="text-ink-muted dark:text-ink-dark-muted max-w-xl mx-auto mb-6 text-sm sm:text-base leading-relaxed">
         {{ 'CustomWebSuccessDesc' | translate }}
       </p>
       <div class="flex flex-wrap items-center justify-center gap-4">
@@ -255,45 +255,8 @@
           }
         </div>
 
-        <!-- Step 3: Timeline -->
-        <fieldset>
-          <legend class="block text-sm sm:text-base font-bold text-ink dark:text-ink-dark mb-3">
-            {{ 'CustomWebTimelineLabel' | translate }}
-          </legend>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-            <button
-              type="button"
-              (click)="setTimeline('urgent')"
-              [class.card-selected]="requestForm.get('timeline')?.value === 'urgent'"
-              class="px-3.5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-center bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark hover:bg-surface-subtle dark:hover:bg-surface-dark-elevated transition shadow-xs">
-              {{ 'CustomWebTimelineUrgent' | translate }}
-            </button>
-            <button
-              type="button"
-              (click)="setTimeline('normal')"
-              [class.card-selected]="requestForm.get('timeline')?.value === 'normal'"
-              class="px-3.5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-center bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark hover:bg-surface-subtle dark:hover:bg-surface-dark-elevated transition shadow-xs">
-              {{ 'CustomWebTimelineNormal' | translate }}
-            </button>
-            <button
-              type="button"
-              (click)="setTimeline('medium')"
-              [class.card-selected]="requestForm.get('timeline')?.value === 'medium'"
-              class="px-3.5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-center bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark hover:bg-surface-subtle dark:hover:bg-surface-dark-elevated transition shadow-xs">
-              {{ 'CustomWebTimelineMedium' | translate }}
-            </button>
-            <button
-              type="button"
-              (click)="setTimeline('flexible')"
-              [class.card-selected]="requestForm.get('timeline')?.value === 'flexible'"
-              class="px-3.5 py-3 rounded-xl text-xs sm:text-sm font-semibold text-center bg-surface dark:bg-surface-dark text-ink dark:text-ink-dark hover:bg-surface-subtle dark:hover:bg-surface-dark-elevated transition shadow-xs">
-              {{ 'CustomWebTimelineFlexible' | translate }}
-            </button>
-          </div>
-        </fieldset>
-
-        <!-- Step 4: Contact info -->
-        <fieldset class="pt-6">
+        <!-- Step 3: Contact info -->
+        <fieldset class="pt-2">
           <legend class="block text-sm sm:text-base font-bold text-ink dark:text-ink-dark mb-4">
             {{ 'CustomWebContactInfoLabel' | translate }}
           </legend>
@@ -378,7 +341,7 @@
   }
 
   <!-- Workflow / Process Steps -->
-  <section class="mt-16 pt-12" aria-label="Proceso de trabajo">
+  <section class="mt-16 pt-12" aria-label="Metodología de trabajo">
     <h2 class="text-2xl sm:text-3xl font-extrabold text-ink dark:text-ink-dark text-center mb-10">
       {{ 'CustomWebProcessTitle' | translate }}
     </h2>

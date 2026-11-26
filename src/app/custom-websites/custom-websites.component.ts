@@ -18,7 +18,6 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
 
   requestForm: FormGroup = this.fb.group({
     projectType: ['business', Validators.required],
-    timeline: ['normal', Validators.required],
     details: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(3000)]],
     name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
     email: ['', [Validators.required, Validators.email, Validators.maxLength(150)]],
@@ -62,12 +61,12 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
     const isEs = lang === 'es';
 
     const pageTitle = isEs
-      ? 'Desarrollo de Páginas Web a Medida | Pedro Moya — Presupuesto y Diseño'
-      : 'Custom Website Development | Pedro Moya — Web Design & Quote';
+      ? 'Desarrollo de Páginas Web y Software a Medida | Pedro Moya'
+      : 'Custom Website & Software Engineering | Pedro Moya';
 
     const pageDescription = isEs
-      ? 'Solicita tu página web a medida: landing pages de alta conversión, webs corporativas, e-commerce y aplicaciones modernas optimizadas para SEO en Google.'
-      : 'Request your custom-built modern website: high-converting landing pages, corporate websites, e-commerce and fast web apps optimized for Google SEO.';
+      ? 'Desarrollo web profesional a medida: landing pages de alta conversión, webs corporativas, e-commerce y aplicaciones modernas optimizadas para SEO en Google.'
+      : 'Professional bespoke web development: high-converting landing pages, corporate websites, e-commerce, and modern applications optimized for Google SEO.';
 
     const pageUrl = `${SITE_URL}/${lang}/custom-websites`;
 
@@ -86,7 +85,7 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
     const schemaData = {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
-      'name': isEs ? 'Pedro Moya — Desarrollo de Páginas Web a Medida' : 'Pedro Moya — Custom Website Development',
+      'name': isEs ? 'Pedro Moya — Desarrollo de Páginas Web y Software a Medida' : 'Pedro Moya — Custom Website & Software Engineering',
       'url': pageUrl,
       'image': `${SITE_URL}/assets/images/portfolio-image-project.png`,
       'description': pageDescription,
@@ -99,7 +98,7 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
         { '@type': 'Country', 'name': 'Spain' },
         { '@type': 'Country', 'name': 'Worldwide' }
       ],
-      'serviceType': isEs ? 'Desarrollo y Diseño Web' : 'Web Development and Design',
+      'serviceType': isEs ? 'Desarrollo de Software e Ingeniería Web' : 'Software Engineering and Web Development',
       'hasOfferCatalog': {
         '@type': 'OfferCatalog',
         'name': isEs ? 'Servicios de Desarrollo Web' : 'Web Development Services',
@@ -138,22 +137,18 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
 
     let script = this.document.getElementById('custom-web-jsonld') as HTMLScriptElement | null;
     if (script) {
-      script.textContent = JSON.stringify(schemaData);
+      script.text = JSON.stringify(schemaData);
     } else {
       script = this.document.createElement('script');
       script.id = 'custom-web-jsonld';
       script.type = 'application/ld+json';
-      script.textContent = JSON.stringify(schemaData);
+      script.text = JSON.stringify(schemaData);
       this.document.head.appendChild(script);
     }
   }
 
   setProjectType(type: string): void {
     this.requestForm.patchValue({ projectType: type });
-  }
-
-  setTimeline(timeline: string): void {
-    this.requestForm.patchValue({ timeline });
   }
 
   goBackToHome(): void {
@@ -183,7 +178,6 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
 
     const raw = this.requestForm.value;
     const projectTypeName = this.getProjectTypeName(raw.projectType);
-    const timelineName = this.getTimelineName(raw.timeline);
 
     const subject = `[Solicitud Web a Medida] ${projectTypeName} - ${raw.name}`;
 
@@ -196,9 +190,8 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
       `Teléfono: ${raw.phone || 'No especificado'}`,
       `Empresa / Web actual: ${raw.company || 'No especificado'}`,
       `Tipo de proyecto: ${projectTypeName}`,
-      `Plazo estimado: ${timelineName}`,
       '',
-      'DETALLES DEL PROYECTO / REQUERIMIENTOS:',
+      'REQUERIMIENTOS Y OBJETIVOS:',
       '----------------------------------------------',
       raw.details,
       '=============================================='
@@ -210,7 +203,6 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
       phone: raw.phone,
       company: raw.company,
       projectType: projectTypeName,
-      timeline: timelineName,
       subject,
       message: formattedMessage,
       website: raw.website || '',
@@ -222,7 +214,6 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
       this.submitSuccess = true;
       this.requestForm.reset({
         projectType: 'business',
-        timeline: 'normal',
         website: ''
       });
       this.formLoadedAt = Date.now();
@@ -256,15 +247,5 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
       redesign: 'Rediseño / Modernización'
     };
     return map[type] || type;
-  }
-
-  private getTimelineName(timeline: string): string {
-    const map: Record<string, string> = {
-      urgent: 'Urgente (< 2 semanas)',
-      normal: '1 mes aprox.',
-      medium: '1 a 3 meses',
-      flexible: 'Flexible / Sin prisa'
-    };
-    return map[timeline] || timeline;
   }
 }
