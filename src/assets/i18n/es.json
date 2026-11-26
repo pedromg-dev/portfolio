@@ -195,5 +195,43 @@
   "CustomWebFaq4Q": "¿Qué tipo de proyectos y páginas web desarrollas?",
   "CustomWebFaq4A": "Desarrollo desde landing pages de captación y sitios web corporativos para pymes y empresas hasta tiendas online (e-commerce) completas con pasarela de pago, aplicaciones web y portales a medida (SaaS), así como modernización completa de webs existentes.",
   "CustomWebFaq5Q": "¿Cómo solicitar presupuesto para mi proyecto?",
-  "CustomWebFaq5A": "Rellena el formulario de esta página indicando el tipo de web que necesitas y los detalles del proyecto. Tanto si estás en Novelda, Alicante o en cualquier otra ciudad, te responderé en menos de 24 horas laborables con una propuesta técnica y económica detallada sin compromiso."
+  "CustomWebFaq5A": "Rellena el formulario de esta página indicando el tipo de web que necesitas y los detalles del proyecto. Tanto si estás en Novelda, Alicante o en cualquier otra ciudad, te responderé en menos de 24 horas laborables con una propuesta técnica y económica detallada sin compromiso.",
+  "CookieBanner": {
+    "Title": "Aviso sobre cookies y privacidad",
+    "Desc": "Este sitio web utiliza únicamente almacenamiento técnico y de preferencias estrictamente necesarias (tema visual e idioma) para garantizar una óptima experiencia. No empleamos cookies publicitarias ni de seguimiento de terceros.",
+    "LearnMore": "Política de Cookies",
+    "RejectOptional": "Solo necesarias",
+    "Accept": "Aceptar todas"
+  },
+  "Footer": {
+    "AllRightsReserved": "Todos los derechos reservados.",
+    "LegalNotice": "Aviso Legal",
+    "PrivacyPolicy": "Política de Privacidad",
+    "CookiesPolicy": "Política de Cookies",
+    "CookieSettings": "Preferencias de cookies"
+  },
+  "PrivacyConsent": {
+    "agreeText": "He leído y acepto la",
+    "policyLink": "Política de Privacidad",
+    "requiredError": "Debes aceptar la política de privacidad para enviar el formulario.",
+    "layerTitle": "Información básica sobre protección de datos (RGPD / LOPDGDD)",
+    "controller": "Responsable: Pedro Antonio Moya García",
+    "purpose": "Finalidad: Responder a tu consulta y gestionar tu solicitud de desarrollo web.",
+    "legalBasis": "Legitimación: Consentimiento expreso del interesado (art. 6.1.a RGPD).",
+    "rights": "Derechos: Acceso, rectificación, supresión y demás derechos explicados en la política de privacidad."
+  },
+  "Legal": {
+    "BackToHome": "Volver al inicio",
+    "TabPrivacy": "Política de Privacidad",
+    "TabCookies": "Política de Cookies",
+    "TabLegalNotice": "Aviso Legal",
+    "PrivacyBadge": "Protección de Datos (RGPD / LOPDGDD)",
+    "PrivacyTitle": "Política de Privacidad",
+    "LastUpdated": "Última actualización",
+    "PrivacySummaryTitle": "Información Básica sobre Protección de Datos",
+    "CookiesBadge": "Cookies y Almacenamiento Local",
+    "CookiesTitle": "Política de Cookies",
+    "LegalNoticeBadge": "LSSI-CE Ley 34/2002",
+    "LegalNoticeTitle": "Aviso Legal"
+  }
 }

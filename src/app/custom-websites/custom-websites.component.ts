@@ -23,6 +23,7 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
     email: ['', [Validators.required, Validators.email, Validators.maxLength(150)]],
     phone: ['', [Validators.maxLength(40)]],
     company: ['', [Validators.maxLength(120)]],
+    privacyPolicy: [false, Validators.requiredTrue],
     website: [''] // Honeypot field (hidden from real users, must stay empty)
   });
 
@@ -374,7 +375,8 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
       this.submitSuccess = true;
       this.requestForm.reset({
         projectType: 'business',
-        website: ''
+        website: '',
+        privacyPolicy: false
       });
       this.formLoadedAt = Date.now();
       if (isPlatformBrowser(this.platformId)) {
@@ -407,5 +409,10 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
       redesign: 'Rediseño / Modernización'
     };
     return map[type] || type;
+  }
+
+  getPrivacyLink(): string {
+    const lang = this.i18n.currentLang || 'es';
+    return `/${lang}/${lang === 'en' ? 'privacy-policy' : 'privacidad'}`;
   }
 }

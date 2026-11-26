@@ -324,6 +324,42 @@
           </div>
         </fieldset>
 
+        <!-- RGPD / Privacy Policy Consent Checkbox & 1st Layer Info -->
+        <div class="flex flex-col gap-2 pt-2">
+          <label class="flex items-start gap-3 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              formControlName="privacyPolicy"
+              class="mt-1 h-4 w-4 rounded text-accent dark:text-accent-dark focus:ring-accent border-border dark:border-border-dark bg-surface dark:bg-surface-dark cursor-pointer" />
+            <span class="text-xs text-ink-muted dark:text-ink-dark-muted leading-relaxed">
+              {{ 'PrivacyConsent.agreeText' | translate }}
+              <a
+                [routerLink]="getPrivacyLink()"
+                target="_blank"
+                class="font-semibold text-accent dark:text-accent-dark underline hover:opacity-80">
+                {{ 'PrivacyConsent.policyLink' | translate }}
+              </a>
+              <span class="text-rose-500">*</span>
+            </span>
+          </label>
+          @if (requestForm.get('privacyPolicy')?.touched && requestForm.get('privacyPolicy')?.errors?.['required']) {
+            <p class="text-xs text-rose-500 pl-7">
+              {{ 'PrivacyConsent.requiredError' | translate }}
+            </p>
+          }
+
+          <!-- 1st Layer RGPD Disclosure -->
+          <div class="text-[11px] text-ink-muted/80 dark:text-ink-dark-muted/80 bg-surface/50 dark:bg-surface-dark/50 p-3 rounded-lg leading-relaxed border border-border/40 dark:border-border-dark/40">
+            <p class="font-semibold mb-1 text-ink dark:text-ink-dark">{{ 'PrivacyConsent.layerTitle' | translate }}</p>
+            <ul class="space-y-0.5">
+              <li>• {{ 'PrivacyConsent.controller' | translate }}</li>
+              <li>• {{ 'PrivacyConsent.purpose' | translate }}</li>
+              <li>• {{ 'PrivacyConsent.legalBasis' | translate }}</li>
+              <li>• {{ 'PrivacyConsent.rights' | translate }}</li>
+            </ul>
+          </div>
+        </div>
+
         <!-- Submit Button -->
         <div class="pt-4">
           <button

@@ -1,0 +1,48 @@
+<footer class="relative z-10 w-full mt-24 pb-12 pt-14 border-t border-border/40 dark:border-border-dark/40 bg-surface/50 dark:bg-surface-dark/50 backdrop-blur-sm">
+  <div class="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+
+    <!-- Left: Identity & Copyright -->
+    <div class="flex flex-col items-center md:items-start text-center md:text-left gap-1">
+      <div class="flex items-center gap-2">
+        <span class="font-mono text-sm font-bold tracking-tight text-ink dark:text-ink-dark">
+          pedromg.dev
+        </span>
+        <span class="text-xs text-ink-muted dark:text-ink-dark-muted font-mono">
+          · Novelda (Alicante), España
+        </span>
+      </div>
+      <p class="text-xs text-ink-muted dark:text-ink-dark-muted">
+        © {{ currentYear }} Pedro Antonio Moya García. {{ 'Footer.AllRightsReserved' | translate }}
+      </p>
+    </div>
+
+    <!-- Right: Legal Navigation Links -->
+    <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-ink-muted dark:text-ink-dark-muted" aria-label="Enlaces legales">
+      <a
+        (click)="goToLegal('legal')"
+        class="cursor-pointer hover:text-accent dark:hover:text-accent-dark transition-colors">
+        {{ 'Footer.LegalNotice' | translate }}
+      </a>
+      <span class="text-border dark:text-border-dark" aria-hidden="true">·</span>
+      <a
+        (click)="goToLegal('privacy')"
+        class="cursor-pointer hover:text-accent dark:hover:text-accent-dark transition-colors">
+        {{ 'Footer.PrivacyPolicy' | translate }}
+      </a>
+      <span class="text-border dark:text-border-dark" aria-hidden="true">·</span>
+      <a
+        (click)="goToLegal('cookies')"
+        class="cursor-pointer hover:text-accent dark:hover:text-accent-dark transition-colors">
+        {{ 'Footer.CookiesPolicy' | translate }}
+      </a>
+      <span class="text-border dark:text-border-dark" aria-hidden="true">·</span>
+      <button
+        type="button"
+        (click)="openCookiePreferences()"
+        class="hover:text-accent dark:hover:text-accent-dark transition-colors underline-offset-2 hover:underline">
+        {{ 'Footer.CookieSettings' | translate }}
+      </button>
+    </nav>
+
+  </div>
+</footer>

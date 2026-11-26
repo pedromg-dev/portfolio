@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.tab-btn {
+  background-color: transparent;
+  color: oklch(0.40 0.015 65);
+}
+
+:host-context(.dark) .tab-btn {
+  color: oklch(0.75 0.012 75);
+}
+
+.tab-btn:hover {
+  background-color: oklch(0.925 0.012 75 / 0.5);
+  color: oklch(0.18 0.015 65);
+}
+
+:host-context(.dark) .tab-btn:hover {
+  background-color: oklch(0.20 0.012 65 / 0.5);
+  color: oklch(0.96 0.008 75);
+}
+
+.tab-active {
+  background-color: oklch(0.50 0.14 42) !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+:host-context(.dark) .tab-active {
+  background-color: oklch(0.74 0.14 42) !important;
+  color: oklch(0.15 0.01 65) !important;
+}

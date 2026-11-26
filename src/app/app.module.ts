@@ -32,6 +32,9 @@ import { TimelineItemLeftComponent } from './components/timeline-item-left/timel
 import { TechSliderComponent } from './components/tech-slider/tech-slider.component';
 import { HomeComponent } from './home/home.component';
 import { CustomWebsitesComponent } from './custom-websites/custom-websites.component';
+import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LegalComponent } from './legal/legal.component';
 
 //Use this route in hosting (Production)
 // export function HttpLoaderFactory(http: HttpClient) {
@@ -68,6 +71,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     TechSliderComponent,
     HomeComponent,
     CustomWebsitesComponent,
+    CookieBannerComponent,
+    FooterComponent,
+    LegalComponent,
   ],
   imports: [
     BrowserModule,

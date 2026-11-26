@@ -3,6 +3,7 @@ import { CanActivateFn, Router, RouterModule, Routes } from '@angular/router';
 import { detectLang, isLang } from './i18n.service';
 import { HomeComponent } from './home/home.component';
 import { CustomWebsitesComponent } from './custom-websites/custom-websites.component';
+import { LegalComponent } from './legal/legal.component';
 
 const redirectToDetectedLang: CanActivateFn = () =>
   inject(Router).createUrlTree(['/', detectLang()]);
@@ -21,7 +22,13 @@ const routes: Routes = [
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'custom-websites', component: CustomWebsitesComponent },
       { path: 'solicitar-web', component: CustomWebsitesComponent },
-      { path: 'request-website', component: CustomWebsitesComponent }
+      { path: 'request-website', component: CustomWebsitesComponent },
+      { path: 'aviso-legal', component: LegalComponent },
+      { path: 'legal-notice', component: LegalComponent },
+      { path: 'privacidad', component: LegalComponent },
+      { path: 'privacy-policy', component: LegalComponent },
+      { path: 'cookies', component: LegalComponent },
+      { path: 'cookies-policy', component: LegalComponent }
     ]
   },
   { path: '**', canActivate: [redirectToDetectedLang] }

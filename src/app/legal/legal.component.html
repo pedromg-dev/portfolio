@@ -1,0 +1,333 @@
+<div class="relative z-10 pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+  <!-- Back button / Breadcrumb -->
+  <div class="mb-8">
+    <button
+      type="button"
+      (click)="goBackToHome()"
+      class="group inline-flex items-center gap-2 text-sm font-medium text-ink-muted dark:text-ink-dark-muted hover:text-accent dark:hover:text-accent-dark transition-colors">
+      <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      <span>{{ 'Legal.BackToHome' | translate }}</span>
+    </button>
+  </div>
+
+  <!-- Document Selector Tabs -->
+  <div class="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-border/60 dark:border-border-dark/60">
+    <button
+      type="button"
+      (click)="setTab('privacy')"
+      [class.tab-active]="activeTab === 'privacy'"
+      class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all">
+      {{ 'Legal.TabPrivacy' | translate }}
+    </button>
+    <button
+      type="button"
+      (click)="setTab('cookies')"
+      [class.tab-active]="activeTab === 'cookies'"
+      class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all">
+      {{ 'Legal.TabCookies' | translate }}
+    </button>
+    <button
+      type="button"
+      (click)="setTab('legal')"
+      [class.tab-active]="activeTab === 'legal'"
+      class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all">
+      {{ 'Legal.TabLegalNotice' | translate }}
+    </button>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- TAB 1: POLÍTICA DE PRIVACIDAD (RGPD / LOPDGDD) -->
+  <!-- ========================================== -->
+  @if (activeTab === 'privacy') {
+    <article class="p-8 sm:p-12 rounded-2xl bg-surface-elevated/75 dark:bg-surface-dark-elevated/75 backdrop-blur-md shadow-xs text-ink dark:text-ink-dark space-y-8 leading-relaxed">
+      <header class="border-b border-border/50 dark:border-border-dark/50 pb-6">
+        <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark font-bold">
+          {{ 'Legal.PrivacyBadge' | translate }}
+        </span>
+        <h1 class="text-2xl sm:text-3xl font-extrabold mt-2 text-ink dark:text-ink-dark">
+          {{ 'Legal.PrivacyTitle' | translate }}
+        </h1>
+        <p class="text-xs text-ink-muted dark:text-ink-dark-muted mt-2">
+          {{ 'Legal.LastUpdated' | translate }}: Noviembre 2026 · Conforme al RGPD (UE 2016/679) y LOPDGDD (Ley Orgánica 3/2018)
+        </p>
+      </header>
+
+      <!-- Tabla resumen primera capa -->
+      <section class="p-5 rounded-xl bg-surface/70 dark:bg-surface-dark/70 text-xs sm:text-sm space-y-2">
+        <h2 class="font-bold text-sm text-accent dark:text-accent-dark uppercase tracking-wide">
+          {{ 'Legal.PrivacySummaryTitle' | translate }}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+          <div>
+            <span class="font-semibold block text-ink dark:text-ink-dark">Responsable:</span>
+            <span class="text-ink-muted dark:text-ink-dark-muted">Pedro Antonio Moya García</span>
+          </div>
+          <div>
+            <span class="font-semibold block text-ink dark:text-ink-dark">Finalidad:</span>
+            <span class="text-ink-muted dark:text-ink-dark-muted">Atender consultas y solicitudes de presupuesto recibidas.</span>
+          </div>
+          <div>
+            <span class="font-semibold block text-ink dark:text-ink-dark">Legitimación:</span>
+            <span class="text-ink-muted dark:text-ink-dark-muted">Consentimiento del interesado (art. 6.1.a RGPD).</span>
+          </div>
+          <div>
+            <span class="font-semibold block text-ink dark:text-ink-dark">Destinatarios:</span>
+            <span class="text-ink-muted dark:text-ink-dark-muted">No se ceden datos a terceros salvo obligación legal.</span>
+          </div>
+          <div>
+            <span class="font-semibold block text-ink dark:text-ink-dark">Derechos:</span>
+            <span class="text-ink-muted dark:text-ink-dark-muted">Acceso, rectificación, supresión y oposición via email.</span>
+          </div>
+          <div>
+            <span class="font-semibold block text-ink dark:text-ink-dark">Reclamación:</span>
+            <span class="text-ink-muted dark:text-ink-dark-muted">Ante la Agencia Española de Protección de Datos (aepd.es).</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">1. Responsable del Tratamiento</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          El responsable del tratamiento de los datos personales recabados a través del sitio web <strong>pedromg.dev</strong> es <strong>Pedro Antonio Moya García</strong>, con residencia y actividad profesional en Novelda (Alicante), España. Para cualquier cuestión relativa a la privacidad, puedes ponerte en contacto a través de los formularios del sitio web o en la dirección electrónica de contacto.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">2. Datos Personales que se Recaban</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          Los datos personales solicitados en los formularios de contacto y solicitud de desarrollo web son los estrictamente necesarios para tramitar la comunicación:
+        </p>
+        <ul class="list-disc pl-5 text-sm text-ink-muted dark:text-ink-dark-muted space-y-1">
+          <li><strong>Datos identificativos:</strong> Nombre y apellidos o nombre de la persona de contacto.</li>
+          <li><strong>Datos de contacto:</strong> Dirección de correo electrónico y, opcionalmente, número de teléfono o WhatsApp.</li>
+          <li><strong>Datos profesionales:</strong> Empresa o sitio web actual (opcional).</li>
+          <li><strong>Información del proyecto:</strong> Descripción y requerimientos facilitados voluntariamente por el usuario.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">3. Finalidad y Base Jurídica del Tratamiento</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          Los datos personales son tratados con la finalidad de:
+        </p>
+        <ul class="list-disc pl-5 text-sm text-ink-muted dark:text-ink-dark-muted space-y-1">
+          <li>Responder a las consultas, dudas y mensajes remitidos a través del formulario de contacto general.</li>
+          <li>Elaborar y remitir propuestas técnicas y presupuestos personalizados para el desarrollo de páginas web y aplicaciones a medida.</li>
+        </ul>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          <strong>Base de legitimación:</strong> El tratamiento está legitimado por el <strong>consentimiento expreso</strong> del usuario otorgado al marcar la casilla de aceptación previa al envío del formulario (art. 6.1.a RGPD) y por la aplicación de <strong>medidas precontractuales</strong> a petición del propio interesado (art. 6.1.b RGPD).
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">4. Conservación de los Datos</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          Los datos proporcionados se conservarán durante el tiempo imprescindible para atender la solicitud formulada o durante la vigencia de la relación precontractual y comercial, así como durante los plazos legalmente exigibles para atender posibles responsabilidades.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">5. Destinatarios y Proveedores de Servicios</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          No se comunicarán ni cederán datos personales a terceros con fines comerciales ni publicitarios. Para prestar el servicio técnico del sitio web se utilizan proveedores tecnológicos contratados como encargados de tratamiento:
+        </p>
+        <ul class="list-disc pl-5 text-sm text-ink-muted dark:text-ink-dark-muted space-y-1">
+          <li><strong>Alojamiento web y CDN:</strong> Vercel Inc. (servidores con estándares de seguridad conformes al Data Privacy Framework UE-EE.UU. y Cláusulas Contractuales Tipo).</li>
+          <li><strong>Envío de notificaciones transaccionales:</strong> EmailJS (transmisión encriptada punto a punto de solicitudes recibidas).</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">6. Ejercicio de Derechos</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          De acuerdo con el RGPD y la LOPDGDD, tienes derecho a ejercer en cualquier momento tus derechos de:
+        </p>
+        <ul class="list-disc pl-5 text-sm text-ink-muted dark:text-ink-dark-muted space-y-1">
+          <li><strong>Acceso:</strong> conocer qué datos personales tuyos están siendo tratados.</li>
+          <li><strong>Rectificación:</strong> solicitar la corrección de datos inexactos o incompletos.</li>
+          <li><strong>Supresión («derecho al olvido»):</strong> solicitar la eliminación de tus datos cuando ya no sean necesarios.</li>
+          <li><strong>Limitación del tratamiento:</strong> solicitar que se suspenda el tratamiento en determinadas circunstancias.</li>
+          <li><strong>Portabilidad:</strong> recibir tus datos en un formato estructurado y de lectura mecánica.</li>
+          <li><strong>Oposición:</strong> oponerte al tratamiento de tus datos personales.</li>
+        </ul>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          Para ejercer cualquiera de estos derechos, basta con enviar una comunicación escrita acreditando tu identidad a través del formulario de contacto. Asimismo, si consideras que tus derechos no han sido debidamente atendidos, tienes derecho a presentar una reclamación ante la <strong>Agencia Española de Protección de Datos (AEPD)</strong> en <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" class="text-accent underline">www.aepd.es</a>.
+        </p>
+      </section>
+    </article>
+  }
+
+  <!-- ========================================== -->
+  <!-- TAB 2: POLÍTICA DE COOKIES (AEPD / LSSI-CE) -->
+  <!-- ========================================== -->
+  @if (activeTab === 'cookies') {
+    <article class="p-8 sm:p-12 rounded-2xl bg-surface-elevated/75 dark:bg-surface-dark-elevated/75 backdrop-blur-md shadow-xs text-ink dark:text-ink-dark space-y-8 leading-relaxed">
+      <header class="border-b border-border/50 dark:border-border-dark/50 pb-6">
+        <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark font-bold">
+          {{ 'Legal.CookiesBadge' | translate }}
+        </span>
+        <h1 class="text-2xl sm:text-3xl font-extrabold mt-2 text-ink dark:text-ink-dark">
+          {{ 'Legal.CookiesTitle' | translate }}
+        </h1>
+        <p class="text-xs text-ink-muted dark:text-ink-dark-muted mt-2">
+          {{ 'Legal.LastUpdated' | translate }}: Noviembre 2026 · Conforme al Art. 22.2 de la LSSI-CE y la Guía de Cookies de la AEPD
+        </p>
+      </header>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">1. ¿Qué son las Cookies y el Almacenamiento Local?</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          Una cookie es un pequeño archivo de texto que un sitio web almacena en tu navegador cuando lo visitas. De forma similar, el almacenamiento web local (<strong>localStorage</strong> de HTML5) permite guardar preferencias de navegación de forma persistente y segura en tu propio dispositivo sin transmitir información innecesaria en cada petición al servidor.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">2. ¿Qué Cookies y Almacenamiento utiliza este Sitio Web?</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          En cumplimiento del principio de minimización de datos y privacidad por diseño, <strong>este sitio web únicamente utiliza almacenamiento técnico y de preferencias estrictamente necesarias</strong> para que puedas navegar correctamente y recordar tus elecciones de visualización:
+        </p>
+
+        <div class="overflow-x-auto pt-2">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b border-border dark:border-border-dark text-accent dark:text-accent-dark">
+                <th class="py-2.5 pr-4">Clave / Nombre</th>
+                <th class="py-2.5 pr-4">Tipo</th>
+                <th class="py-2.5 pr-4">Finalidad</th>
+                <th class="py-2.5">Duración</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-border/40 dark:divide-border-dark/40 text-ink-muted dark:text-ink-dark-muted">
+              <tr>
+                <td class="py-3 pr-4 font-mono text-ink dark:text-ink-dark font-semibold">theme</td>
+                <td class="py-3 pr-4">Técnica (Propia)</td>
+                <td class="py-3 pr-4">Guarda la preferencia de modo oscuro o modo claro seleccionada por el usuario.</td>
+                <td class="py-3 font-mono text-xs">Persistente (localStorage)</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-mono text-ink dark:text-ink-dark font-semibold">lang</td>
+                <td class="py-3 pr-4">Técnica (Propia)</td>
+                <td class="py-3 pr-4">Recuerda el idioma de navegación elegido (Español o Inglés).</td>
+                <td class="py-3 font-mono text-xs">Persistente (localStorage)</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4 font-mono text-ink dark:text-ink-dark font-semibold">cookie_consent</td>
+                <td class="py-3 pr-4">Técnica (Propia)</td>
+                <td class="py-3 pr-4">Registra que el usuario ha visualizado y aceptado el aviso de cookies para no volver a mostrarlo.</td>
+                <td class="py-3 font-mono text-xs">Persistente (localStorage)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="space-y-3 p-5 rounded-xl bg-emerald-500/10 text-emerald-950 dark:text-emerald-100 text-sm">
+        <h3 class="font-bold flex items-center gap-2 text-base text-emerald-800 dark:text-emerald-300">
+          <svg class="w-5 h-5 flex-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          Garantía de Privacidad: Sin Rastreo Publicitario
+        </h3>
+        <p class="text-xs sm:text-sm opacity-90 leading-relaxed">
+          Este sitio web <strong>no utiliza cookies de publicidad comportamental, ni herramientas de perfilado de terceros, ni revende datos a redes publicitarias</strong>. Las tecnologías empleadas son exclusivamente técnicas para garantizar una navegación rápida y adaptada a tus preferencias visuales.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">3. Gestión y Eliminación de Cookies</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          Puedes revocar o modificar tus preferencias de cookies en cualquier momento pulsando el siguiente botón:
+        </p>
+        <div>
+          <button
+            type="button"
+            (click)="openCookieBanner()"
+            class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-accent text-white dark:bg-accent-dark dark:text-surface-dark shadow-xs hover:opacity-90 transition">
+            Configurar preferencias de cookies
+          </button>
+        </div>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted pt-2">
+          Asimismo, puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones de tu navegador web:
+        </p>
+        <ul class="list-disc pl-5 text-sm text-ink-muted dark:text-ink-dark-muted space-y-1">
+          <li><strong>Google Chrome:</strong> Configuración &gt; Privacidad y seguridad &gt; Cookies y otros datos de sitios.</li>
+          <li><strong>Mozilla Firefox:</strong> Opciones &gt; Privacidad y seguridad &gt; Cookies y datos del sitio.</li>
+          <li><strong>Apple Safari:</strong> Preferencias &gt; Privacidad &gt; Bloquear todas las cookies.</li>
+          <li><strong>Microsoft Edge:</strong> Configuración &gt; Permisos del sitio &gt; Cookies y datos guardados.</li>
+        </ul>
+      </section>
+    </article>
+  }
+
+  <!-- ========================================== -->
+  <!-- TAB 3: AVISO LEGAL (LSSI-CE LEY 34/2002) -->
+  <!-- ========================================== -->
+  @if (activeTab === 'legal') {
+    <article class="p-8 sm:p-12 rounded-2xl bg-surface-elevated/75 dark:bg-surface-dark-elevated/75 backdrop-blur-md shadow-xs text-ink dark:text-ink-dark space-y-8 leading-relaxed">
+      <header class="border-b border-border/50 dark:border-border-dark/50 pb-6">
+        <span class="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark font-bold">
+          {{ 'Legal.LegalNoticeBadge' | translate }}
+        </span>
+        <h1 class="text-2xl sm:text-3xl font-extrabold mt-2 text-ink dark:text-ink-dark">
+          {{ 'Legal.LegalNoticeTitle' | translate }}
+        </h1>
+        <p class="text-xs text-ink-muted dark:text-ink-dark-muted mt-2">
+          {{ 'Legal.LastUpdated' | translate }}: Noviembre 2026 · Conforme al Art. 10 de la Ley 34/2002 (LSSI-CE)
+        </p>
+      </header>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">1. Datos Identificativos del Titular</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se facilitan a continuación los datos del titular del sitio web:
+        </p>
+        <ul class="list-disc pl-5 text-sm text-ink-muted dark:text-ink-dark-muted space-y-1">
+          <li><strong>Titular:</strong> Pedro Antonio Moya García</li>
+          <li><strong>Actividad:</strong> Ingeniero de Software · Servicios de programación y desarrollo de páginas web y aplicaciones informáticas.</li>
+          <li><strong>Sede / Localización:</strong> Novelda (03660), Alicante, España.</li>
+          <li><strong>Dominio web:</strong> <a href="https://www.pedromg.dev" class="text-accent underline">https://www.pedromg.dev</a></li>
+          <li><strong>Contacto:</strong> A través del formulario de contacto disponible en la web o directamente por correo electrónico.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">2. Objeto y Condiciones de Uso</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          El presente sitio web tiene por objeto ofrecer información sobre la trayectoria profesional de Pedro Antonio Moya García, así como permitir a empresas y autónomos la solicitud de consultoría, información técnica y presupuestos para el diseño y desarrollo de páginas web y software a medida.
+        </p>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          El acceso y navegación por este sitio web atribuye la condición de usuario, implicando la aceptación plena y sin reservas de todas las disposiciones incluidas en este Aviso Legal y en las Políticas de Privacidad y Cookies.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">3. Propiedad Intelectual e Industrial</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          Todos los contenidos de este sitio web, incluyendo textos, código fuente, logotipos, diseño gráfico, estructura de navegación, arquitectura de software e imágenes, son titularidad de Pedro Antonio Moya García o dispone de las licencias correspondientes, estando protegidos por la legislación española e internacional sobre propiedad intelectual e industrial.
+        </p>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          Queda expresamente prohibida la reproducción, distribución, comunicación pública o transformación total o parcial de los contenidos sin la previa autorización expresa y por escrito del titular.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">4. Exención de Responsabilidad</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          El titular no se hace responsable de los posibles daños o perjuicios que pudieran derivarse de interferencias, omisiones, interrupciones, virus informáticos o averías técnicas motivadas por causas ajenas o de fuerza mayor, ni del uso indebido de los contenidos del sitio web por parte de los usuarios.
+        </p>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          Asimismo, este sitio web puede contener enlaces a sitios web de terceros (como perfiles profesionales en LinkedIn o repositorios en GitHub). El titular no ejerce control alguno sobre dichos sitios y declina toda responsabilidad respecto a sus contenidos o políticas.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-ink dark:text-ink-dark">5. Legislación Aplicable y Jurisdicción</h2>
+        <p class="text-sm text-ink-muted dark:text-ink-dark-muted">
+          Para la resolución de todas las controversias o cuestiones relacionadas con el presente sitio web o de las actividades en él desarrolladas, será de aplicación la legislación española vigente, sometiéndose las partes expresamente a la jurisdicción de los Juzgados y Tribunales competentes de la provincia de Alicante, salvo que la normativa de protección a consumidores y usuarios disponga lo contrario.
+        </p>
+      </section>
+    </article>
+  }
+</div>

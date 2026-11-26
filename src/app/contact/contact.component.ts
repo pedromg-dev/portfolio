@@ -30,6 +30,7 @@ export class ContactComponent implements OnInit {
     email: ['', [Validators.required, Validators.email, Validators.maxLength(150)]],
     subject: ['', Validators.required],
     message: ['', Validators.required],
+    privacyPolicy: [false, Validators.requiredTrue],
     aiPrompt: [''],
     website: [''] // Honeypot field (hidden from real users, must stay empty)
   });
@@ -137,7 +138,8 @@ export class ContactComponent implements OnInit {
       this.showNotificationEmailSent = true;
       this.justSentEmail = true;
       this.contactForm.reset({
-        website: ''
+        website: '',
+        privacyPolicy: false
       });
       this.formLoadedAt = Date.now();
 
@@ -173,5 +175,10 @@ export class ContactComponent implements OnInit {
   closeNotificationEmailSent(): void {
     this.showNotificationEmailSent = false;
     this.cdr.detectChanges();
+  }
+
+  getPrivacyLink(): string {
+    const lang = this.translate.currentLang || 'es';
+    return `/${lang}/${lang === 'en' ? 'privacy-policy' : 'privacidad'}`;
   }
 }

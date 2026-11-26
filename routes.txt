@@ -2,3 +2,11 @@
 /en
 /es/custom-websites
 /en/custom-websites
+/es/solicitar-web
+/en/request-website
+/es/aviso-legal
+/en/legal-notice
+/es/privacidad
+/en/privacy-policy
+/es/cookies
+/en/cookies-policy

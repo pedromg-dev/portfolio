@@ -195,5 +195,43 @@
   "CustomWebFaq4Q": "What types of web projects do you develop?",
   "CustomWebFaq4A": "From lead-generation landing pages and corporate websites to complete e-commerce stores with secure checkout, custom web apps/SaaS, and modernization of existing websites.",
   "CustomWebFaq5Q": "How do I request a quote for my project?",
-  "CustomWebFaq5A": "Complete the form on this page with your project goals. Whether you are located in Novelda, Alicante, or anywhere else worldwide, you will receive a comprehensive technical proposal and fixed-scope quote within 24 business hours."
+  "CustomWebFaq5A": "Complete the form on this page with your project goals. Whether you are located in Novelda, Alicante, or anywhere else worldwide, you will receive a comprehensive technical proposal and fixed-scope quote within 24 business hours.",
+  "CookieBanner": {
+    "Title": "Cookies & Privacy Notice",
+    "Desc": "This website only uses strictly necessary technical and preference storage (theme and language) to guarantee an optimal experience. We do not use third-party tracking or advertising cookies.",
+    "LearnMore": "Cookies Policy",
+    "RejectOptional": "Necessary only",
+    "Accept": "Accept all"
+  },
+  "Footer": {
+    "AllRightsReserved": "All rights reserved.",
+    "LegalNotice": "Legal Notice",
+    "PrivacyPolicy": "Privacy Policy",
+    "CookiesPolicy": "Cookies Policy",
+    "CookieSettings": "Cookie preferences"
+  },
+  "PrivacyConsent": {
+    "agreeText": "I have read and agree to the",
+    "policyLink": "Privacy Policy",
+    "requiredError": "You must accept the privacy policy to submit the form.",
+    "layerTitle": "Basic information on data protection (GDPR / LOPDGDD)",
+    "controller": "Controller: Pedro Antonio Moya García",
+    "purpose": "Purpose: Respond to your inquiry and manage your web development quote request.",
+    "legalBasis": "Legal basis: Explicit consent of the data subject (art. 6.1.a GDPR).",
+    "rights": "Rights: Access, rectification, erasure, and other rights detailed in the privacy policy."
+  },
+  "Legal": {
+    "BackToHome": "Back to home",
+    "TabPrivacy": "Privacy Policy",
+    "TabCookies": "Cookies Policy",
+    "TabLegalNotice": "Legal Notice",
+    "PrivacyBadge": "Data Protection (GDPR)",
+    "PrivacyTitle": "Privacy Policy",
+    "LastUpdated": "Last updated",
+    "PrivacySummaryTitle": "Basic Information on Data Protection",
+    "CookiesBadge": "Cookies & Local Storage",
+    "CookiesTitle": "Cookies Policy",
+    "LegalNoticeBadge": "Legal Notice (LSSI-CE)",
+    "LegalNoticeTitle": "Legal Notice"
+  }
 }

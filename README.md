@@ -17,5 +17,4 @@ It also contains a form to contact me via e-mail.
 
 - Light/dark mode toggle
 - Fully responsive
-- Download Resume
 - Multi-language
