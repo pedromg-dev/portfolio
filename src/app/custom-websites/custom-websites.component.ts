@@ -61,16 +61,16 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
     const isEs = lang === 'es';
 
     const pageTitle = isEs
-      ? 'Diseño y Creación de Páginas Web en Novelda a Medida | Pedro Moya'
-      : 'Custom Website Development in Novelda & Alicante | Pedro Moya';
+      ? 'Desarrollo de Páginas Web a Medida en Novelda y Online | Pedro Moya'
+      : 'Custom Website Development in Novelda & Online | Pedro Moya';
 
     const pageDescription = isEs
-      ? '¿Buscas a alguien para hacer tu página web en Novelda o Alicante? Desarrollo web profesional a medida para empresas y autónomos. Páginas web ultra-rápidas, modernas y optimizadas para salir el primero en Google. Pide presupuesto sin compromiso.'
-      : 'Looking for a custom website in Novelda, Alicante or worldwide? High-performance web development, modern UX design, and top Google SEO ranking.';
+      ? 'Diseño y desarrollo de páginas web a medida para empresas y autónomos. Servicio presencial en Novelda (Alicante) y telemático en toda España. Páginas web ultra-rápidas y optimizadas para Google.'
+      : 'Bespoke website development for businesses and professionals. In-person service in Novelda (Alicante) and 100% remote across Spain and worldwide. Fast, secure, and Google-optimized.';
 
     const pageKeywords = isEs
-      ? 'paginas web novelda, crear pagina web novelda, hacer pagina web novelda, diseño web novelda, desarrollador web novelda, paginas web a medida novelda, diseñador web novelda, paginas web elda, paginas web elche, paginas web alicante, programador web novelda, desarrollo web novelda'
-      : 'custom website novelda, web developer novelda, web design novelda, website development alicante, software engineer novelda, bespoke websites spain';
+      ? 'paginas web novelda, paginas web a medida, diseño web novelda, crear pagina web novelda, hacer pagina web novelda, programador web novelda, desarrollador web novelda, paginas web elda, paginas web elche, paginas web alicante, desarrollo web espana, diseno web profesional'
+      : 'custom website novelda, web developer novelda, web design novelda, website development alicante, software engineer novelda, bespoke websites remote, web application development';
 
     const pageUrl = `${SITE_URL}/${lang}/custom-websites`;
     const imageUrl = `${SITE_URL}/assets/images/portfolio-image-project.png`;
@@ -94,7 +94,7 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
     this.meta.updateTag({ property: 'og:description', content: pageDescription });
     this.meta.updateTag({ property: 'og:url', content: pageUrl });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
-    this.meta.updateTag({ property: 'og:site_name', content: isEs ? 'Pedro Moya — Páginas Web en Novelda' : 'Pedro Moya — Web Engineering' });
+    this.meta.updateTag({ property: 'og:site_name', content: isEs ? 'Pedro Moya — Páginas Web en Novelda y Online' : 'Pedro Moya — Web Engineering' });
     this.meta.updateTag({ property: 'og:locale', content: isEs ? 'es_ES' : 'en_US' });
     this.meta.updateTag({ property: 'og:locale:alternate', content: isEs ? 'en_US' : 'es_ES' });
     this.meta.updateTag({ property: 'og:image', content: imageUrl });
@@ -122,8 +122,8 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
           '@type': ['LocalBusiness', 'ProfessionalService'],
           '@id': `${SITE_URL}/#localbusiness`,
           'name': isEs
-            ? 'Pedro Moya — Diseño y Creación de Páginas Web en Novelda'
-            : 'Pedro Moya — Custom Website Development in Novelda',
+            ? 'Pedro Moya — Desarrollo de Páginas Web a Medida'
+            : 'Pedro Moya — Custom Website Development',
           'alternateName': [
             'Pedro Moya Desarrollo Web Novelda',
             'Páginas Web a Medida Novelda',
@@ -169,10 +169,11 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
             'url': SITE_URL
           },
           'knowsAbout': [
+            'Páginas web a medida',
             'Páginas web en Novelda',
-            'Diseño web en Novelda',
-            'Creación de páginas web a medida',
-            'Posicionamiento SEO local en Google',
+            'Diseño web profesional',
+            'Desarrollo web telemático',
+            'Posicionamiento SEO en Google',
             'Desarrollo frontend Angular',
             'Desarrollo backend .NET',
             'Tiendas online e-commerce',
@@ -180,25 +181,25 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
           ],
           'hasOfferCatalog': {
             '@type': 'OfferCatalog',
-            'name': isEs ? 'Servicios de Desarrollo Web en Novelda' : 'Web Development Services in Novelda',
+            'name': isEs ? 'Servicios de Desarrollo Web' : 'Web Development Services',
             'itemListElement': [
               {
                 '@type': 'Offer',
                 'itemOffered': {
                   '@type': 'Service',
-                  'name': isEs ? 'Páginas Web Corporativas en Novelda' : 'Corporate Websites in Novelda',
+                  'name': isEs ? 'Páginas Web Corporativas a Medida' : 'Bespoke Corporate Websites',
                   'description': isEs
-                    ? 'Sitios web profesionales multi-página para empresas y pymes en Novelda y provincia de Alicante.'
-                    : 'Professional corporate websites for businesses in Novelda and Alicante.'
+                    ? 'Sitios web profesionales multi-página para empresas y pymes en Novelda, Alicante y toda España.'
+                    : 'Professional corporate websites for businesses locally and worldwide.'
                 }
               },
               {
                 '@type': 'Offer',
                 'itemOffered': {
                   '@type': 'Service',
-                  'name': isEs ? 'Landing Pages de Alta Conversión en Novelda' : 'High-Converting Landing Pages in Novelda',
+                  'name': isEs ? 'Landing Pages de Alta Conversión' : 'High-Converting Landing Pages',
                   'description': isEs
-                    ? 'Páginas de captación optimizadas para posicionar en Google y conseguir clientes.'
+                    ? 'Páginas de captación optimizadas para posicionar en Google y captar clientes.'
                     : 'Lead generation landing pages optimized to rank on Google.'
                 }
               },
@@ -206,9 +207,9 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
                 '@type': 'Offer',
                 'itemOffered': {
                   '@type': 'Service',
-                  'name': isEs ? 'Tiendas Online (E-Commerce) en Novelda' : 'Online Stores (E-Commerce) in Novelda',
+                  'name': isEs ? 'Tiendas Online (E-Commerce) a Medida' : 'Custom E-Commerce Stores',
                   'description': isEs
-                    ? 'Comercio electrónico a medida con pasarelas de pago seguras para comercios y marcas locales.'
+                    ? 'Comercio electrónico a medida con pasarelas de pago seguras para marcas y empresas.'
                     : 'Custom e-commerce stores with secure payment gateways.'
                 }
               },
@@ -218,7 +219,7 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
                   '@type': 'Service',
                   'name': isEs ? 'Rediseño y Posicionamiento SEO en Google' : 'Website Redesign & Google SEO',
                   'description': isEs
-                    ? 'Modernización y optimización de velocidad para salir el primero en Google en búsquedas locales.'
+                    ? 'Modernización y optimización de velocidad para salir el primero en Google en búsquedas locales y nacionales.'
                     : 'Speed optimization and technical SEO to rank #1 on Google.'
                 }
               }
@@ -232,61 +233,61 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
             {
               '@type': 'Question',
               'name': isEs
-                ? '¿Quién hace páginas web a medida en Novelda (Alicante)?'
-                : 'Who builds custom websites in Novelda (Alicante)?',
+                ? '¿Dónde ofreces tus servicios de desarrollo web?'
+                : 'Where do you offer your web development services?',
               'acceptedAnswer': {
                 '@type': 'Answer',
                 'text': isEs
-                  ? 'Pedro Moya (pedromg.dev) es ingeniero de software y desarrollador web profesional en Novelda (Alicante). Diseña y desarrolla páginas web a medida, tiendas online y aplicaciones web de alto rendimiento para empresas y autónomos de Novelda, Elda, Petrer, Elche y toda la provincia de Alicante.'
-                  : 'Pedro Moya (pedromg.dev) is a professional software engineer based in Novelda (Alicante) specializing in bespoke websites, online stores, and web apps for businesses across Novelda, Elda, Elche, and Alicante.'
+                  ? 'Trabajo de forma 100% telemática con clientes de toda España y el extranjero, y cuento con sede y atención presencial en Novelda (Alicante) y comarca del Vinalopó (Elda, Petrer, Aspe, Monforte del Cid, Elche). Puedes gestionar todo tu proyecto cómodamente a distancia o con reuniones presenciales si estás en la zona.'
+                  : 'I work 100% remotely with clients across Spain and internationally, while offering in-person collaboration in Novelda (Alicante) and the Vinalopo region (Elda, Petrer, Elche). You can manage your entire project comfortably online or meet locally.'
               }
             },
             {
               '@type': 'Question',
               'name': isEs
-                ? '¿Cómo conseguir que mi página web salga la primera en Google en Novelda?'
-                : 'How can my website rank #1 on Google in Novelda?',
+                ? '¿Cómo conseguir que mi página web salga la primera en Google?'
+                : 'How can my website rank #1 on Google?',
               'acceptedAnswer': {
                 '@type': 'Answer',
                 'text': isEs
-                  ? 'Para posicionar el primero en Google en búsquedas locales en Novelda, Pedro Moya implementa arquitectura semántica limpia, datos estructurados Schema.org geolocalizados, optimización Core Web Vitals (carga en milisegundos), diseño adaptado a móviles e indexación directa en Google Search Console.'
-                  : 'By implementing advanced technical SEO from day one: clean semantic HTML, geolocated Schema.org structured data, sub-second load times (Google Core Web Vitals), responsive mobile design, and Google Search Console indexing.'
+                  ? 'Implementando SEO técnico avanzado desde el primer día: arquitectura semántica limpia, datos estructurados Schema.org (con geolocalización para Novelda y Alicante y relevancia para búsquedas nacionales), tiempos de carga en milisegundos (Core Web Vitals), diseño móvil responsive y registro directo en Google Search Console.'
+                  : 'By implementing advanced technical SEO from day one: clean semantic HTML, geolocated Schema.org structured data, sub-second load times (Google Core Web Vitals), 100% responsive mobile design, and Google Search Console indexing.'
               }
             },
             {
               '@type': 'Question',
               'name': isEs
-                ? '¿Por qué contratar a un desarrollador web local en Novelda en vez de una agencia?'
-                : 'Why hire a local web developer in Novelda instead of an agency?',
+                ? '¿Por qué contratar a un desarrollador web independiente en vez de una agencia?'
+                : 'Why work with an independent software engineer instead of an agency?',
               'acceptedAnswer': {
                 '@type': 'Answer',
                 'text': isEs
-                  ? 'Trabajar directamente con Pedro Moya te garantiza trato directo y cercano con quien programa cada línea de código de tu web, sin intermediarios, comerciales ni sobrecostes de agencia. Presupuesto cerrado garantizado y código moderno (.NET, Angular, Tailwind).'
-                  : 'You work directly with the actual engineer writing your code, with zero middlemen, no inflated agency fees, and modern proprietary technology (.NET, Angular, Tailwind).'
+                  ? 'Obtienes trato directo con el ingeniero de software que programa tu web, sin intermediarios, comerciales ni sobrecostes de agencia. Máxima agilidad, código limpio y moderno (.NET, Angular, Tailwind) en lugar de plantillas genéricas lentas, y presupuesto cerrado garantizado.'
+                  : 'You communicate directly with the engineer coding your project—no middlemen, no sales reps, and no agency overhead. Fast delivery, modern proprietary code (.NET, Angular, Tailwind) instead of bloated templates, and a transparent fixed-price quote.'
               }
             },
             {
               '@type': 'Question',
               'name': isEs
-                ? '¿Qué tipo de páginas web se pueden crear en Novelda?'
-                : 'What types of websites do you build in Novelda?',
+                ? '¿Qué tipo de proyectos y páginas web desarrollas?'
+                : 'What types of web projects do you develop?',
               'acceptedAnswer': {
                 '@type': 'Answer',
                 'text': isEs
-                  ? 'Landing pages de captación, páginas web corporativas para empresas y pymes, tiendas online (e-commerce) con pasarela de pago segura, aplicaciones web a medida (SaaS, portales de clientes) y rediseños de páginas web existentes.'
-                  : 'High-converting landing pages, corporate websites for SMBs, e-commerce stores with payment gateways, bespoke web portals, and complete redesigns of existing websites.'
+                  ? 'Desarrollo desde landing pages de captación y sitios web corporativos para pymes y empresas hasta tiendas online (e-commerce) completas con pasarela de pago, aplicaciones web y portales a medida (SaaS), así como modernización completa de webs existentes.'
+                  : 'From lead-generation landing pages and corporate websites to complete e-commerce stores with secure checkout, custom web apps/SaaS, and modernization of existing websites.'
               }
             },
             {
               '@type': 'Question',
               'name': isEs
-                ? '¿Cómo solicitar presupuesto para una página web en Novelda?'
-                : 'How do I request a quote for a website in Novelda?',
+                ? '¿Cómo solicitar presupuesto para mi proyecto?'
+                : 'How do I request a quote for my project?',
               'acceptedAnswer': {
                 '@type': 'Answer',
                 'text': isEs
-                  ? 'Puedes rellenar el formulario de solicitud en pedromg.dev seleccionando el tipo de proyecto y describiendo tus necesidades. Recibirás una propuesta técnica detallada y presupuesto cerrado sin compromiso en menos de 24 horas laborables.'
-                  : 'Fill out the form on pedromg.dev with your project requirements. You will receive a detailed technical proposal and fixed-price quote with zero commitment within 24 business hours.'
+                  ? 'Rellena el formulario de esta página indicando el tipo de web que necesitas y los detalles del proyecto. Tanto si estás en Novelda, Alicante o en cualquier otra ciudad, te responderé en menos de 24 horas laborables con una propuesta técnica y económica detallada sin compromiso.'
+                  : 'Complete the form on this page with your project goals. Whether you are located in Novelda, Alicante, or anywhere else worldwide, you will receive a comprehensive technical proposal and fixed-scope quote within 24 business hours.'
               }
             }
           ]
@@ -338,11 +339,11 @@ export class CustomWebsitesComponent implements OnInit, OnDestroy {
     const raw = this.requestForm.value;
     const projectTypeName = this.getProjectTypeName(raw.projectType);
 
-    const subject = `[Solicitud Web en Novelda / A Medida] ${projectTypeName} - ${raw.name}`;
+    const subject = `[Solicitud Web a Medida] ${projectTypeName} - ${raw.name}`;
 
     const formattedMessage = [
       '==============================================',
-      'NUEVA SOLICITUD DE PÁGINA WEB A MEDIDA (NOVELDA / ONLINE)',
+      'NUEVA SOLICITUD DE PÁGINA WEB A MEDIDA',
       '==============================================',
       `Nombre: ${raw.name}`,
       `Email: ${raw.email}`,
